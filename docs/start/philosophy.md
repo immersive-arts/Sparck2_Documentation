@@ -65,7 +65,7 @@ The 4 Output-Context are for the last renderpass to output to the Output Windows
 </div>
 
 Each Frame is rendered by multiple transformation and render passes that have to run in a special sequence.
-30 passes are never active in any circumstances; This architecture allows to control from within those nodes that are affect the transformation and rendering (almost all of them in one or another way) when and in which sequence they are executed. While the default settings make sure that in most use cases you don't have to worry to much about this aspect, in special cricumstances it is necessary to decide which node is renderer before another. 
+30 passes are never active in any circumstances; This architecture allows to control from within those nodes that affect or are affected by the transformation and rendering sequence, when and in which sequence they are executed. While the default settings make sure that in most use cases you don't have to worry to much about this aspect, in special circumstances it is necessary to decide which node is renderer before another. 
 
 For example: 
 
