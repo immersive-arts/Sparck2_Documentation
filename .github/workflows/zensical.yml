@@ -1,4 +1,4 @@
-name: Documentation
+name: Generate Doc with (zensical)
 on:
   push:
     branches:

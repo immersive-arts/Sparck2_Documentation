@@ -1,4 +1,4 @@
-name: Documentation (MkDocs)
+name: Generate Doc with (MkDocs)
 on:
   push:
     branches:
