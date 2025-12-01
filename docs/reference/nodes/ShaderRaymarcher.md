@@ -39,7 +39,7 @@ The following properties can be configured for this node:
 
 ## Important Notes
 
-!!! warning "Calibration Requirements"
+!!! warning "Implementation: Difficult"
     
     Unfortunately it is not a simple copy-paste process to transform a ShaderToy-shader into a RayMarching-node shader. While 95% of the code can usually be reused, the shader needs to be embedded inside a Max-Jitter style GLSL shader file, plus some adjustments need to be made in order make a shader to work in a 3d context.
     Check out the SparckExamples for a selection of about 25 of my favourite shadertoy shaders which I already translated for this node.
@@ -47,8 +47,7 @@ The following properties can be configured for this node:
 !!! info "File Locations"
     
     ```
-    ~/_assets/_projectors/     # Calibration files
-    ~/_assets/_model/          # Calibration models (.obj)
+    ~/_assets/_shaders/_raymarch/     # glsl files
     ```
 
 ---

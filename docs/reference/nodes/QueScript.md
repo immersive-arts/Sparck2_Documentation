@@ -41,9 +41,10 @@ The following properties can be configured for this node:
 
 ## Important Notes
 
-!!! warning "Calibration Requirements"
+!!! Info "Quick Intro"
     
-    WueScript-commands like <send>, <print>, <osc>, <out>, <trigger> are dealt with in the following way:
+    ```
+    QueScript-commands like <send>, <print>, <osc>, <out>, <trigger> are dealt with in the following way:
     <send> will send the message to the internal dispatcher. It is the only way to control SPARCK parameters. an example would be: 
 	<send>/sparck/node ::QueScript::property::autostart 1</send>
     <print> will send the message to the console. an example would be: 
@@ -55,7 +56,7 @@ The following properties can be configured for this node:
     <trigger> will send a trigger message out of the 'trigger' outled of the node. an example would be: 
 	<trigger>completely drained creativity</trigger>
     
-The QueScriptNode can also be remotely controlled via OSC.
+    The QueScriptNode can also be remotely controlled via OSC.
     Que-commands like 'play', 'pause', 'resume' and 'stop' are sent to the node in the following OSC-format:
     - /sparck/node/Your_QueScript_NodeName play <que-name>
     - /sparck/node/Your_QueScript_NodeName pause <que-name>
@@ -67,12 +68,12 @@ The QueScriptNode can also be remotely controlled via OSC.
     - /sparck/node/Your_QueScript_NodeName reset
     Trigger messages can be sent to the QueScript. They are sent to all currently running que's and are sent to the node in the following OSC-format:
     - /sparck/node/Your_QueScript_NodeName trigger <trigger-value> (<trigger-value2> <trigger-value3> ...)
+    ```
 
 !!! info "File Locations"
     
     ```
-    ~/_assets/_projectors/     # Calibration files
-    ~/_assets/_model/          # Calibration models (.obj)
+    ~/_assets/_scripts/_ques     # Que files
     ```
 
 ---

@@ -113,14 +113,6 @@ nav = [
     "reference/nodes/overview.md",
     ]},
   ]},
-  {"Contributing" = [
-    "contributing/index.md",
-    "contributing/code_of_conduct.md",
-    "contributing/reporting-a-bug.md",
-    "contributing/requesting-a-change.md",
-    "contributing/reporting-a-docs-issue.md",
-    "contributing/making-a-pull-request.md",
-    ]},
   {"Developers" = [
     "developers/index.md",
     "developers/changelog.md",
@@ -132,6 +124,14 @@ nav = [
       "documentation/diagrams.md",
       "documentation/content_tabs.md",
       "documentation/code_display.md"
+      ]},
+    {"Contributing" = [
+      "contributing/index.md",
+      "contributing/making-a-pull-request.md",
+      "contributing/reporting-a-bug.md",
+      "contributing/reporting-a-docs-issue.md",
+      "contributing/requesting-a-change.md",
+      "contributing/code_of_conduct.md",
       ]},
     ]}
   ]

@@ -30,21 +30,6 @@ The following properties can be configured for this node:
 
 ---
 
-## Important Notes
-
-!!! warning "Calibration Requirements"
-    
-    text here
-
-!!! info "File Locations"
-    
-    ```
-    ~/_assets/_projectors/     # Calibration files
-    ~/_assets/_model/          # Calibration models (.obj)
-    ```
-
----
-
 
 <div class="grid cards" markdown>
 

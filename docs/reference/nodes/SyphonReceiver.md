@@ -26,21 +26,6 @@ The following properties can be configured for this node:
 
 ---
 
-## Important Notes
-
-!!! warning "Calibration Requirements"
-    
-    Syphon textures arrive at SPARCK asynchronously. It only check for a new texture at the end of each frame-pass. On the chosen render-pass the texture is passed on for further processing.
-
-!!! info "File Locations"
-    
-    ```
-    ~/_assets/_projectors/     # Calibration files
-    ~/_assets/_model/          # Calibration models (.obj)
-    ```
-
----
-
 
 <div class="grid cards" markdown>
 

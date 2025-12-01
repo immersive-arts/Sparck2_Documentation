@@ -32,9 +32,8 @@ The following properties can be configured for this node:
 
 ## Important Notes
 
-!!! warning "Calibration Requirements"
+!!! Info "Arithmetic Operators"
     
-    Arithmetic Operators:
     - mult = multiplication
     - div = division
     - add = addition
@@ -46,13 +45,6 @@ The following properties can be configured for this node:
     - avg = average
     - absdiff = absolute value of difference
     ... and others...
-
-!!! info "File Locations"
-    
-    ```
-    ~/_assets/_projectors/     # Calibration files
-    ~/_assets/_model/          # Calibration models (.obj)
-    ```
 
 ---
 
