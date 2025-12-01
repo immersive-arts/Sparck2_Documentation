@@ -26,7 +26,7 @@ site_author = "Martin Froehlich & Stella Speziali"
 # The site_url is the canonical URL for your site. When building online
 # documentation you should set this.
 # Read more: https://zensical.org/docs/setup/basics/#site_url
-site_url = "https://immersive-arts.github.io/sparck-documentation/"
+site_url = "https://immersive-arts.github.io/Sparck2-Documentation/"
 
 # The copyright notice appears in the page footer and can contain an HTML
 # fragment.
@@ -62,7 +62,56 @@ nav = [
   {"Reference" = [
     "reference/index.md",
     "reference/tooltips.md",
+    {"Nodes" = [
+    "reference/nodes/Beamer.md",
+    "reference/nodes/BlendSoftedge.md",
+    "reference/nodes/BoxMapCamera.md",
+    "reference/nodes/BoxMapCapture.md",
+    "reference/nodes/Canvas.md",
+    "reference/nodes/CornerPin.md",
+    "reference/nodes/CubeMap.md",
+    "reference/nodes/DrawMask.md",
+    "reference/nodes/Grid.md",
+    "reference/nodes/Light.md",
+    "reference/nodes/LookAtCamera.md",
+    "reference/nodes/Material.md",
+    "reference/nodes/MeshWarp.md",
+    "reference/nodes/Model.md",
+    "reference/nodes/Monitor.md",
+    "reference/nodes/OptiTrack.md",
+    "reference/nodes/QueScript.md",
+    "reference/nodes/SceneCamera.md",
+    "reference/nodes/SceneCapture.md",
+    "reference/nodes/ShaderAnaglyph.md",
+    "reference/nodes/ShaderBlur.md",
+    "reference/nodes/ShaderBrCoSa.md",
+    "reference/nodes/ShaderColormap.md",
+    "reference/nodes/ShaderRaymarcher.md",
+    "reference/nodes/ShaderSelection.md",
+    "reference/nodes/ShaderSSAO.md",
+    "reference/nodes/ShaderTexOP.md",
+    "reference/nodes/ShaderTexStitch.md",
+    "reference/nodes/ShaderTexZoom.md",
+    "reference/nodes/SkyBox.md",
+    "reference/nodes/SpatialShadery.md",
+    "reference/nodes/SpoutReceiver.md",
+    "reference/nodes/SpoutSender.md",
+    "reference/nodes/SyphonReceiver.md",
+    "reference/nodes/SyphonSender.md",
+    "reference/nodes/Template.md",
+    "reference/nodes/Texture.md",
+    "reference/nodes/TextureProjectory.md",
+    "reference/nodes/TfmNodeLookAt.md",
+    "reference/nodes/TfmNodeMerge.md",
+    "reference/nodes/TfmNodeMirror.md",
+    "reference/nodes/TfmNode.md",
+    "reference/nodes/TfmNodeInfo.md",
+    "reference/nodes/TfmNodePath.md",
+    "reference/nodes/Video.md",
+    "reference/nodes/ViewPort.md",
+    "reference/nodes/Window.md",
     "reference/nodes/overview.md",
+    ]},
   ]},
   {"Contributing" = [
     "contributing/index.md",
@@ -104,6 +153,7 @@ nav = [
 #
 # Read more: https://zensical.org/docs/customization/#additional-javascript
 #extra_javascript = ["assets/javascript/extra.js"]
+
 
 # ----------------------------------------------------------------------------
 # Section for configuring theme options
@@ -271,6 +321,11 @@ features = [
     # https://zensical.org/docs/setup/navigation/#anchor-tracking
     "navigation.tracking",
 
+    # When automatic previews are enabled, hovering over a link in the
+    # navigation will show a preview of the page content.
+    # https://zensical.org/docs/setup/navigation/#automatic-previews
+    "navigation.preview",
+    
     # When search highlighting is enabled and a user clicks on a search result,
     # Zensical will highlight all occurrences after following the link.
     # https://zensical.org/docs/setup/search/#search-highlighting
@@ -286,6 +341,7 @@ features = [
     # https://zensical.org/docs/setup/navigation/#navigation-integration
     #"toc.integrate",
 ]
+
 
 # ----------------------------------------------------------------------------
 # In the "palette" subsection you can configure options for the color scheme.
@@ -345,5 +401,3 @@ accent = "green"
 #[[project.extra.social]]
 #icon = "fontawesome/brands/github"
 #link = "https://github.com/user/repo"
-
-
