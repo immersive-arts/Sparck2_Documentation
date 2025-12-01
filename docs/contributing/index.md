@@ -5,7 +5,7 @@ SPARCK2 is an actively maintained and constantly evolving project serving a dive
 Our ever-growing community includes many active users, who open new issues and discussions several times a day, evolving our [issue tracker] and [discussion board] into a knowledge base – an important addition to our [documentation] – yielding value to both new and experienced users.
 
   [issue tracker]: https://github.com/immersive-arts/Sparck2/issue
-  [discussion board]: https://github.com/immersive-arts/Sparck2/discussion
+  [discussion board]: https://github.com/immersive-arts/Sparck2/discussions
   [documentation]: https://immersive-arts.github.io/Sparck2_Documentation/
 
 ## How you can contribute
