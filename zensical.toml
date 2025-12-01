@@ -44,7 +44,7 @@ Copyright &copy; 2025 The authors
 #
 # Read more: https://zensical.org/docs/setup/navigation/
 nav = [
-  {"Getting Stared" = [
+  {"Getting Started" = [
     "start/features.md",
     "start/conventions.md",
     "start/philosophy.md",
