@@ -47,7 +47,7 @@ nav = [
   {"Getting Started" = [
     "start/features.md",
     "start/conventions.md",
-    "start/projects.md",
+    "start/project_videos.md",
     "start/philosophy.md",
     {"Setup" = [
       "start/setup/index.md",
@@ -56,10 +56,16 @@ nav = [
       ]},
     {"Tutorials" = [
       "start/tutorials/index.md",
+      {"101" = [
       "start/tutorials/101/basic.md",
-      "start/tutorials/examples.md",
+      ]},
+      {"102" = [
+      "start/tutorials/201/floor_projection.md",
+      "start/tutorials/201/calibration.md",
+      ]},      
       "start/tutorials/videos.md",
-      ]}
+    ]},
+    "start/examples/projects.md",
   ]},
   {"Reference" = [
     "reference/index.md",
@@ -119,14 +125,6 @@ nav = [
     "developers/index.md",
     "developers/changelog.md",
     "developers/license.md",
-    {"Documentation" = [
-      "documentation/index.md",
-      "documentation/admonitions.md",
-      "documentation/markdown.md",
-      "documentation/diagrams.md",
-      "documentation/content_tabs.md",
-      "documentation/code_display.md"
-      ]},
     {"Contributing" = [
       "contributing/index.md",
       "contributing/making-a-pull-request.md",
@@ -134,6 +132,14 @@ nav = [
       "contributing/reporting-a-docs-issue.md",
       "contributing/requesting-a-change.md",
       "contributing/code_of_conduct.md",
+      ]},
+    {"Documentation" = [
+      "documentation/index.md",
+      "documentation/admonitions.md",
+      "documentation/markdown.md",
+      "documentation/diagrams.md",
+      "documentation/content_tabs.md",
+      "documentation/code_display.md"
       ]},
     ]}
   ]

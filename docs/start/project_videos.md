@@ -83,6 +83,16 @@ The following projects were realized with the team of the [telematice performanc
 <div class="grid" markdown>
 
 <div class="card" markdown>
+### Moving Screens
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LXMi2U9qesg?si=AjC7eQFOdTyvsVVw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+<div class="card" markdown>
+### Osmosis
+<iframe width="560" height="315" src="https://www.youtube.com/embed/gO3Snsoe7QU?si=9wW3xoSX4Q_kroXD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+<div class="card" markdown>
 ### Sol Teaser
 <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/649681763?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="The Zone (Documentation)"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 </div>
