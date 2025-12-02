@@ -47,6 +47,7 @@ nav = [
   {"Getting Started" = [
     "start/features.md",
     "start/conventions.md",
+    "start/projects.md",
     "start/philosophy.md",
     {"Setup" = [
       "start/setup/index.md",
