@@ -46,15 +46,14 @@ Copyright &copy; 2025 The authors
 nav = [
   {"Getting Started" = [
     "start/features.md",
-    "start/conventions.md",
-    "start/project_videos.md",
-    "start/philosophy.md",
+    "start/inspirations.md",
     {"Setup" = [
-      "start/setup/index.md",
       "start/setup/prerequisites.md",
       "start/setup/installation.md",
+      "start/setup/index.md",
       ]},
     {"Tutorials" = [
+      "start/philosophy.md",
       "start/tutorials/index.md",
       {"101" = [
       "start/tutorials/101/basic.md",

@@ -1,6 +1,6 @@
-[Prerequisites]: ../setup/prerequisites.md
+[Preparation]: ../setup/prerequisites.md
 
-Assuming you installed the [Prerequisites], 
+Assuming you alread followd the [Preparation], 
 
 ## 1. Startup Max if it hasn't started yet. 
  
@@ -24,9 +24,9 @@ Next you need to install SPARCK from the repository into the Packages folder:
 
     1. Open PowerShell
     2. get to the correct folder
-          1. ```cd "~\Documents\Max 9\Packages"```
+       1. ```cd "~\Documents\Max 9\Packages"```
     3. download SPARCK by executing
-          1. ```git clone https://github.com/immersive-arts/Sparck2.git```
+       1. ```git clone https://github.com/immersive-arts/Sparck2.git```
 
 ---
 
