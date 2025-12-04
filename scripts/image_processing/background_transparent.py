@@ -102,7 +102,7 @@ def find_edge_connected_pixels(mask):
     return edge_connected_mask
 
 
-def make_background_transparent(input_path, output_path, target_color=None, tolerance=30):
+def make_background_transparent(input_path, output_path, target_color=None, tolerance=20):
     """
     Make pixels of a specific color transparent in a PNG image.
     Only affects pixels connected to the image edges.
@@ -157,7 +157,7 @@ def make_background_transparent(input_path, output_path, target_color=None, tole
     print(f"  Protected {total_matching - edge_connected:,} interior pixels")
 
 
-def batch_process(input_dir, output_dir=None, target_color=None, tolerance=30):
+def batch_process(input_dir, output_dir=None, target_color=None, tolerance=20):
     """
     Batch process all PNG files in a directory.
     
@@ -253,8 +253,8 @@ Examples:
     parser.add_argument(
         '-t', '--tolerance',
         type=int,
-        default=30,
-        help='Color matching tolerance 0-255 (default: 30)'
+        default=20,
+        help='Color matching tolerance 0-255 (default: 20)'
     )
     
     args = parser.parse_args()
