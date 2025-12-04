@@ -1,11 +1,9 @@
-# TfmNodePath
+# Hook
 
-This node allows to load animation paths exported from blender.
-
-The file is created inside Blender with the LedStrip-Exporter script.
+A helper to get Jitter objects draw and tranform with SPARCKS render and transform nodes
 
 <figure markdown>
-![TfmNodePath Node](../../assets/images/nodes/TfmNodePath.png){ width="300" }
+![Grid Node](../../assets/images/nodes/Hook.png){ width="300" }
 </figure> 
 
 
@@ -18,16 +16,12 @@ The following properties can be configured for this node:
     | Property | Type | Description |
     |----------|------|-------------|
     | `drawto` | - | set the render group. Capture/Beamer/3DViewer have an equivalent in which you can choose which group to render. |
-    | `file` | - | animation path file |
-    | `fileWatch` | - | reload animation path file if it was changes |
-    | `segment` | - | segment inside pathfile |
-    | `closeSegment` | - | force closing the segement if it has a gap between the first and the last vertice |
-    | `playbar` | - | relative position on path. Best animated with QueScript |
+    | `material` | - | select one of sparcks material nodes |
+    | `shader` | - | select one of spracks shader nodes |
     | `parent` | - | parent transformation node |
     | `position` | (local transformation) | position x y z |
     | `rotation` | (local transformation) | rotation x y z |
     | `scale` | (local transformation) | scale x y z |
-    | `object color` | - | display color |
 
 === "Workflow"
 
@@ -36,22 +30,21 @@ The following properties can be configured for this node:
 
 ---
 
-
 <div class="grid cards" markdown>
 
 -   :material-clock-fast:{ .lg .middle } __Quick Start__
 
     ---
 
-    Get started with TfmNodePath in minutes
+    Get started with Hook in minutes
     
     [:octicons-arrow-right-24: Project Examples](../../start/examples/project_examples.md)
 
--   :material-file-document:{ .lg .middle } __Complementing__ **TfmNodePath**
+-   :material-file-document:{ .lg .middle } __Complementing__ **Grid**
 
     ---
-    * [:octicons-arrow-right-24: TfmNode](TfmNode.md)(#) { data-preview }
-    * [:octicons-arrow-right-24: QueScript](QueScript.md)(#) { data-preview }
+    * [:octicons-arrow-right-24: Beamer](Beamer.md) 
+    * [:octicons-arrow-right-24: TfmNode](TfmNode.md) 
 
   
 -   :material-video-box:{ .lg .middle } __Tutorials__
@@ -79,4 +72,4 @@ The following properties can be configured for this node:
 
 ---
 
-*Last updated: 2025-12-01 | [Edit this page on GitHub](https://github.com/immersive-arts/Sparck2/edit/main/docs/nodes/TfmNodePath.md)*
+*Last updated: 2025-12-04 | [Edit this page on GitHub](https://github.com/immersive-arts/Sparck2/edit/main/docs/nodes/Hook.md)*

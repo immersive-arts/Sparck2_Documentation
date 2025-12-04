@@ -82,7 +82,7 @@ The following properties can be configured for this node:
 
     Get started with Video in minutes
     
-    [:octicons-arrow-right-24: Calibration Guide](../../start/tutorials/201/calibration.md)
+    [:octicons-arrow-right-24: Project Examples](../../start/examples/project_examples.md)
 
 -   :material-file-document:{ .lg .middle } __Complementing__ **Video**
 

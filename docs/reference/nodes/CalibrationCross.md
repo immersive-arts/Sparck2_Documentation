@@ -1,9 +1,9 @@
-# TfmNodeLookAt
+# CalibrationCross
 
-The LookAt transformation takes two transformation nodes: One where to look-from, and one where to look-at.
+A helper to get oriented in 3D space
 
 <figure markdown>
-![TfmNodeLookAt Node](../../assets/images/nodes/TfmLookAt.png){ width="300" }
+![CalibrationCross Node](../../assets/images/nodes/CalibrationCross.png){ width="300" }
 </figure> 
 
 
@@ -15,11 +15,18 @@ The following properties can be configured for this node:
 
     | Property | Type | Description |
     |----------|------|-------------|
-    | `look from` | - | from where to look |
-    | `look at` | - | where to look at |
-    | `orientation` | - | axis orientation |
-    | `direction` | - | look from look-from to look-at or from look-at to look-from |
-    | `transformation pass` | - | select transfromation pass |
+    | `drawto` | - | set the render group |
+    | `parent` | - | parent transformation node |
+    | `x positive` | (local transformation) | position +x |
+    | `x negative` | (local transformation) | position -x |
+    | `y positive` | (local transformation) | position +y |
+    | `y negative` | (local transformation) | position -y |
+    | `z positive` | (local transformation) | position +z |
+    | `z negative` | (local transformation) | position -z |
+    | `marker color` | rgba | color of rendered points |
+    | `marker size` | int | size of marker point |
+    | `show axis` | bool | show axis |
+    | `depth` | bool | use depth layer |
 
 === "Workflow"
 
@@ -34,17 +41,15 @@ The following properties can be configured for this node:
 
     ---
 
-    Get started with TfmNodeLookAt in minutes
+    Get started with CalibrationCross in minutes
     
     [:octicons-arrow-right-24: Project Examples](../../start/examples/project_examples.md)
 
--   :material-file-document:{ .lg .middle } __Complementing__ **TfmNodeLookAt**
+-   :material-file-document:{ .lg .middle } __Complementing__ **Grid**
 
     ---
+    * [:octicons-arrow-right-24: Beamer](Beamer.md) 
     * [:octicons-arrow-right-24: TfmNode](TfmNode.md) 
-    * [:octicons-arrow-right-24: TfmNodeMerge](TfmNodeMerge.md) 
-    * [:octicons-arrow-right-24: TfmNodeInfo](TfmNodeInfo.md) 
-    * [:octicons-arrow-right-24: TfmNodeMirror](TfmNodeMirror.md) 
 
   
 -   :material-video-box:{ .lg .middle } __Tutorials__
@@ -72,4 +77,4 @@ The following properties can be configured for this node:
 
 ---
 
-*Last updated: 2025-12-01 | [Edit this page on GitHub](https://github.com/immersive-arts/Sparck2/edit/main/docs/nodes/TfmNodeLookAt.md)*
+*Last updated: 2025-12-01 | [Edit this page on GitHub](https://github.com/immersive-arts/Sparck2/edit/main/docs/nodes/Grid.md)*
