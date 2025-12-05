@@ -53,19 +53,19 @@ nav = [
       "start/setup/index.md",
       ]},
     {"Tutorials" = [
-      "start/philosophy.md",
       "start/tutorials/index.md",
       "start/tutorials/01_Getting_Started/Getting_Started.md",
       "start/tutorials/02_Calibration/calibration.md",
+      "start/tutorials/04_Wall_Projection/Wall_Projection.md",
+      "start/tutorials/05_Floor_Projection/Floor_Projection.md",
       "start/tutorials/03_Spatial_Augmented_Reality/Spatial_Aumented_Reality.md",
-      "start/tutorials/201/floor_projection.md",
-      "start/tutorials/201/calibration.md",    
-      "start/tutorials/videos.md",
+     
     ]},
     "start/examples/project_examples.md",
   ]},
   {"Reference" = [
     "reference/index.md",
+    "reference/philosophy.md",
     "reference/sparck_app.md",
     "reference/tooltips.md",
     {"Nodes" = [

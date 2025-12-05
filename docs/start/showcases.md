@@ -1,8 +1,9 @@
 # Showcases 
 
-TODO: Add intro text here
+This page brings together a selection of projects created with SPARCK. From immersive installations and spatial augmented reality to telematic performances and experimental media, these showcases highlight the range of artistic and technical possibilities the system enables. Explore the examples below to see SPARCK in action across different contexts, aesthetics, and scales.
 
 ## Immersive Arts Space
+The following projects were realized at the [Immersive Arts Space](https://blog.zhdk.ch/immersivearts/) (IAS) a university-wide art/tech lab within the [Zurich University of the Arts](https://www.zhdk.ch/) (ZHdK).
 
 <div class="grid" markdown>
 

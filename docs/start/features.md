@@ -1,4 +1,5 @@
 # Features
+SPARCK is a modular, node-based platform designed for creating advanced spatial augmented reality installations. It brings together real-time 3D rendering, projection mapping, tracking, scripting, and multi-display output into one cohesive workflow. Whether you’re shaping light across complex physical geometries, integrating external render engines, or building interactive environments, SPARCK gives you the tools to prototype, calibrate, and deploy immersive experiences with precision and speed.
 
 ## Easy and Modular
 
