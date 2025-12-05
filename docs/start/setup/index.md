@@ -1,3 +1,3 @@
 # Getting Started with SPARCK
 
-TBD
+TODO: Short description o what needs to be done to get it running

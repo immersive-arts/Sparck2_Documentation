@@ -6,7 +6,6 @@ SPARCK is a cross-plattform media and virtual reality package i for the creation
 ## Getting Started (i'm not sure if a good title Maybe shoudl be Sparck)
 - Futures
 - Inspirations (Maybe call it Showcase?)
-- Setup (get it now)
   - Downloads
 - Totorials
 - Project Examples

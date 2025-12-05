@@ -1,5 +1,6 @@
-# Inspirations 
+# Showcases 
 
+TODO: Add intro text here
 
 ## Immersive Arts Space
 

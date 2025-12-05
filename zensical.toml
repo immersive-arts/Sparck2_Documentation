@@ -44,9 +44,9 @@ Copyright &copy; 2025 The authors
 #
 # Read more: https://zensical.org/docs/setup/navigation/
 nav = [
-  {"Getting Started" = [
+  {"SPARCK" = [
     "start/features.md",
-    "start/inspirations.md",
+    "start/showcases.md",
     {"Setup" = [
       "start/setup/prerequisites.md",
       "start/setup/installation.md",
@@ -55,19 +55,18 @@ nav = [
     {"Tutorials" = [
       "start/philosophy.md",
       "start/tutorials/index.md",
-      {"101" = [
-      "start/tutorials/101/basic.md",
-      ]},
-      {"102" = [
+      "start/tutorials/01_Getting_Started/Getting_Started.md",
+      "start/tutorials/02_Calibration/calibration.md",
+      "start/tutorials/03_Spatial_Augmented_Reality/Spatial_Aumented_Reality.md",
       "start/tutorials/201/floor_projection.md",
-      "start/tutorials/201/calibration.md",
-      ]},      
+      "start/tutorials/201/calibration.md",    
       "start/tutorials/videos.md",
     ]},
     "start/examples/project_examples.md",
   ]},
   {"Reference" = [
     "reference/index.md",
+    "reference/sparck_app.md",
     "reference/tooltips.md",
     {"Nodes" = [
     "reference/nodes/Beamer.md",
