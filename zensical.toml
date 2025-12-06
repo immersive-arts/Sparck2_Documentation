@@ -97,7 +97,6 @@ nav = [
     "reference/nodes/ShaderColormap.md",
     "reference/nodes/ShaderRaymarcher.md",
     "reference/nodes/ShaderSelection.md",
-    "reference/nodes/ShaderSSAO.md",
     "reference/nodes/ShaderTexOP.md",
     "reference/nodes/ShaderTexStitch.md",
     "reference/nodes/ShaderTexZoom.md",
@@ -119,7 +118,6 @@ nav = [
     "reference/nodes/Video.md",
     "reference/nodes/ViewPort.md",
     "reference/nodes/Window.md",
-    "reference/nodes/overview.md",
     ]},
   ]},
   {"Developers" = [

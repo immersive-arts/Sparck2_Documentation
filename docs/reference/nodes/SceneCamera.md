@@ -5,7 +5,7 @@ Stereo Camera in 3D space.
 SceneCamera represents the virtual camera chassis, while SceneCapture represents the virtual film: For capturing the textures SceneCapture is needed.
 
 <figure markdown>
-![SceneCamera Node](../../assets/images/nodes/Camera.png){ width="300" }
+![SceneCamera Node](../../assets/images/nodes/SceneCamera.png){ width="300" }
 </figure> 
 
 
