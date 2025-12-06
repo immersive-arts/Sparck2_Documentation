@@ -7,7 +7,7 @@ TODO: How do nodes work, how to add, rename, configure, connect etc.
 - [x] changing up node menu
   - [x] help jumps to documentation page
   - [x] remove disfunctional features
-- [ ] cleaning up property tool tips and their property paths
+- [x] cleaning up property tool tips and their property paths
 - [ ] documenting sparck app
   - [ ] documenting how to find property paths
 - [ ] domcumenting how to connect nodes
