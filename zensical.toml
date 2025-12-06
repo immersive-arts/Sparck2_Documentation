@@ -66,7 +66,7 @@ nav = [
   {"Reference" = [
     "reference/index.md",
     "reference/philosophy.md",
-    "reference/sparck_app.md",
+    "reference/sparck_core.md",
     "reference/tooltips.md",
     {"Nodes" = [
       {"1_INPUT" = [
