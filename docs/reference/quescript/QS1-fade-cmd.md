@@ -1,4 +1,4 @@
-# [QueScript](QS1-Introduction.md) / [reference](QS1-Reference.md) / &lt;fade&gt;
+# [QueScript](QS1-Introduction.md) / [Reference](QS1-Reference.md) / &lt;fade&gt;
 &lt;fade name="(string)" timeout="[time](QS1-Timestring.md)|[{expr}](QS1-Expressions.md))"&gt;
 
 ### Simple Example

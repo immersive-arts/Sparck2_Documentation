@@ -1,4 +1,4 @@
-# [QueScript](QS1-Introduction.md) / [reference](QS1-Reference.md) / &lt;script&gt;
+# [QueScript](QS1-Introduction.md) / [Reference](QS1-Reference.md) / &lt;script&gt;
 &lt;script&gt;  
 
 ### Simple Example

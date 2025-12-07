@@ -1,4 +1,4 @@
-# [QueScript](QS1-Introduction.md) / [reference](QS1-Reference.md) / &lt;send&gt;
+# [QueScript](QS1-Introduction.md) / [Reference](QS1-Reference.md) / &lt;send&gt;
 &lt;send&gt;/address command arg1 arg2 [{expr}](QS1-Expressions.md)&lt;/send&gt;
 
 ### Simple Example

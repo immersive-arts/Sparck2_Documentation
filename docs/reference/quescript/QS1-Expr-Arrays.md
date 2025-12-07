@@ -1,4 +1,4 @@
-# [QueScript](QS1-Introduction.md) / [reference](QS1-Reference.md) / [{expressions}](QS1-expressions.md)/Arrays
+# [QueScript](QS1-Introduction.md) / [Reference](QS1-Reference.md) / [{expressions}](QS1-expressions.md)/Arrays
 
 Arrays can be instantiated with the ARRAY()-function:
 

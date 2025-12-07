@@ -1,4 +1,4 @@
-# [QueScript](QS1-Introduction.md) / [reference](QS1-Reference.md) / &lt;timer&gt;
+# [QueScript](QS1-Introduction.md) / [Reference](QS1-Reference.md) / &lt;timer&gt;
 &lt;timer/&gt;
 
 ### Simple Example

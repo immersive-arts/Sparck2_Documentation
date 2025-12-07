@@ -1,4 +1,4 @@
-# [QueScript](QS1-Introduction.md) / [reference](QS1-Reference.md) / &lt;shutdown&gt;
+# [QueScript](QS1-Introduction.md) / [Reference](QS1-Reference.md) / &lt;shutdown&gt;
 &lt;shutdown name="(string)"/&gt;
 
 ### Simple Example

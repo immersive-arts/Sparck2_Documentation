@@ -1,4 +1,4 @@
-# [QueScript](QS1-Introduction.md) / [reference](QS1-Reference.md) / &lt;while&gt;
+# [QueScript](QS1-Introduction.md) / [Reference](QS1-Reference.md) / &lt;while&gt;
 &lt;while name="(string)" start="[{expr}](QS1-Expressions.md)" repeat="[{expr}](QS1-Expressions.md)" step="[{expr}](QS1-Expressions.md))" &gt;
 
 ###Simple Example

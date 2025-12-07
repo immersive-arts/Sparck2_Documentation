@@ -1,4 +1,4 @@
-# [QueScript](QS1-Introduction.md) / [reference](QS1-Reference.md) / [{expressions}](QS1-expressions.md)/Variables
+# [QueScript](QS1-Introduction.md) / [Reference](QS1-Reference.md) / [{expressions}](QS1-expressions.md)/Variables
 
 Variables are instantiated on load-time. All references from [{expressions}](QS1-expressions.md) to variables will report an error, if the variable isn't instantiated.
 

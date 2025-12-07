@@ -1,4 +1,4 @@
-# [QueScript](QS1-Introduction.md) / [reference](QS1-Reference.md) / &lt;osc&gt;
+# [QueScript](QS1-Introduction.md) / [Reference](QS1-Reference.md) / &lt;osc&gt;
 &lt;osc sendto="(string)"&gt;/address/pattern command arg1 arg2 [{expr}](QS1-Expressions.md)&lt;/osc&gt;
 
 ### Simple Example

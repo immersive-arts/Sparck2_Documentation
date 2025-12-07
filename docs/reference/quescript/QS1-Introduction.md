@@ -21,7 +21,7 @@ when playing 'myQue', QueScript (from now on called 'QS') will start a timer and
 
 `send /address list with strings and numbers 0 2.45 56`
 
-then it waits until 5 seconds of the &lt;[timer](QS1-timer-cmd.md)&gt; call have passed and then prints another message to Max console:
+then it waits until 5 seconds of the &lt;[timer](QS1-timer-cmd.md)&gt; call have passed and then prints another message to [Max console](https://docs.cycling74.com/userguide/max_console/):
 
 `print timer has passed`
 

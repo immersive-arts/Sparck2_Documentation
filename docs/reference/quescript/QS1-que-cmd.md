@@ -1,4 +1,4 @@
-# [QueScript](QS1-Introduction.md) / [reference](QS1-Reference.md) / &lt;que&gt;
+# [QueScript](QS1-Introduction.md) / [Reference](QS1-Reference.md) / &lt;que&gt;
 &lt;que name="(string)" loop="no|normal|palindrome"&gt;
 
 ### Simple Example

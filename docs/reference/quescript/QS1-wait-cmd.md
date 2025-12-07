@@ -1,4 +1,4 @@
-# [QueScript](QS1-Introduction.md) / [reference](QS1-Reference.md) / &lt;wait&gt;
+# [QueScript](QS1-Introduction.md) / [Reference](QS1-Reference.md) / &lt;wait&gt;
 
 &lt;wait until="[{expr}](QS1-Expressions.md)"&gt;  
 &lt;wait while="[{expr}](QS1-Expressions.md)"&gt;  

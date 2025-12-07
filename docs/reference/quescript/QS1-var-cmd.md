@@ -1,4 +1,4 @@
-# [QueScript](QS1-Introduction.md) / [reference](QS1-Reference.md) / &lt;var&gt;
+# [QueScript](QS1-Introduction.md) / [Reference](QS1-Reference.md) / &lt;var&gt;
 
 **&lt;var&gt; has ALWAYS to be the first node inside a &lt;script&gt; or &lt;que&gt; node**
 
