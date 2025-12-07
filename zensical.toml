@@ -47,6 +47,7 @@ nav = [
   {"SPARCK" = [
     "start/features.md",
     "start/showcases.md",
+    "start/applications/applications.md",
     {"Setup" = [
       "start/setup/prerequisites.md",
       "start/setup/installation.md",
