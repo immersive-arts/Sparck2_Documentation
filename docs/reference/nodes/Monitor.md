@@ -9,20 +9,30 @@ This node should only be used for debugging purposes. It is very resource hungry
 </figure> 
 
 
-## Properties
+## Reference
 
 The following properties can be configured for this node:
 
-=== "Reference"
+=== "Properties"
 
     | Property | Type | Description |
     |----------|------|-------------|
     | `Name` | - | give it a more meaning full name. |
     | `PropertyOne` | TEXT HERE | and more text here. |
 
-=== "Workflow"
+=== "Inlets"
 
-    1. TBD
+    | Inlet      | Type          | Description                            |
+    |------------|---------------|----------------------------------------|
+    | properties | messages      | direct access to internal properties   |
+    | texture    | texture       | texture applied to ...                 |
+
+=== "Outlets"
+
+    | Outlet     | Type          | Description                            |
+    |------------|---------------|----------------------------------------|
+    | properties | messages      | direct access to internal properties   |
+    | texture    | texture       | texture applied to ...                 |
 
 
 ---
@@ -51,7 +61,8 @@ The following properties can be configured for this node:
 
     Get started with Monitor in minutes
     
-    [:octicons-arrow-right-24: Project Examples](../../start/examples/project_examples.md)
+    * [:octicons-arrow-right-24: Project Examples](../../start/examples/project/project_examples.md)
+    * [:octicons-arrow-right-24: Node Examples](../../start/examples/nodes/node_examples.md)
 
 -   :material-file-document:{ .lg .middle } __Complementing__ **Monitor**
 

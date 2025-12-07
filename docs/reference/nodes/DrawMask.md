@@ -9,11 +9,11 @@ The saved texture will be a PNG.
 </figure> 
 
 
-## Properties
+## Reference
 
 The following properties can be configured for this node:
 
-=== "Reference"
+=== "Properties"
 
     | Property | Type | Description |
     |----------|------|-------------|
@@ -24,9 +24,19 @@ The following properties can be configured for this node:
     | `edit` | - | sets the focus of the editor window to this node |
     | `render pass` | - | render pass. default is a manual render pass since the loaded texture needs only passed on once because of its static nature. |
 
-=== "Workflow"
+=== "Inlets"
 
-    1. TBD
+    | Inlet      | Type          | Description                            |
+    |------------|---------------|----------------------------------------|
+    | properties | messages      | direct access to internal properties   |
+    | texture    | texture       | texture applied to ...                 |
+
+=== "Outlets"
+
+    | Outlet     | Type          | Description                            |
+    |------------|---------------|----------------------------------------|
+    | properties | messages      | direct access to internal properties   |
+    | texture    | texture       | texture applied to ...                 |
 
 
 ---
@@ -55,7 +65,8 @@ The following properties can be configured for this node:
 
     Get started with DrawMask in minutes
     
-    [:octicons-arrow-right-24: Project Examples](../../start/examples/project_examples.md)
+    * [:octicons-arrow-right-24: Project Examples](../../start/examples/project/project_examples.md)
+    * [:octicons-arrow-right-24: Node Examples](../../start/examples/nodes/node_examples.md)
 
 -   :material-file-document:{ .lg .middle } __Complementing__ **DrawMask**
 

@@ -9,11 +9,11 @@ It has a calibration mode to find the orientation and lense properties (extrinsi
 </figure> 
 
 
-## Properties
+## Reference
 
 The following properties can be configured for this node:
 
-=== "Reference"
+=== "Properties"
 
     | Property | Type | Description |
     |----------|------|-------------|
@@ -28,13 +28,21 @@ The following properties can be configured for this node:
     | `identify` | Boolean | Use the calibration-color as background color |
     | `gizmo` | Integer | Set the render group to draw the gizmo to |
 
-=== "Workflow"
+=== "Inlets"
 
-    1. **Create Calibration File**: Select 'save as..' and choose a file name to create a new calibration file
-    2. **Select Calibration File**: Once a file exists, select it in the `calibfile` property
-    3. **Enable Calibration**: The calibration button becomes enabled after selecting a valid file
-    4. **Open Calibrator**: Click the `calibrate` button to open the calibration editor
-    5. **Configure & Save**: Adjust settings and save your calibration
+    | Inlet      | Type          | Description                            |
+    |------------|---------------|----------------------------------------|
+    | properties | messages      | direct access to internal properties   |
+    | bg texture    | texture       | background texture for camera calibration              |
+    | properties | messages      | message 'createToXY x1 y1 z1 x2 y2 z2 ..' creates a new model with the provided calibration vertices. message 'addToXY x1 y1 z1 x2 y2 z2  ..' adds calibration vertices to the model|
+
+=== "Outlets"
+
+    | Outlet     | Type          | Description                            |
+    |------------|---------------|----------------------------------------|
+    | left texture | texture       | captured texture (or left texture if in stereo mode)                 |
+    | right texture | texture       | right captured texture if in stereo mode           |
+    | properties | messages      | dump of transformation informations. |
 
 
 ---
@@ -95,7 +103,8 @@ The following properties can be configured for this node:
 
     Get started with Beamer in minutes
     
-    [:octicons-arrow-right-24: Project Examples](../../start/examples/project_examples.md)
+    * [:octicons-arrow-right-24: Project Examples](../../start/examples/project/project_examples.md)
+    * [:octicons-arrow-right-24: Node Examples](../../start/examples/nodes/node_examples.md#4_mapping)
 
 -   :material-file-document:{ .lg .middle } __Complementing__ **Beamer**
 

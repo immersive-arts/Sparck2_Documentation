@@ -9,11 +9,11 @@ This is a shader and can be applied to any model node.
 </figure> 
 
 
-## Properties
+## Reference
 
 The following properties can be configured for this node:
 
-=== "Reference"
+=== "Properties"
 
     | Property | Type | Description |
     |----------|------|-------------|
@@ -35,9 +35,19 @@ The following properties can be configured for this node:
     | `bevel rounded` | - | use rounded bevel |
     | `interpolation` | - | interpolation correction. if strange artefacts start to appear, raise the value until the artefacts disappear. the artefacts are a result of interpolation errors between the vertex and fragment shader and occur close to the local x-y plane of the camera. increasing the subdivisions of the model can help, too |
 
-=== "Workflow"
+=== "Inlets"
 
-    1. TBD
+    | Inlet      | Type          | Description                            |
+    |------------|---------------|----------------------------------------|
+    | properties | messages      | direct access to internal properties   |
+    | texture    | texture       | texture applied to ...                 |
+
+=== "Outlets"
+
+    | Outlet     | Type          | Description                            |
+    |------------|---------------|----------------------------------------|
+    | properties | messages      | direct access to internal properties   |
+    | texture    | texture       | texture applied to ...                 |
 
 
 ---
@@ -50,7 +60,8 @@ The following properties can be configured for this node:
 
     Get started with TextureProjectory in minutes
     
-    [:octicons-arrow-right-24: Project Examples](../../start/examples/project_examples.md)
+    * [:octicons-arrow-right-24: Project Examples](../../start/examples/project/project_examples.md)
+    * [:octicons-arrow-right-24: Node Examples](../../start/examples/nodes/node_examples.md)
 
 -   :material-file-document:{ .lg .middle } __Complementing__ **TextureProjectory**
 

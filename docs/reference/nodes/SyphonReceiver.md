@@ -7,11 +7,11 @@ Receives Syphon textures (OSX only - see SpoutReceive for Windows) for further p
 </figure> 
 
 
-## Properties
+## Reference
 
 The following properties can be configured for this node:
 
-=== "Reference"
+=== "Properties"
 
     | Property | Type | Description |
     |----------|------|-------------|
@@ -19,9 +19,19 @@ The following properties can be configured for this node:
     | `app name` | - | select syphon app |
     | `flip` | - | flip recieved texture in x / y axis |
 
-=== "Workflow"
+=== "Inlets"
 
-    1. TBD
+    | Inlet      | Type          | Description                            |
+    |------------|---------------|----------------------------------------|
+    | properties | messages      | direct access to internal properties   |
+    | texture    | texture       | texture applied to ...                 |
+
+=== "Outlets"
+
+    | Outlet     | Type          | Description                            |
+    |------------|---------------|----------------------------------------|
+    | properties | messages      | direct access to internal properties   |
+    | texture    | texture       | texture applied to ...                 |
 
 
 ---
@@ -35,7 +45,8 @@ The following properties can be configured for this node:
 
     Get started with SyphonReceiver in minutes
     
-    [:octicons-arrow-right-24: Project Examples](../../start/examples/project_examples.md)
+    * [:octicons-arrow-right-24: Project Examples](../../start/examples/project/project_examples.md)
+    * [:octicons-arrow-right-24: Node Examples](../../start/examples/nodes/node_examples.md)
 
 -   :material-file-document:{ .lg .middle } __Complementing__ **SyphonReceiver**
 

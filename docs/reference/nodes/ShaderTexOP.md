@@ -7,11 +7,11 @@ The TextureOP node applies either a binary operator to two input textures, or a 
 </figure> 
 
 
-## Properties
+## Reference
 
 The following properties can be configured for this node:
 
-=== "Reference"
+=== "Properties"
 
     | Property | Type | Description |
     |----------|------|-------------|
@@ -23,9 +23,19 @@ The following properties can be configured for this node:
     | `outScale` | - | output offset |
     | `enable` | - | use node for a texture effect render pass |
 
-=== "Workflow"
+=== "Inlets"
 
-    1. TBD
+    | Inlet      | Type          | Description                            |
+    |------------|---------------|----------------------------------------|
+    | properties | messages      | direct access to internal properties   |
+    | texture    | texture       | texture applied to ...                 |
+
+=== "Outlets"
+
+    | Outlet     | Type          | Description                            |
+    |------------|---------------|----------------------------------------|
+    | properties | messages      | direct access to internal properties   |
+    | texture    | texture       | texture applied to ...                 |
 
 
 ---
@@ -57,7 +67,8 @@ The following properties can be configured for this node:
 
     Get started with ShaderTexOP in minutes
     
-    [:octicons-arrow-right-24: Project Examples](../../start/examples/project_examples.md)
+    * [:octicons-arrow-right-24: Project Examples](../../start/examples/project/project_examples.md)
+    * [:octicons-arrow-right-24: Node Examples](../../start/examples/nodes/node_examples.md)
 
 -   :material-file-document:{ .lg .middle } __Complementing__ **ShaderTexOP**
 
