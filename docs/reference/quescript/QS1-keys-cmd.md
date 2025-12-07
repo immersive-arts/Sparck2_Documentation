@@ -1,4 +1,4 @@
-# [home](QS1-Introduction.md) / [reference](QS1-Reference.md) / &lt;[anim](QS1-anim-cmd.md)&gt;/&lt;keys&gt;
+# [QueScript](QS1-Introduction.md) / [reference](QS1-Reference.md) / &lt;[anim](QS1-anim-cmd.md)&gt;/&lt;keys&gt;
 &lt;keys timing="rel|abs"&gt;
 
 ### Simple Example

@@ -1,4 +1,4 @@
-# [home](QS1-Introduction.md) / Reference
+# [QueScript](QS1-Introduction.md) / Reference
 
 ### [{expressions}](QS1-Expressions.md)
 * &lt;[expr](QS1-expr-cmd.md)&gt;

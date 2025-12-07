@@ -1,4 +1,4 @@
-# [home](QS1-Introduction.md) / [reference](QS1-Reference.md) / &lt;print&gt;
+# [QueScript](QS1-Introduction.md) / [reference](QS1-Reference.md) / &lt;print&gt;
 &lt;print&gt;message arg1 arg2 [{expr}](QS1-Expressions.md)&lt;/print&gt;
 
 ### Simple Example

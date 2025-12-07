@@ -1,4 +1,4 @@
-# [home](QS1-Introduction.md) / [reference](QS1-Reference.md) / &lt;trigger&gt;
+# [QueScript](QS1-Introduction.md) / [reference](QS1-Reference.md) / &lt;trigger&gt;
 &lt;trigger&gt;(string) [{expr}](QS1-Expressions.md)&lt;/trigger&gt;
 
 ### Simple Example

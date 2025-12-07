@@ -1,20 +1,22 @@
-## How to setup Visual Studio Code
+# [QueScript](QS1-Introduction.md) / How to setup Visual Studio Code
 
-This steps describe how to setup Visual Studio Code to use as a code completion editor for Quescript:
+This steps describe how to setup [Visual Studio Code](https://code.visualstudio.com/download) to use as a code completion editor for Quescript:
 
-1. Go to Extensions and install the [XML Language Support by Red Hat](https://github.com/redhat-developer/vscode-xml/tree/main/docs) 
-2. Go to Manage (the cog in the lower left corner) > Settings > search for 'xml.fileAssociations'
+1. Go to Extensions search for and install the "`XML Language Support by Red Hat`"
+2. Go to Manage (cog in the lower left corner) > Settings > search for "`xml.fileAssociations`"
 3. press 'edit in settings.json'
-4. copy paste into: `"xml.fileAssociations": [`
-       
-```json
-"xml.fileAssociations": [
-        {
-            "pattern": "**/*.que",
-            "systemId": "${fileDirname}/quescript.xsd"
-        }
-]
-```
+4. copy paste the following snippet into:
 
-5. Copy 'quescript.xsd' from this repository ~/misc/quescript.xsd to your folder with the quescripts.
-6. Open the quescript inside Visual Studio Code.
+    `"xml.fileAssociations": [`
+    ```json
+            {
+                "systemId": "https://github.com/immersive-arts/Sparck2/raw/refs/heads/master/source/java/extra/queListSchema.xsd",
+                "pattern": "**/*.que",
+            }
+    ```
+    `]`
+
+5. Now open a quescript inside Visual Studio Code.
+6. When you start editing and enter a '&lt;' the code completion will show you which commands are allowed, and - when you choose it - which attributes it needs to have set.
+
+    ![code completion](./images/QueScript_CodeCompletion.png)

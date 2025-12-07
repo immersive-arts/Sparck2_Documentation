@@ -1,4 +1,4 @@
-# [home](QS1-Introduction.md) / [reference](QS1-Reference.md) / &#123;expressions}
+# [QueScript](QS1-Introduction.md) / [reference](QS1-Reference.md) / &#123;expressions}
 {expressions} can be used inisde quescript. {expressions} are in realtime evaluated operations and functions that can use variables.
 
 {expressions} always need to be inside a {} bracket. They can use variables, strings, operands and functions. Strings can be added to each other like numbers, and if the result is a string, a string is returned.

@@ -1,4 +1,4 @@
-# [home](QS1-Introduction.md) / [reference](QS1-Reference.md) / &lt;import&gt;
+# [QueScript](QS1-Introduction.md) / [reference](QS1-Reference.md) / &lt;import&gt;
 &lt;import&gt;filepath.que&lt;/import&gt;
 
 ### Simple Example

@@ -1,4 +1,4 @@
-# [home](QS1-Introduction.md) / [reference](QS1-Reference.md) / &lt;debugger&gt;
+# [QueScript](QS1-Introduction.md) / [reference](QS1-Reference.md) / &lt;debugger&gt;
 
 ### Simple Example
 

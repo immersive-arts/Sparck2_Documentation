@@ -1,4 +1,4 @@
-# [home](QS1-Introduction.md) / [reference](QS1-Reference.md) / [{expressions}](QS1-expressions.md) / Usage
+# [QueScript](QS1-Introduction.md) / [reference](QS1-Reference.md) / [{expressions}](QS1-expressions.md) / Usage
 
 this is a complete list where inside the quescript [{expressions}](QS1-expressions.md) can be used
 

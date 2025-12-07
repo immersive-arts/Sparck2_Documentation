@@ -1,4 +1,4 @@
-# [home](QS1-Introduction.md) / [reference](QS1-Reference.md) / &lt;[if](QS1-if-cmd.md)&gt;/&lt;else&gt;
+# [QueScript](QS1-Introduction.md) / [reference](QS1-Reference.md) / &lt;[if](QS1-if-cmd.md)&gt;/&lt;else&gt;
 &lt;else&gt;
 
 ### Simple Example

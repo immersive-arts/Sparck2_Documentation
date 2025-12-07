@@ -1,4 +1,4 @@
-# [home](QS1-Introduction.md) / [reference](QS1-Reference.md) / &lt;anim&gt;
+# [QueScript](QS1-Introduction.md) / [reference](QS1-Reference.md) / &lt;anim&gt;
 &lt;anim name="(string)" duration="[time](QS1-Timestring.md)|[{expr}](QS1-Expressions.md))" fadeout="[time](QS1-Timestring.md)|[{expr}](QS1-Expressions.md))" loop="no|normal|palindrome"&gt;
 
 ### Simple Example

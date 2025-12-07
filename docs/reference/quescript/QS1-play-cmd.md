@@ -1,4 +1,4 @@
-# [home](QS1-Introduction.md) / [reference](QS1-Reference.md) / &lt;play&gt;
+# [QueScript](QS1-Introduction.md) / [reference](QS1-Reference.md) / &lt;play&gt;
 &lt;play name="(string)"/&gt;
 
 ### Simple Example
