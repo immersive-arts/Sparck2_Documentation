@@ -70,6 +70,10 @@ nav = [
     "reference/philosophy.md",
     "reference/sparck_core.md",
     "reference/tooltips.md",
+    {"QueScript" = [
+      "reference/quescript/QS1-Introduction.md",
+      "reference/quescript/QS1-ExampleScripts.md",
+    ]},
     {"Nodes" = [
       {"1_INPUT" = [
         "reference/nodes/CubeMap.md",
