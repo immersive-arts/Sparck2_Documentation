@@ -15,9 +15,9 @@ The following properties can be configured for this node:
 
     | Property | Type | Description |
     |----------|------|-------------|
+    | `stitches` | - | number of textures to stitch |
     | `width` | - | width of final texture |
     | `height` | - | height of final texture |
-    | `size` | - | number of textures to stitch |
     | `render pass` | - | render pass |
 
 === "Workflow"

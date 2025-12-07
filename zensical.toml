@@ -61,7 +61,8 @@ nav = [
       "start/tutorials/03_Spatial_Augmented_Reality/Spatial_Aumented_Reality.md",
      
     ]},
-    "start/examples/project_examples.md",
+    "start/examples/project/project_examples.md",
+    "start/examples/nodes/node_examples.md",
   ]},
   {"Reference" = [
     "reference/index.md",
