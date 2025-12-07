@@ -45,9 +45,9 @@ Copyright &copy; 2025 The authors
 # Read more: https://zensical.org/docs/setup/navigation/
 nav = [
   {"SPARCK" = [
+    "start/applications/applications.md",
     "start/features.md",
     "start/showcases.md",
-    "start/applications/applications.md",
     {"Setup" = [
       "start/setup/prerequisites.md",
       "start/setup/installation.md",

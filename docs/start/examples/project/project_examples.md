@@ -70,7 +70,7 @@ Using Six calibrated render pipelines to six different projectors by splitting a
 <div class="card" markdown>
 ### PRO_03_SPatialAR
 ![](images/PRO_03_SPatialAR.png)
-A Barebones Spatial Augmented Reality Setup. Three calibrated render pipelines play on three different projectors by splitting a [Window] into six [Viewport]. Each render pipeline uses a calibrated [Beamer] node. No [SpatialShadery] nodes are used in this setup to keep the patch simple. The content projected on the head [Canvas] is recorded in a primary render pass by a [SceneCapture] and then reprojected on the head from the same point with a [TextureProjectury] node. A similar setup is used for the background surface. The animations are played back a [QueScript] and multiple transformation trees and with a [TfmNodeLookAt] node it is made sure that the [SceneCamera] alway point at the correct place.
+A Barebones Spatial Augmented Reality Setup. Three calibrated render pipelines play on three different projectors by splitting a [Window] into three [Viewport]. Each render pipeline uses a calibrated [Beamer] node. No [SpatialShadery] nodes are used in this setup to keep the patch simple. The content projected on the head [Canvas] is recorded in a primary render pass by a [SceneCapture] and then reprojected on the head from the same point with a [TextureProjectury] node. A similar setup is used for the background surface. The animations are played back a [QueScript] and multiple transformation trees and with a [TfmNodeLookAt] node it is made sure that the [SceneCamera] alway point at the correct place.
 </div>
 
 </div>

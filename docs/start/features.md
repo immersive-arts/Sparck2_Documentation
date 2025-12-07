@@ -177,21 +177,13 @@ Or use the more sophisticated BoxMap projection to map seamlessly complete 360°
     
     Especially useful where the user can just walk at a spatial augmented reality installation and doesn't need to wear or hold anything to get the experience.
 
-=== "DIY Turntable"
-
-    ![Arduino Uno](../assets/images/features/ArduinoUno.jpg)
-
-    Build your own interactive Turntable based on an [open sourced design](https://github.com/tecartlab/tablez/tree/master/Turntable_MK01) of ours and link it to SPARCK. 
-    
-    This easy and cheap tracking solution is combined with the Kinect HeadRoom a poor mans path to the amazing world of spatial augmented reality.
-
 
 ---
 
 ## Scripting
 
 !!! code "QueScript Integration"
-    With [QueScript](https://github.com/maybites/Lib_QueScript/wiki/QS-Introduction) SPARCKS has its own nonlinear animation scripting language. With a few commands you can create many parallel running scripts to control any aspect of SPARCK or beyond.
+    With [QueScript](../reference/quescript/QS1-Introduction.md) SPARCKS has its own nonlinear animation scripting language. With a few commands you can create many parallel running scripts to control any aspect of SPARCK or beyond.
 
 ```xml
 <script>
@@ -241,31 +233,8 @@ Or use the more sophisticated BoxMap projection to map seamlessly complete 360°
 -   ![Config 5](../assets/images/features/Capture9.png)
 
 </div>
-
----
-
-## LED
-
-<div class="grid" markdown>
-
-<div markdown>
-
-!!! info PixelPusher Integration
-
-    SPARCK can talk directly to [PixelPusher](http://www.heroicrobotics.com/products/pixelpusher), a highly versatile LED controller, and helps you realize fully 3D aware LED installations.
-
-    Combine it with projections and create highly integrated shows.
-
-</div>
-
-<div markdown>
-![PixelPusher](../assets/images/features/PixelPusher-640x600.png)
-</div>
-
-</div>
-
----
-
+ ---
+ 
 ## Integrates with other Apps
 
 !!! info "External Rendering"

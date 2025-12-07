@@ -26,7 +26,7 @@ The Core Toolbar contains the backbone of the SPARCK System. Its UI provides the
     * shift: <shift> - mouse drag
     * zoom: <ctr> - mouse drag
 
-## CORE - Ecosystem
+## CORE - Patcher Setup
 
 When putting the SPARCK CORE into a patcher via the context menu it would look like this.
 
