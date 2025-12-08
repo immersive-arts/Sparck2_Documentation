@@ -34,7 +34,7 @@ In white a highly precise simplified 3D model of the Immersive Arts Space. In bl
 
 Four frames are stitched together, corresponding to the 3D view from each projector position after calibration. To distinguish the projectors, four different colors are used to identify them (see **Beamer** node with *indentify* toggled).
 
-## Nodes basic configurations
+## Basic Node Configuration
 The following text explains and shows how to correctly setup all the different nodes for a Spatial Augmented Reality setup.
 
 ### Output Node

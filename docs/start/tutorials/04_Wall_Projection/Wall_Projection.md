@@ -15,9 +15,11 @@ The image below shows the overall Max subpatcher **p Workspace**, which contains
 *CornerPin desktop preview*
 
 TODO: Add download button, the files are here:
-[Wall_Projection.zip](project_files/Wall_Projection.zip)
+[Wall_Projection.zip](https://github.com/immersive-arts/Sparck2/releases/download/1.0.0/Wall_Projection.zip)
 
 ## Basic Node Configuration
+The following text explains and shows how to correctly setup all the different nodes for a wall projection setup.
+
 ### Window Node
 This node outputs the rendered result of Sparck to an output device — in this case, one projector.
 
