@@ -38,6 +38,8 @@ Four frames are stitched together, corresponding to the 3D view from each projec
 The following text explains and shows how to correctly setup all the different nodes for a Spatial Augmented Reality setup.
 
 ### Output Node
+TODO: Change the name to windows instead of Output, also relative images
+
 This node is used to output the rendered result of Sparck to some output devices, in this case the 4 projectors, basically it handles how the content is distributed for each outputs.
 
 ![Output node](images/image-1.png)<br>
@@ -45,7 +47,7 @@ This node is used to output the rendered result of Sparck to some output devices
 
 **position**: switch between the **Output** or **Desktop**. Where **Output** display the visual content on the configured projectors and **Desktop** create a window that preview how the visual content is distributed.
 
-**columns and row**: slices the output into designated frames. In this case we set the columns to 4 and the rows to 1. As shown the the picture above about the Preview of Sparck
+**columns and row**: slices the output into designated frames. In this case we set the columns to 4 and the rows to 1. As shown in the picture above about the Preview of Sparck
 
 **display**: pressing **setting...** opens up the display setup tool to configure the **Output** overall pixel amount used for projection. Select the displays you wish to use for projection. Once selected they become orange. Now, **Store and Close** to close the configuration.
 

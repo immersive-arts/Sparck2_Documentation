@@ -6,6 +6,8 @@ The window node can slice its frame into (so called) viewports, arranged in rows
 
 With the display-setup tool you can easily define the windows output size and postion relative to the desktop display.
 
+TODO: update image
+
 <figure markdown>
 ![Window Node](../../assets/images/nodes/Output.png){ width="300" }
 </figure> 
