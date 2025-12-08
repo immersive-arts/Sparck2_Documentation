@@ -12,7 +12,9 @@ The way to access SPARCK abstractions is through the context menu that pops up w
 
 ## Setup 
 
-The main difference to the approach which VIZZIE takes: SPARCK needs a [CORE](sparck_core.md) abstraction,  placed[^1] in the root patcher.
+The main difference to the approach which VIZZIE takes: SPARCK needs a [CORE](#introduction){ data-preview } abstraction,  placed[^1] in the root patcher.
+
+[CORE]: sparck_core.md
 
 It is possble to 'enhance' an existing patcher with SPARCK, but be aware that once you save the patcher, the file structure (see below) will be created.
 

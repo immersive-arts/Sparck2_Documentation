@@ -2,7 +2,7 @@
 
 ## Anatomy
 
-| [TfmNode] | [Canvas] | [SceneCapture] | [ShaderRaymarcher] |
+| [TfmNode]{ data-preview } | [Canvas]{ data-preview } | [SceneCapture]{ data-preview } | [ShaderRaymarcher]{ data-preview } |
 |----------|--------|---------|--------|
 ![TfmNode](../assets/images/nodes/TfmNode.png){width=200} | ![Canvas](../assets/images/nodes/Canvas.png) {width=200}| ![SceneCapture](../assets/images/nodes/Capture.png){width=200} | ![ShaderRaymarcher](../assets/images/nodes/ShdrReymarcher.png){width=200} |
 
@@ -30,14 +30,14 @@ It enables / disables the node. This affects
 
 ### Properties
 All the properties visible can be edited and changed by the user. All the properties are stored when the project is saved.
-Some nodes have additional windows that can pop up then a button is selected to give specific configuration possibilities(i.e. [Beamer] or [MeshWarp]).
+Some nodes have additional windows that can pop up then a button is selected to give specific configuration possibilities(i.e. [Beamer]{ data-preview }  or [MeshWarp]{ data-preview }).
 Some nodes open the Edit Window automatically if the node needs editing through this form of interaction.
 
 #### Property Paths
 
 Each property can be addressed via its property path. This is usefull when there is need to control the Node through a script, via max messages or from a different process via OSC. The tooltips gives the Path. It is also possible to use the [Introspection](sparck_core.md#core-toolbar) function to query each available node for all it properties, their paths and the current values.
 
-Lets assume you have a [Grid] Node and you want to change its local posX value. The (absolute) property-path the Introspection tool would give is:
+Lets assume you have a [Grid]{ data-preview } Node and you want to change its local posX value. The (absolute) property-path the Introspection tool would give is:
 
 ![Introspection](../assets/images/core/Introspection.png)
 

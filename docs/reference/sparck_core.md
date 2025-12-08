@@ -3,7 +3,9 @@
 In order to make SPARCK work within Max and its patching environment, the SPARCK CORE [abstraction](https://docs.cycling74.com/userguide/abstractions/) needs to be in the root patcher. This is to make sure that all the properties of the nodes used inside the sub patchers are properly stored, which happens when the root patcher is saved.
 
 !!! example "Tutorial"
-    [Getting Started](../start/tutorials/01_Getting_Started/Getting_Started.md)
+    [Getting Started]{ data-preview } 
+
+[Getting Started]: ../start/tutorials/01_Getting_Started/Getting_Started.md
 
 ## CORE - TOOLBAR
 
@@ -37,7 +39,7 @@ When putting the SPARCK CORE into a patcher via the context menu it would look l
 
 ![CORE_component_Toolbar](../assets/images/core/CORE_component_ToolBar.png)
 
-The main component in play here is obviously the Toolbar that also contains the backbone functionality of SPARCK. But there are more max [objects](https://docs.cycling74.com/userguide/objects/) that are essential for SPARCK Core to be working:
+The main component in play here is obviously the Toolbar that also contains the backbone functionality of SPARCK. But there are more max [objects](https://docs.cycling74.com/userguide/objects/){ data-preview }  that are essential for SPARCK Core to be working:
 
 ---
 
