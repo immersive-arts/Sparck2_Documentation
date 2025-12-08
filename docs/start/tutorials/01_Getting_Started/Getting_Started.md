@@ -19,3 +19,4 @@ If everything is correctly installed and configured, the SPARCK App should look 
 Open the **p Workspace** Max node by double-clicking it. Make sure the patch is locked—if it is still in Edit mode, lock it using **Ctrl + Right‑Click**. Inside the Workspace, add all nodes required for your setup.
 
 See the [Tutorials](../index.md) page for examples of SPARCK configurations, such as floor or wall projection setups.
+
