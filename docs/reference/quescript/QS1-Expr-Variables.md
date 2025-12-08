@@ -111,5 +111,5 @@ sets the reference to the [{expr}](QS1-Expressions.md) as its value.
 
 setting a reference to a variable will execute the expression each time the variable is used further along the code and returns the result of its evaluation. In a sense it is a definition of a function call that can be referenced by the variable.
 
-### Note
-You can use the &lt;[debugger](QS1-debugger-cmd.md)&gt; node to see the current content of all the nodes. Important: if you place the &lt;[debugger](QS1-debugger-cmd.md)&gt; inside an animation node like &lt;[anim](QS1-anim-cmd.md)&gt; or &lt;[while](QS1-while-cmd.md)&gt; you will see different domains than if you place it outside of it.
+!!! info
+    You can use the &lt;[debugger](QS1-debugger-cmd.md)&gt; node to see the current content of all the nodes. Important: if you place the &lt;[debugger](QS1-debugger-cmd.md)&gt; inside an animation node like &lt;[anim](QS1-anim-cmd.md)&gt; or &lt;[while](QS1-while-cmd.md)&gt; you will see different domains than if you place it outside of it.

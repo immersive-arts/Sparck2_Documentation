@@ -20,11 +20,11 @@ Any List of Strings, numbers and [{expr}](QS1-Expressions.md)
 * None
 
 ### Explained
-Like all messages, &lt;osc&gt; will create a Max-message that exits at the left outlet of the QueScript Max-object. With the above example it would be a list that looks like this:
+&lt;osc&gt; will create a Max-message that exits at the 'osc' - outlet of the [QueScript](../nodes/QueScript.md) node. With the above example it would be a list that looks like this:
 
-    osc default /address/pattern ramp 0.
-    osc master /animation/pattern executed
+    default /address/pattern ramp 0.
+    master /animation/pattern executed
 
 (if the above animation has just started). 
 
-It is up to the implementing programmer to decide what to do with it. It is intended to send it to a 'route' - object to separate the 'osc' from the other messages and then to pass it to a second 'route' to send via UDP it to different servers/ports, where '/address/pattern' is interpreted as the osc address-pattern.
+It is up to the implementing programmer to decide what to do with it. It is intended to send it to a 'route' - object to separate by the 'sendto'-values and then send via UDP it to different servers/ports, where '/address/pattern' is interpreted as the osc address-pattern.

@@ -85,9 +85,9 @@
 </div>
 
 <div class="card" markdown>
-### PointCloud
-![](images/PointCloud.png)
-[PointCloud] Node
+### ShaderPointCloud
+![](images/ShaderPointCloud.png)
+[ShaderPointCloud] Node
 </div>
 
 <div class="card" markdown>
@@ -273,7 +273,7 @@ LookAtCamera Node
 [SpoutSender]: ../../../reference/nodes/SpoutSender.md
 [SyphonSender]: ../../../reference/nodes/SyphonSender.md
 [SkyBox]: ../../../reference/nodes/SkyBox.md
-[PointCloud]: ../../../reference/nodes/PointCloud.md
+[ShaderPointCloud]: ../../../reference/nodes/ShaderPointCloud.md
 [Light]: ../../../reference/nodes/Light.md
 [Canvas]: ../../../reference/nodes/Canvas.md
 [TfmNodeMerge]: ../../../reference/nodes/TfmNodeMerge.md
@@ -301,7 +301,7 @@ LookAtCamera Node
 [SceneCamera]: ../../../reference/nodes/SceneCamera.md
 [SceneCapture]: ../../../reference/nodes/SceneCapture.md
 [BoxMapCamera]: ../../../reference/nodes/BoxMapCamera.md
-[ShaderRaymarcher]: ../../../reference/nodes/ShaderRaymarcher.md
+[ShaderRayMarcher]: ../../../reference/nodes/ShaderRayMarcher.md
 [Beamer]: ../../../reference/nodes/Beamer.md
 [CornerPin]: ../../../../reference/nodes/CornerPin.md
 [MeshWarp]: ../../../reference/nodes/MeshWarp.md

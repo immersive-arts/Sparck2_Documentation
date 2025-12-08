@@ -31,4 +31,3 @@ It is also possible to use variables as indices:
 
 where the LENGTH()-function returns the number of elements inside an Array.
 
-### Note

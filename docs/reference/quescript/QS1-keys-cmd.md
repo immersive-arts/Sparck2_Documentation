@@ -45,4 +45,5 @@ then the equivalent values for timing="abs" would look like this:
 if you put an absolute time where quescript expects a relative time, you will get errormessages.
 
 ### Explained
--
+
+&lt;keys&gt; is the way to get timing control on the 'in-between' track values. 

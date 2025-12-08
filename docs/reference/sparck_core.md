@@ -1,6 +1,6 @@
 # SPARCK CORE
 
-In order to make SPARCK work within Max and its patching environment, the SPARCK CORE abstraction needs to be in the root patcher. This is to make sure that all the properties of the nodes used inside the sub patchers are properly stored, which happens when the root patcher is saved.
+In order to make SPARCK work within Max and its patching environment, the SPARCK CORE [abstraction](https://docs.cycling74.com/userguide/abstractions/) needs to be in the root patcher. This is to make sure that all the properties of the nodes used inside the sub patchers are properly stored, which happens when the root patcher is saved.
 
 TODO: link to the tutorial that steps through setting up a sparck patch for the first time.
 
@@ -36,13 +36,13 @@ When putting the SPARCK CORE into a patcher via the context menu it would look l
 
 ![CORE_component_Toolbar](../assets/images/core/CORE_component_ToolBar.png)
 
-The main component in play here is obvisouly the Toolbar that also contains the backbone functionality of SPARCK. But there are more max objects that are essential for SPARCK Core to be working:
+The main component in play here is obviously the Toolbar that also contains the backbone functionality of SPARCK. But there are more max [objects](https://docs.cycling74.com/userguide/objects/) that are essential for SPARCK Core to be working:
 
 ---
 
 ![CORE_component_Toolbar](../assets/images/core/CORE_component_Workspace.png)
 
-The **Workspace** patcher is a subpatcher there for convenience.
+The **Workspace** patcher is a [subpatcher](https://docs.cycling74.com/userguide/subpatchers/) there for convenience.
 
 ![CORE_Toolbar_Patcher](../assets/images/core/CORE_Toolbar_Patcher.png)
 
@@ -52,22 +52,22 @@ Clicking this Icon in the toolbar opens the **Workspace** patcher.
 
 ![CORE_component_Toolbar](../assets/images/core/CORE_component_ossia.png)
 
-The object [sparck.device sparck] is a fork of libosssia and used for managing all the properties of the SPARCK nodes. This object is essential for the function of the SPARCK ecosystem and should not be removed or disconnected from the Toolbar in anyway. 
+The object [sparck.device sparck] is a [fork of libosssia](https://github.com/immersive-arts/Sparck2_libossia) and used for managing all the properties of the SPARCK nodes. This object is essential for the function of the SPARCK ecosystem and should not be removed or disconnected from the Toolbar in anyway. 
 
 ---
 
 ![CORE_component_Toolbar](../assets/images/core/CORE_component_pattrstorage.png)
 
-The object [pattrstorage] uses the Max buildin pattrstore system to store any max objexts within this patcher hierarchy that have a script name and an [autopattr] object with the respective patcher.  
+The object [[pattrstorage](https://docs.cycling74.com/reference/pattrstorage/)] uses the Max buildin pattrstore system to store any max objexts within this patcher hierarchy that have a [script](https://docs.cycling74.com/userguide/scripting_overview/) name and an [[autopattr](https://docs.cycling74.com/reference/autopattr/)] object with the respective patcher.  
 
 ---
 
 ![CORE_component_Toolbar](../assets/images/core/CORE_component_savebang.png)
 
-Together with the [savebang] objects, this setup makes sure that the pattr and ossia managed properties are automatically stored with the patcher.
+Together with the [[savebang](https://docs.cycling74.com/reference/savebang/)] and [[closebang](https://docs.cycling74.com/reference/closebang/)] objects, this setup makes sure that the pattr and ossia managed properties are automatically stored with the patcher.
 
 ---
 
 ![CORE_component_Toolbar](../assets/images/core/CORE_component_loadbang.png)
 
-The [loadbang] executes the SPARCK CORE once the complete patch is loaded. This is another essential object that should not be removed.
+The [[loadbang](https://docs.cycling74.com/reference/loadbang/)] executes the SPARCK CORE once the complete patch is loaded. This is another essential object that should not be removed.

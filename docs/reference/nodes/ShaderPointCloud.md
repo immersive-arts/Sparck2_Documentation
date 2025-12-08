@@ -1,15 +1,15 @@
-# PointCloud
+# ShaderPointCloud
 
-Renders Pointclouds in the format of an RGB-D image, where the image is split into the rgb information and the depth encoded information. Works best with [Space-Stream], a python based app that takes live feed from the most common 3d cameras and transfers it into the rgb-d format. [Space-Stream] can stream the video directly via [SpoutReceiver] or [SyphonReceiver] to a SPARCK project. 
+Renders ShaderPointClouds in the format of an RGB-D image, where the image is split into the rgb information and the depth encoded information. Works best with [Space-Stream], a python based app that takes live feed from the most common 3d cameras and transfers it into the rgb-d format. [Space-Stream] can stream the video directly via [SpoutReceiver] or [SyphonReceiver] to a SPARCK project. 
 
-![RGB-D](../../assets/images/nodes/PointCloud_frame-uniform-hue.png)
+![RGB-D](../../assets/images/nodes/ShaderPointCloud_frame-uniform-hue.png)
 
 [Space-Stream]: https://github.com/cansik/space-stream
 [SpoutReceiver]: SpoutReceiver.md
 [SyphonReceiver]: SyphonReceiver.md
 
 <figure markdown>
-![Canvas Node](../../assets/images/nodes/PointCloud.png){ width="300" }
+![Canvas Node](../../assets/images/nodes/ShaderPointCloud.png){ width="300" }
 </figure> 
 
 
@@ -61,7 +61,7 @@ The following properties can be configured for this node:
 
 !!! warning "Parameter Matchings"
 
-    To have the best results receiving pointclouds encoded in the rgb-d format, you have to make sure the intrisic and depth properties are a match:
+    To have the best results receiving ShaderPointClouds encoded in the rgb-d format, you have to make sure the intrisic and depth properties are a match:
 
     * Resolution
     * Principle Points
@@ -84,7 +84,7 @@ The following properties can be configured for this node:
 
     ---
 
-    Get started with PointCloud in minutes
+    Get started with ShaderPointCloud in minutes
     
     * [:octicons-arrow-right-24: Project Examples](../../start/examples/project/project_examples.md)
     * [:octicons-arrow-right-24: Node Examples](../../start/examples/nodes/node_examples.md)

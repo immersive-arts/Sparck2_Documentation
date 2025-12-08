@@ -19,10 +19,8 @@ Any List of Strings, numbers and [{expr}](QS1-Expressions.md)
 * None
 
 ### Explained
-Like all messages, &lt;out&gt; will create a Max-message that exits at the left outlet of the QueScript Max-object. With the above example it would be a list that looks like this:
+&lt;out&gt; will create a Max-message that exits at the left outlet of the 'out' - outlet of the [QueScript](../nodes/QueScript.md) node. With the above example it would be a list that looks like this:
 
     out command ramp 0.
 
 (if the above animation has just started). 
-
-It is up to the implementing porgrammer to decide what to do with it. It is intended to send it to a 'route' - object to separate the 'out' from the other messages and then to do what ever the programmers intentions are.

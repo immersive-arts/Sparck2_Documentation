@@ -23,8 +23,8 @@ The import command will import the specified que script, which it expects to be 
 
 The import command has to be the first command inside the script.
 
-Caveats:
+!!! warning 
 
-If the imported script also imports scripts, it will try to do so, but it is NOT checking if a circular import will happen. If this is the case, the script will fall into an infinite loop and will not recover.
+    If the imported script also imports scripts, it will try to do so, but it is NOT checking if a circular import will happen. If this is the case, the script will fall into an infinite loop and will not recover.
 
-It also will NOT check if ques ares imported which might have a naming collision with already loaded ques.
+    It also will NOT check if ques ares imported which might have a naming collision with already loaded ques.
