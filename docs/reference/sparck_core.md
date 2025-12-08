@@ -2,7 +2,8 @@
 
 In order to make SPARCK work within Max and its patching environment, the SPARCK CORE [abstraction](https://docs.cycling74.com/userguide/abstractions/) needs to be in the root patcher. This is to make sure that all the properties of the nodes used inside the sub patchers are properly stored, which happens when the root patcher is saved.
 
-TODO: link to the tutorial that steps through setting up a sparck patch for the first time.
+!!! example "Tutorial"
+    [Getting Started](../start/tutorials/01_Getting_Started/Getting_Started.md)
 
 ## CORE - TOOLBAR
 
@@ -16,12 +17,12 @@ The Core Toolbar contains the backbone of the SPARCK System. Its UI provides the
 | ![CORE_Toolbar](../assets/images/core/CORE_Toolbar_FPS.png)| The FPS Widget shows the current running fps and the desired fps. Clicking on the 'fps'- button opens a live graph of the stability of the current frame rate. |
 | ![CORE_Toolbar](../assets/images/core/CORE_Toolbar_ManualRefresh.png){width=100} | It is possible to set the refresh of some Nodes to manual - this can reduces the performance load in some circumstances where there is only the need for an initial render pass - like a texture that is loaded from a file and only needs to be once send through the pipe line. The manual button will execute all those nodes afresh.|
 | ![CORE_Toolbar](../assets/images/core/CORE_Toolbar_Patcher.png){width=100} | As mentioned above, is a conveniece button to open the subpatcher 'Workspace' |
-| ![CORE_Toolbar](../assets/images/core/CORE_Toolbar_StageView.png){width=100} | Opens and enables the StageView window. |
-| ![CORE_Toolbar](../assets/images/core/CORE_Toolbar_StageView_RenderGroup.png)| Used to select which render group to render within the StageView. |
+| ![CORE_Toolbar](../assets/images/core/CORE_Toolbar_StageView.png){width=100} | Opens and enables the 3DViewer. |
+| ![CORE_Toolbar](../assets/images/core/CORE_Toolbar_StageView_RenderGroup.png)| Used to select which render group to render within the 3DViewer. |
 | ![CORE_Toolbar](../assets/images/core/CORE_Toolbar_Preferences.png){width=100} | Opens the preferences |
 | ![CORE_Toolbar](../assets/images/core/CORE_Toolbar_Reflection.png){width=100} | Allows you to see all the properties of all the SPARCK nodes and their values |
 
-!!! info "StageView Mouse Navigation:"
+!!! info "3DViewer Mouse Navigation:"
     * rotation: <cmd> - mouse drag
     * shift: <shift> - mouse drag
     * zoom: <ctr> - mouse drag

@@ -75,6 +75,28 @@ A Barebones Spatial Augmented Reality Setup. Three calibrated render pipelines p
 
 </div>
 
+
+
+[DrawMask]: ../../reference/nodes/DrawMask.md
+[Hook]: ../../reference/nodes/Hook.md
+[OptiTrack]: ../../reference/nodes/OptiTrack.md
+[Texture]: ../../reference/nodes/Texture.md
+[SpoutSender]: ../../reference/nodes/SpoutSender.md
+[SyphonSender]: ../../reference/nodes/SyphonSender.md
+[SkyBox]: ../../reference/nodes/SkyBox.md
+[ShaderPointCloud]: ../../reference/nodes/ShaderPointCloud.md
+[Light]: ../../reference/nodes/Light.md
+[Canvas]: ../../reference/nodes/Canvas.md
+[TfmMerge]: ../../reference/nodes/TfmMerge.md
+[TfmMirror]: ../../reference/nodes/TfmMirror.md
+[ShaderBlur]: ../../reference/nodes/ShaderBlur.md
+[ShaderBrCoSa]: ../../reference/nodes/ShaderBrCoSa.md
+[ShaderColormap]: ../../reference/nodes/ShaderColormap.md
+[ShaderSelection]: ../../reference/nodes/ShaderSelection.md
+[ShaderTexStitch]: ../../reference/nodes/ShaderTexStitch.md
+[ShaderTexZoom]: ../../reference/nodes/ShaderTexZoom.md
+[ShaderTexZoom]: ../../reference/nodes/ShaderTexZoom.md
+[CalibrationCross]: ../../reference/nodes/CalibrationCross.md
 [TfmLookAt]: ../../reference/nodes/TfmLookAt.md
 [TextureProjectury]: ../../reference/nodes/TextureProjectory.md
 [TfmNode]: ../../reference/nodes/TfmNode.md

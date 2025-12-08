@@ -66,10 +66,9 @@ nav = [
     "start/examples/nodes/node_examples.md",
   ]},
   {"Reference" = [
-    "reference/index.md",
-    "reference/philosophy.md",
+    "reference/introduction.md",
     "reference/sparck_core.md",
-    "reference/tooltips.md",
+    "reference/sparck_node.md",
     {"Nodes" = [
       {"1_INPUT" = [
         "reference/nodes/CubeMap.md",
