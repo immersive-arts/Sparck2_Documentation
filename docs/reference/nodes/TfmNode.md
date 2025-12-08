@@ -53,10 +53,10 @@ The following properties can be configured for this node:
 -   :material-file-document:{ .lg .middle } __Complementing__ **TfmNode**
 
     ---
-    * [:octicons-arrow-right-24: TfmNodeMerge](TfmNodeMerge.md) 
+    * [:octicons-arrow-right-24: TfmMerge](TfmMerge.md) 
     * [:octicons-arrow-right-24: TfmNodeInfo](TfmNodeInfo.md) 
-    * [:octicons-arrow-right-24: TfmNodeLookAt](TfmNodeLookAt.md) 
-    * [:octicons-arrow-right-24: TfmNodeMirror](TfmNodeMirror.md) 
+    * [:octicons-arrow-right-24: TfmLookAt](TfmLookAt.md) 
+    * [:octicons-arrow-right-24: TfmMirror](TfmMirror.md) 
 
   
 -   :material-video-box:{ .lg .middle } __Tutorials__

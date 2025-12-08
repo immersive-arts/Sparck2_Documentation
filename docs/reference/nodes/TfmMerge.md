@@ -1,11 +1,9 @@
-# TfmNodeMirror
+# TfmMerge
 
-The Mirror transformation takes two transformation nodes: One where to set the mirror, and a second one to be mirrored.
-
-the mirrored transformation can also be a Beamer or a Camera -  in this case the node becomes a mirrored Beamer or Camera node and can be used by a Capture node.
+The node merges different transformational parts of two differen transformation nodes into one.
 
 <figure markdown>
-![TfmNodeMirror Node](../../assets/images/nodes/TfmMirror.png){ width="300" }
+![TfmMerge Node](../../assets/images/nodes/TfmMerge.png){ width="300" }
 </figure> 
 
 
@@ -17,11 +15,12 @@ The following properties can be configured for this node:
 
     | Property | Type | Description |
     |----------|------|-------------|
-    | `mirror` | - | mirror node |
-    | `mirrored` | - | mirrored node - can also be a Beamer or Camera node |
-    | `mode` | - | the kind of mirror transformation |
-    | `mirrorplane` | - | set which two axis become the mirror plane |
-    | `transformation pass` | - | select transfromation pass |
+    | `parentA` | - | parent A transformation node |
+    | `parentB` | - | parent B transformation node |
+    | `pos` | - | select the translational part from one of the parents |
+    | `rot` | - | select the rotation from one of the parents |
+    | `scale` | - | select the scale part from one of the parents |
+    | `transformation pass` | - | transformation pass |
 
 === "Inlets"
 
@@ -46,18 +45,18 @@ The following properties can be configured for this node:
 
     ---
 
-    Get started with TfmNodeMirror in minutes
+    Get started with TfmMerge in minutes
     
     * [:octicons-arrow-right-24: Project Examples](../../start/examples/project/project_examples.md)
     * [:octicons-arrow-right-24: Node Examples](../../start/examples/nodes/node_examples.md)
 
--   :material-file-document:{ .lg .middle } __Complementing__ **TfmNodeMirror**
+-   :material-file-document:{ .lg .middle } __Complementing__ **TfmMerge**
 
     ---
     * [:octicons-arrow-right-24: TfmNode](TfmNode.md) 
-    * [:octicons-arrow-right-24: TfmNodeLookAt](TfmNodeLookAt.md) 
-    * [:octicons-arrow-right-24: Beamer](Beamer.md) 
-    * [:octicons-arrow-right-24: SceneCamera](SceneCamera.md) 
+    * [:octicons-arrow-right-24: TfmNodeInfo](TfmNodeInfo.md) 
+    * [:octicons-arrow-right-24: TfmLookAt](TfmLookAt.md) 
+    * [:octicons-arrow-right-24: TfmMirror](TfmMirror.md) 
 
   
 -   :material-video-box:{ .lg .middle } __Tutorials__
@@ -85,4 +84,4 @@ The following properties can be configured for this node:
 
 ---
 
-*Last updated: 2025-12-01 | [Edit this page on GitHub](https://github.com/immersive-arts/Sparck2/edit/main/docs/nodes/TfmNodeMirror.md)*
+*Last updated: 2025-12-01 | [Edit this page on GitHub](https://github.com/immersive-arts/Sparck2/edit/main/docs/nodes/TfmMerge.md)*

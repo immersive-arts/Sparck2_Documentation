@@ -62,7 +62,7 @@ The following properties can be configured for this node:
     ---
     * [:octicons-arrow-right-24: SceneCamera](SceneCamera.md) 
     * [:octicons-arrow-right-24: Beamer](Beamer.md) 
-    * [:octicons-arrow-right-24: TfmNodeMirror](TfmNodeMirror.md) 
+    * [:octicons-arrow-right-24: TfmMirror](TfmMirror.md) 
 
   
 -   :material-video-box:{ .lg .middle } __Tutorials__

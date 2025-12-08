@@ -71,7 +71,7 @@ The following properties can be configured for this node:
     * [:octicons-arrow-right-24: SceneCapture](SceneCapture.md) 
     * [:octicons-arrow-right-24: BoxMapCamera](BoxMapCamera.md) 
     * [:octicons-arrow-right-24: TfmNode](TfmNode.md) 
-    * [:octicons-arrow-right-24: TfmNodeLookAt](TfmNodeLookAt.md) 
+    * [:octicons-arrow-right-24: TfmLookAt](TfmLookAt.md) 
 
   
 -   :material-video-box:{ .lg .middle } __Tutorials__

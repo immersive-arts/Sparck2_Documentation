@@ -61,8 +61,8 @@ The following properties can be configured for this node:
 
     ---
     * [:octicons-arrow-right-24: TfmNode](TfmNode.md) 
-    * [:octicons-arrow-right-24: TfmNodeMirror](TfmNodeMirror.md) 
-    * [:octicons-arrow-right-24: TfmNodeLookAt](TfmNodeLookAt.md) 
+    * [:octicons-arrow-right-24: TfmMirror](TfmMirror.md) 
+    * [:octicons-arrow-right-24: TfmLookAt](TfmLookAt.md) 
     * [:octicons-arrow-right-24: OscMessage](OscMessage.md) 
 
   

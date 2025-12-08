@@ -183,19 +183,19 @@ LookAtCamera Node
 <div class="card" markdown>
 ### TfmLookAt
 ![](images/TfmLookAt.png)
-[TfmNodeLookAt] Node
+[TfmLookAt] Node
 </div>
 
 <div class="card" markdown>
 ### TfmMerge
 ![](images/TfmMerge.png)
-[TfmNodeMerge] Node
+[TfmMerge] Node
 </div>
 
 <div class="card" markdown>
 ### TfmMirror
 ![](images/TfmMirror.png)
-[TfmNodeMirror] Node
+[TfmMirror] Node
 </div>
 
 </div>
@@ -276,8 +276,8 @@ LookAtCamera Node
 [ShaderPointCloud]: ../../../reference/nodes/ShaderPointCloud.md
 [Light]: ../../../reference/nodes/Light.md
 [Canvas]: ../../../reference/nodes/Canvas.md
-[TfmNodeMerge]: ../../../reference/nodes/TfmNodeMerge.md
-[TfmNodeMirror]: ../../../reference/nodes/TfmNodeMirror.md
+[TfmMerge]: ../../../reference/nodes/TfmMerge.md
+[TfmMirror]: ../../../reference/nodes/TfmMirror.md
 [ShaderBlur]: ../../../reference/nodes/ShaderBlur.md
 [ShaderBrCoSa]: ../../../reference/nodes/ShaderBrCoSa.md
 [ShaderColormap]: ../../../reference/nodes/ShaderColormap.md
@@ -286,7 +286,7 @@ LookAtCamera Node
 [ShaderTexZoom]: ../../../reference/nodes/ShaderTexZoom.md
 [ShaderTexZoom]: ../../../reference/nodes/ShaderTexZoom.md
 [CalibrationCross]: ../../../reference/nodes/CalibrationCross.md
-[TfmNodeLookAt]: ../../../reference/nodes/TfmNodeLookAt.md
+[TfmLookAt]: ../../../reference/nodes/TfmLookAt.md
 [TextureProjectury]: ../../../reference/nodes/TextureProjectory.md
 [TfmNode]: ../../../reference/nodes/TfmNode.md
 [BlendSoftedge]: ../../../reference/nodes/BlendSoftedge.md
@@ -301,7 +301,7 @@ LookAtCamera Node
 [SceneCamera]: ../../../reference/nodes/SceneCamera.md
 [SceneCapture]: ../../../reference/nodes/SceneCapture.md
 [BoxMapCamera]: ../../../reference/nodes/BoxMapCamera.md
-[ShaderRayMarcher]: ../../../reference/nodes/ShaderRayMarcher.md
+[ShaderRaymarcher]: ../../../reference/nodes/ShaderRaymarcher.md
 [Beamer]: ../../../reference/nodes/Beamer.md
 [CornerPin]: ../../../../reference/nodes/CornerPin.md
 [MeshWarp]: ../../../reference/nodes/MeshWarp.md

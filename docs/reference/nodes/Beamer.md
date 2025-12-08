@@ -34,15 +34,15 @@ The following properties can be configured for this node:
     |------------|---------------|----------------------------------------|
     | properties | messages      | direct access to internal properties   |
     | bg texture    | texture       | background texture for camera calibration              |
-    | properties | messages      | message 'createToXY x1 y1 z1 x2 y2 z2 ..' creates a new model with the provided calibration vertices. message 'addToXY x1 y1 z1 x2 y2 z2  ..' adds calibration vertices to the model|
+    |  custom commands | messages      | custom commands. message 'createToXY' creates a new model with calibration vertices relative to the XY-plane: 'createToX  x1  y1  z1  x2  y2  z2  x3  y3  z3  ...'. | message 'addToXY' adds calibration vertices relative to the XY-plane: 'addToX  x1  y1  z1  x2  y2  z2  x3  y3  z3  ...'|
 
 === "Outlets"
 
     | Outlet     | Type          | Description                            |
     |------------|---------------|----------------------------------------|
-    | left texture | texture       | captured texture (or left texture if in stereo mode)                 |
-    | right texture | texture       | right captured texture if in stereo mode           |
-    | properties | messages      | dump of transformation informations. |
+    | left texture | texture       | captured texture (left if stereo)    |
+    | right texture | texture       | captured texture (right if stereo)  |
+    | properties | messages      | dump (transform, frustum)              |
 
 
 ---
@@ -110,8 +110,8 @@ The following properties can be configured for this node:
 
     ---
     * [:octicons-arrow-right-24: SceneCapture](SceneCapture.md) 
-    * [:octicons-arrow-right-24: TfmNodeMirror](TfmNodeMirror.md)
-    * [:octicons-arrow-right-24: TfmNodeLookAt](TfmNodeLookAt.md)
+    * [:octicons-arrow-right-24: TfmMirror](TfmMirror.md)
+    * [:octicons-arrow-right-24: TfmLookAt](TfmLookAt.md)
   
 -   :material-video-box:{ .lg .middle } __Tutorials__
 

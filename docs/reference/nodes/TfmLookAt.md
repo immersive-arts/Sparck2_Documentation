@@ -1,9 +1,9 @@
-# TfmNodeLookAt
+# TfmLookAt
 
 The LookAt transformation takes two transformation nodes: One where to look-from, and one where to look-at.
 
 <figure markdown>
-![TfmNodeLookAt Node](../../assets/images/nodes/TfmLookAt.png){ width="300" }
+![TfmLookAt Node](../../assets/images/nodes/TfmLookAt.png){ width="300" }
 </figure> 
 
 
@@ -44,18 +44,18 @@ The following properties can be configured for this node:
 
     ---
 
-    Get started with TfmNodeLookAt in minutes
+    Get started with TfmLookAt in minutes
     
     * [:octicons-arrow-right-24: Project Examples](../../start/examples/project/project_examples.md)
     * [:octicons-arrow-right-24: Node Examples](../../start/examples/nodes/node_examples.md)
 
--   :material-file-document:{ .lg .middle } __Complementing__ **TfmNodeLookAt**
+-   :material-file-document:{ .lg .middle } __Complementing__ **TfmLookAt**
 
     ---
     * [:octicons-arrow-right-24: TfmNode](TfmNode.md) 
-    * [:octicons-arrow-right-24: TfmNodeMerge](TfmNodeMerge.md) 
+    * [:octicons-arrow-right-24: TfmMerge](TfmMerge.md) 
     * [:octicons-arrow-right-24: TfmNodeInfo](TfmNodeInfo.md) 
-    * [:octicons-arrow-right-24: TfmNodeMirror](TfmNodeMirror.md) 
+    * [:octicons-arrow-right-24: TfmMirror](TfmMirror.md) 
 
   
 -   :material-video-box:{ .lg .middle } __Tutorials__
@@ -83,4 +83,4 @@ The following properties can be configured for this node:
 
 ---
 
-*Last updated: 2025-12-01 | [Edit this page on GitHub](https://github.com/immersive-arts/Sparck2/edit/main/docs/nodes/TfmNodeLookAt.md)*
+*Last updated: 2025-12-01 | [Edit this page on GitHub](https://github.com/immersive-arts/Sparck2/edit/main/docs/nodes/TfmLookAt.md)*
