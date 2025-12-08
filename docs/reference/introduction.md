@@ -12,7 +12,7 @@ The way to access SPARCK abstractions is through the context menu that pops up w
 
 ## Setup 
 
-The main difference to the approach which VIZZIE takes: SPARCK needs a [CORE](#introduction){ data-preview } abstraction,  placed[^1] in the root patcher.
+The main difference to the approach which VIZZIE takes: SPARCK needs a [CORE]{ data-preview } abstraction,  placed[^1] in the root patcher.
 
 [CORE]: sparck_core.md
 

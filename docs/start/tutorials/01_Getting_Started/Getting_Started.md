@@ -5,8 +5,8 @@ Before starting, make sure you have Max and the SPARCK packages installed. For m
 
 1. Create a new Max patch. File > New Patcher.
 
-2. In the patcher, right-click and choose **Paste From > Sparck2 > 0_APP > APP.maxpat**.
-![Insert Sparck app](images/1_SparckApp.png)
+2. In the patcher, right-click and choose **Paste From > Sparck2 > 0_CORE > CORE.maxpat**.
+![Insert Sparck app](../../../assets/images/core/ContextMenuSelectNodes.png)
 1. Save the patch (e.g., *Calibration.maxpat*) using **Save As...** into a dedicated folder. Max will prompt you to save a `preferences.json` file—save that as well.
 2. Close the patch.
 3. Open it again, this will create additional folders and subfolders—such as `_settings`, `_assets`, `_tmp`, and `_export`—in the same location as your `.maxpat` file.
