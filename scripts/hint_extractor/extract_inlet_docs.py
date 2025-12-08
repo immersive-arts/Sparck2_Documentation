@@ -2,9 +2,37 @@ import os
 import json
 import re
 import fnmatch
+import subprocess
+from pathlib import Path
+
+# --- CONFIGURATION ---
+# Set these paths as needed
+root_folder = "/Volumes/Ddrive/00_core/MaxMSP_Packages/Sparck2/patchers/nodes/ossia"
+reference_folder = "/Volumes/Ddrive/04_projects/I.A[projects]/1508_SPARCK/07_MkDocs/docs/reference/nodes"
+repo_root = "/Volumes/Ddrive/04_projects/I.A[projects]/1508_SPARCK/07_MkDocs"
+output_file = "all_nodes.md"
+
+def check_git_clean(repo_path):
+    try:
+        result = subprocess.run(
+            ["git", "status", "--porcelain"],
+            cwd=repo_path,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+        )
+        if result.returncode != 0:
+            print("Error: Could not check git status:", result.stderr)
+            return False
+        if result.stdout.strip():
+            print("Repository has uncommitted changes. Please commit or stash them before running this script.")
+            return False
+        return True
+    except Exception as e:
+        print(f"Error running git: {e}")
+        return False
 
 def get_node_name_from_filename(filename):
-    # Extract the * part from bs.node.*.maxpat
     match = re.match(r'bs\.node\.([^.]+)\.maxpat$', filename)
     return match.group(1) if match else None
 
@@ -49,11 +77,46 @@ def process_file(filepath, filename):
             if info:
                 outlets.append(info)
     inlets.sort(key=lambda x: int(x["sort_key"]) if str(x["sort_key"]).isdigit() else x["sort_key"])
-    outlets.sort(key=lambda x: int(x["sort_key"]) if str(x["sort_key"]).isdigit() else x["sort_key"])
+    outlets.sort(key=lambda x: int(x["sort_key"]).isdigit() if str(x["sort_key"]).isdigit() else x["sort_key"])
     return node_name, inlets, outlets
 
-def main(root_folder, output_file):
+def format_inlets_outlets_md(inlets, outlets):
+    md = []
+    md.append('=== "Inlets"\n')
+    md.append("    | Inlet      | Type          | Description                            |")
+    md.append("    |------------|---------------|----------------------------------------|")
+    for inlet in inlets:
+        md.append(f"    | {inlet['shorthand']} | {inlet['type']} | {inlet['hint']} |")
+    md.append('\n=== "Outlets"\n')
+    md.append("    | Outlet     | Type          | Description                            |")
+    md.append("    |------------|---------------|----------------------------------------|")
+    for outlet in outlets:
+        md.append(f"    | {outlet['shorthand']} | {outlet['type']} | {outlet['hint']} |")
+    md.append("")
+    return "\n".join(md)
+
+def replace_inlets_outlets_in_markdown(md_text, new_inlets_outlets):
+    # Find the "## Reference" section
+    ref_match = re.search(r"(## Reference.*?)(=== \"Inlets\".*?)(?=(===|---|\Z))", md_text, re.DOTALL)
+    if not ref_match:
+        return None  # Could not find the section to replace
+    start = ref_match.start(2)
+    end = ref_match.end(2)
+    # Find where the outlets section ends (either at next ===, --- or end of file)
+    after = md_text[end:]
+    m = re.search(r"(===|---|\Z)", after)
+    if m:
+        end = end + m.start()
+    # Replace the inlets/outlets block
+    new_md = md_text[:start] + new_inlets_outlets + md_text[end:]
+    return new_md
+
+def main():
+    if not check_git_clean(repo_root):
+        return
+
     all_nodes = []
+    log = []
     for dirpath, _, filenames in os.walk(root_folder):
         for filename in filenames:
             if filename.endswith(".p.maxpat"):
@@ -65,26 +128,40 @@ def main(root_folder, output_file):
                     node_name, inlets, outlets = process_file(filepath, filename)
                     all_nodes.append((node_name, inlets, outlets))
                 except Exception as e:
-                    print(f"Error processing {filepath}: {e}")
+                    log.append(f"{node_name}: Failed to extract inlets/outlets: {e}")
 
     all_nodes.sort(key=lambda x: x[0].lower())
 
+    # Write all_nodes.md for reference (optional)
     with open(output_file, "w") as f:
         for node_name, inlets, outlets in all_nodes:
             f.write(f"# {node_name}\n\n")
-            f.write('=== "Inlets"\n\n')
-            f.write("    | Inlet      | Type          | Description                            |\n")
-            f.write("    |------------|---------------|----------------------------------------|\n")
-            for inlet in inlets:
-                f.write(f"    | {inlet['shorthand']} | {inlet['type']} | {inlet['hint']} |\n")
-            f.write('\n=== "Outlets"\n\n')
-            f.write("    | Outlet      | Type          | Description                            |\n")
-            f.write("    |------------|---------------|----------------------------------------|\n")
-            for outlet in outlets:
-                f.write(f"    | {outlet['shorthand']} | {outlet['type']} | {outlet['hint']} |\n")
+            f.write(format_inlets_outlets_md(inlets, outlets))
             f.write("\n\n")
 
+    # Now update the markdown files
+    for node_name, inlets, outlets in all_nodes:
+        md_path = os.path.join(reference_folder, f"{node_name}.md")
+        if not os.path.exists(md_path):
+            log.append(f"{node_name}: Reference file not found: {md_path}")
+            continue
+        try:
+            with open(md_path, "r", encoding="utf-8") as f:
+                md_text = f.read()
+            new_inlets_outlets = format_inlets_outlets_md(inlets, outlets)
+            new_md = replace_inlets_outlets_in_markdown(md_text, new_inlets_outlets)
+            if new_md is None:
+                log.append(f"{node_name}: Could not find inlets/outlets section in {md_path}")
+                continue
+            with open(md_path, "w", encoding="utf-8") as f:
+                f.write(new_md)
+            log.append(f"{node_name}: Successfully updated {md_path}")
+        except Exception as e:
+            log.append(f"{node_name}: Failed to update {md_path}: {e}")
+
+    print("\nUpdate log:")
+    for entry in log:
+        print(entry)
+
 if __name__ == "__main__":
-    root_folder = "/Volumes/Ddrive/00_core/MaxMSP_Packages/Sparck2/patchers/nodes/ossia"
-    output_file = "all_nodes.md"
-    main(root_folder, output_file)
+    main()
