@@ -78,7 +78,10 @@ The SPARCK Nodes tooltip hints should tell you where each node expects its files
 
 Once you reopend your just created patcher, you can start adding Nodes. Ideally you use the provided 'Workspace' subpatcher - but you don't have to. You can do it where ever you heart desires.
 
-To add a node, go again into the context menu and select the one you need. 
+To add a node, go again into the context menu and select the one you need.
+
+!!! note "SPARCK Node"
+    [The Anatomy of a SPARCK Node](sparck_node.md)
 
 ## Connecting Nodes
 
@@ -87,9 +90,9 @@ There are multiple mechanism to connect SPARCK Nodes.
 ### Using Patchcords
 The most obvious one is using [patch-cords](https://docs.cycling74.com/userguide/patch_cords/). 
 
-However, the only meaningfull exchange between Nodes via patch-cords are textures. All other inlets and outlets the Nodes provide are for interacting with the Max - environment.
+However, the only meaningfull exchange between SPARCK Nodes via patch-cords are textures. All other inlets and outlets the Nodes provide are for interacting with the Max - environment.
 
-So whenever you want to send textures from one Node to another, you use patch-cords.
+So whenever you want to send textures from one SPARCK Node to another, you use patch-cords.
 
 For everything else, there are other mechanisms:
 
@@ -138,7 +141,7 @@ The same thing applies to Nodes that need to load files. If they are available a
 
 The render and transform pass settings define how the nodes interact with the SPARCK ecosystem.
 
-Each Frame is result of the execution of multiple passes, either transformation and render passes, that need to run in a special sequence (see below). There are theoretically 30 passes that can happen in each frame. The settings allow some control when in this chain of events the node is affected by the transformation or when it is rendered [^2]. While the default settings make sure that in most use cases you don't have to worry to much about the correct timing, in special circumstances it is necessary to decide which node is rendered or transformed before another. 
+Each Frame is the result of the execution of multiple passes, either transformation and render passes, that need to run in a special sequence (see below). There are theoretically 30 passes that can happen in each frame. The settings allow some control when in this chain of events the node is affected by the transformation or when it is rendered [^2]. While the default settings make sure that in most use cases you don't have to worry to much about the correct timing, in special circumstances it is necessary to decide which node is rendered or transformed before another. 
 
 For example: 
 
@@ -217,8 +220,7 @@ To give you some deeper insights: SPARCK uses 8 Render Contexts in the Backgroun
 7. Output-Context 4 managed by [Window] nodes
 8. A Special-Context for Texture Inputs, like Video or Spout/Syphon inputs 
 
-The 4 Output-Context are for the last renderpass to output to a Window - This doesn't mean only 4 Projectors can be attached: Each Window can be split into 24 Viewports, this makes 96 theoretical Output Screens. 
-
+The 4 Output-Context are where the last renderpasses happen to output to a Window - This doesn't mean only 4 Projectors can be attached: Each Window can be split into 24 Viewports, this makes 96 theoretical Screens to connect to - if you GFX card can handle that. 
 
 [^1]: Ideally place in the root. Theoretically it could work elsewhere, but I never tested this.
 [^2]: To be more precise: when the capturing happens - it is the Capturing Nodes that execute the render.
