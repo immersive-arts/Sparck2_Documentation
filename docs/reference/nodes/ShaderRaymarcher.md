@@ -1,9 +1,9 @@
-# ShaderRayMarcher
+# ShaderRaymarcher
 
 Loads and applies Raymarching GLSL shaders in 3D space. Shaders of the likes you can find on ShaderToy.org
 
 <figure markdown>
-![ShaderRayMarcher Node](../../assets/images/nodes/ShdrReyMarcher.png){ width="300" }
+![ShaderRaymarcher Node](../../assets/images/nodes/ShdrReyMarcher.png){ width="300" }
 </figure> 
 
 
@@ -69,12 +69,12 @@ The following properties can be configured for this node:
 
     ---
 
-    Get started with ShaderRayMarcher in minutes
+    Get started with ShaderRaymarcher in minutes
     
     * [:octicons-arrow-right-24: Project Examples](../../start/examples/project/project_examples.md)
     * [:octicons-arrow-right-24: Node Examples](../../start/examples/nodes/node_examples.md)
 
--   :material-file-document:{ .lg .middle } __Complementing__ **ShaderRayMarcher**
+-   :material-file-document:{ .lg .middle } __Complementing__ **ShaderRaymarcher**
 
     ---
     * [:octicons-arrow-right-24: BoxMapCamera](BoxMapCamera.md) 
@@ -107,4 +107,4 @@ The following properties can be configured for this node:
 
 ---
 
-*Last updated: 2025-12-01 | [Edit this page on GitHub](https://github.com/immersive-arts/Sparck2/edit/main/docs/nodes/ShaderRayMarcher.md)*
+*Last updated: 2025-12-01 | [Edit this page on GitHub](https://github.com/immersive-arts/Sparck2/edit/main/docs/nodes/ShaderRaymarcher.md)*
