@@ -43,85 +43,17 @@ The following properties can be configured for this node:
 
     | Inlet      | Type          | Description                            |
     |------------|---------------|----------------------------------------|
-    | properties | messages      | direct access to internal properties   |
-    | texture    | texture       | texture applied to ...                 |
+    | direct | message | direct messages to control video: enable &#124; start &#124; stop &#124; dispose &#124; frame refresh &#124; frame time &#124; frame duration &#124; frame framecount &#124; frame seekframe &#124; frame seeknotify |
+    | properties | properties | properties &#124; use message [set &lt;propertyPath> &lt;value(s)>] (without node/&lt;nodeName> at the beginning) to set internal properties |
 
 === "Outlets"
 
     | Outlet     | Type          | Description                            |
     |------------|---------------|----------------------------------------|
-    | properties | messages      | direct access to internal properties   |
-    | texture    | texture       | texture applied to ...                 |
-
-
----
-
-## Important Notes
-
-!!! warning "Calibration Requirements"
-    
-    - Currently only the follwing codecs are supported:
-    - Hap
-    - Hap alpha
-    - Hap Q
-    - Hap Q alpha is NOT supported for playing on the GPU.
-    You can send the follwoing OSC-messages to the node 
-	/sparck/node/<nodename> start 
-	/sparck/node/<nodename> stop 
-	/sparck/node/<nodename> pause 
-	/sparck/node/<nodename> dispose
-    Some info about HAP: Visit the Hap Github page (link on top) for more information. No additional installations are needed for playback, however in order to convert files to Hap codec, additional platform specific installs are necessary.
-    Mac users can use the AVF Batch Converter application to convert existing files to use the Hap codec. The mac file format container must be Quicktime MOV.
-    Windows users wishing to convert files should install the Renderheads DirectShow codec and use a compatible software such as Adobe Media Encoder. The Windows file format container must be AVI.
-
-!!! info "File Locations"
-    
-    ```
-    ~/_assets/_projectors/     # Calibration files
-    ~/_assets/_model/          # Calibration models (.obj)
-    ```
-
----
-
-
-<div class="grid cards" markdown>
-
--   :material-clock-fast:{ .lg .middle } __Quick Start__
-
-    ---
-
-    Get started with Video in minutes
-    
-    * [:octicons-arrow-right-24: Project Examples](../../start/examples/project/project_examples.md)
-    * [:octicons-arrow-right-24: Node Examples](../../start/examples/nodes/node_examples.md)
-
--   :material-file-document:{ .lg .middle } __Complementing__ **Video**
-
-    ---
-    * [:octicons-arrow-right-24: Texture](Texture.md) 
-
-  
--   :material-video-box:{ .lg .middle } __Tutorials__
-
-    ---
-    
-    [:octicons-arrow-right-24: Watch Now](../../start/tutorials/videos.md){ .md-button .md-button--primary }
-
--   :material-forum:{ .lg .middle } __Community__
-
-    ---
-
-    [:octicons-arrow-right-24: Join Now](https://github.com/immersive-arts/Sparck2/discussions){ .md-button .md-button--primary }
-
-
-</div>
-
----
-
-!!! question "Need help or want to suggest improvements?"
-       
-    [:fontawesome-brands-github: Report an issue](../../contributing/reporting-a-bug.md){ .md-button }
-    [:fontawesome-brands-github: Improve the Docs](../../contributing/reporting-a-docs-issue.md){ .md-button }
+    | video | texture | video texture |
+    | audio | audio | audio left |
+    | audio | audio | audio right |
+    | dump | message | dump |
 
 
 ---

@@ -25,60 +25,14 @@ The following properties can be configured for this node:
 
     | Inlet      | Type          | Description                            |
     |------------|---------------|----------------------------------------|
-    | properties | messages      | direct access to internal properties   |
-    | texture    | texture       | texture applied to ...                 |
+    | properties | properties | properties &#124; use message [set &lt;propertyPath> &lt;value(s)>] (without node/&lt;nodeName> at the beginning) to set internal properties |
+    | send | message | send direct message to anim object: 'bang' for forced transformation bang. OR 'getlist' &lt;get...> items for dump out current values (needs a bang). Possible &lt;get...> items: getposition, getquat, getscale, getworldpos, getworldquat, getworldscale, gettransform, getinvtransform, getworldtransform |
 
 === "Outlets"
 
     | Outlet     | Type          | Description                            |
     |------------|---------------|----------------------------------------|
-    | properties | messages      | direct access to internal properties   |
-    | texture    | texture       | texture applied to ...                 |
-
-
----
-
-<div class="grid cards" markdown>
-
--   :material-clock-fast:{ .lg .middle } __Quick Start__
-
-    ---
-
-    Get started with TfmLookAt in minutes
-    
-    * [:octicons-arrow-right-24: Project Examples](../../start/examples/project/project_examples.md)
-    * [:octicons-arrow-right-24: Node Examples](../../start/examples/nodes/node_examples.md)
-
--   :material-file-document:{ .lg .middle } __Complementing__ **TfmLookAt**
-
-    ---
-    * [:octicons-arrow-right-24: TfmNode](TfmNode.md) 
-    * [:octicons-arrow-right-24: TfmMerge](TfmMerge.md) 
-    * [:octicons-arrow-right-24: TfmNodeInfo](TfmNodeInfo.md) 
-    * [:octicons-arrow-right-24: TfmMirror](TfmMirror.md) 
-
-  
--   :material-video-box:{ .lg .middle } __Tutorials__
-
-    ---
-    
-    [:octicons-arrow-right-24: Watch Now](../../start/tutorials/videos.md){ .md-button .md-button--primary }
-
--   :material-forum:{ .lg .middle } __Community__
-
-    ---
-
-    [:octicons-arrow-right-24: Join Now](https://github.com/immersive-arts/Sparck2/discussions){ .md-button .md-button--primary }
-
-
-</div>
-
----
-
-!!! question "Need help or want to suggest improvements?"
-       
-    [:fontawesome-brands-github: Report an issue](../../contributing/reporting-a-bug.md){ .md-button }
-    [:fontawesome-brands-github: Improve the Docs](../../contributing/reporting-a-docs-issue.md){ .md-button }
+    | dump | message | dump of 'anim' , output of the requested &lt;get...> values and transformation bang from the above inlet. also outputs 'markerlist' if markers are received. |
 
 
 ---

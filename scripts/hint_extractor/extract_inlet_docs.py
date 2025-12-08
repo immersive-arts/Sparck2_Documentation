@@ -46,9 +46,13 @@ def extract_info(box):
     try:
         hint_idx = args.index("@hint")
         type_val = args[3] if len(args) > 3 else ""
+        # Replace 'type' with 'message' for type_val
+        if type_val == "type":
+            type_val = "message"
         hint_val = args[hint_idx + 1] if len(args) > hint_idx + 1 else ""
         shorthand = get_shorthand(hint_val)
-        hint_val = hint_val.replace("|", "&#124;")
+        # Escape '|' and '<' in hint_val
+        hint_val = hint_val.replace("|", "&#124;").replace("<", "&lt;")
         sort_key = args[2] if len(args) > 2 else 0
         return {
             "shorthand": shorthand,
@@ -76,8 +80,16 @@ def process_file(filepath, filename):
             info = extract_info(box)
             if info:
                 outlets.append(info)
-    inlets.sort(key=lambda x: int(x["sort_key"]) if str(x["sort_key"]).isdigit() else x["sort_key"])
-    outlets.sort(key=lambda x: int(x["sort_key"]).isdigit() if str(x["sort_key"]).isdigit() else x["sort_key"])
+
+    def safe_sort_key(x):
+        try:
+            return int(x["sort_key"])
+        except (ValueError, TypeError):
+            return str(x["sort_key"])
+
+    inlets.sort(key=safe_sort_key)
+    outlets.sort(key=safe_sort_key)
+
     return node_name, inlets, outlets
 
 def format_inlets_outlets_md(inlets, outlets):
@@ -97,19 +109,30 @@ def format_inlets_outlets_md(inlets, outlets):
 
 def replace_inlets_outlets_in_markdown(md_text, new_inlets_outlets):
     # Find the "## Reference" section
-    ref_match = re.search(r"(## Reference.*?)(=== \"Inlets\".*?)(?=(===|---|\Z))", md_text, re.DOTALL)
-    if not ref_match:
-        return None  # Could not find the section to replace
-    start = ref_match.start(2)
-    end = ref_match.end(2)
-    # Find where the outlets section ends (either at next ===, --- or end of file)
-    after = md_text[end:]
-    m = re.search(r"(===|---|\Z)", after)
-    if m:
-        end = end + m.start()
-    # Replace the inlets/outlets block
-    new_md = md_text[:start] + new_inlets_outlets + md_text[end:]
-    return new_md
+        # Find the first === "Inlets"
+        inlets_start = re.search(r'^=== "Inlets".*$', md_text, re.MULTILINE)
+        if not inlets_start:
+            return None
+        start = inlets_start.start()
+
+        # Find all === "Outlets" blocks
+        outlets_blocks = [m for m in re.finditer(r'^=== "Outlets".*$', md_text, re.MULTILINE)]
+        if not outlets_blocks:
+            return None
+        # Use the last one
+        last_outlets = outlets_blocks[-1]
+        # Find the last indented line after the last === "Outlets"
+        after_outlets = md_text[last_outlets.end():]
+        indented_lines = list(re.finditer(r'^(    .*\n?)+', after_outlets, re.MULTILINE))
+        if indented_lines:
+            end = last_outlets.end() + indented_lines[-1].end()
+        else:
+            # If no indented lines, just go to the end of the outlets block
+            end = last_outlets.end()
+
+        # Replace the block
+        new_md = md_text[:start] + new_inlets_outlets + md_text[end:]
+        return new_md
 
 def main():
     if not check_git_clean(repo_root):
