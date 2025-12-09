@@ -4,6 +4,14 @@ A Beamer represents a real world projector inside SPARCK's 3D space.
 
 It has a calibration mode to find the orientation and lense properties (extrinsic and intrinsic transformations) of the projector.
 
+It uses the opencv [camera calibration](https://docs.opencv.org/4.x/dc/dbb/tutorial_py_calibration.html) method to calculate the tranformation and projection matrix of a projector. 
+
+For this to work the node needs a calibration model (3D object) and a set of manually set calibration vertices that correspond to points on the calibration model.
+
+!!! example "Tutorial: Beamer Calibration"
+    The Tutorial [Beamer Calibration](../../start/tutorials/02_Calibration/calibration.md) walks you through the calibration process step-by-step.
+
+## 
 <figure markdown>
 ![Beamer Node](../../assets/images/nodes/Beamer.png){ width="300" }
 </figure> 
@@ -47,11 +55,11 @@ The following properties can be configured for this node:
 
 ---
 
-## RIG Configuration
+## Calibration Window
 
-??? abstract "Advanced RIG Settings"
+??? abstract "Calibration Settings"
     
-    The RIG (Rendering Interface Group) provides advanced configuration options for projector calibration:
+    The calibration window provides advanced configuration options for projector calibration:
     
     | Parameter | Type | Description |
     |-----------|------|-------------|
@@ -89,8 +97,9 @@ The following properties can be configured for this node:
 !!! info "File Locations"
     
     ```
-    ~/_assets/_projectors/     # Calibration files
-    ~/_assets/_model/          # Calibration models (.obj)
+    ~/_assets/_projectors/          # Beamer Calibration files (.xml & .json)
+    ~/_assets/_projectors/_calib    # Target vertex files (.xml)
+    ~/_assets/_model/_calib         # Calibration models (.obj)
     ```
 
 ---
