@@ -65,10 +65,17 @@ nav = [
     "start/examples/project/project_examples.md",
     "start/examples/nodes/node_examples.md",
   ]},
-  {"Reference" = [
-    "reference/introduction.md",
-    "reference/sparck_core.md",
-    "reference/sparck_node.md",
+  {"Documentation" = [
+    "reference/index.md",
+    "reference/quickstart.md",
+    "reference/nodes_and_connections.md",
+    "reference/file_structure.md",
+    "reference/render_groups_and_passes.md",
+    "reference/render_contexts.md",
+    "reference/core_overview.md",
+    "reference/core_toolbar.md",
+    "reference/core_patcher_setup.md",
+    "reference/node_anatomy.md",
     {"Nodes" = [
       {"1_INPUT" = [
         "reference/nodes/CubeMap.md",
@@ -154,14 +161,6 @@ nav = [
       "contributing/reporting-a-docs-issue.md",
       "contributing/requesting-a-change.md",
       "contributing/code_of_conduct.md",
-      ]},
-    {"Documentation" = [
-      "documentation/index.md",
-      "documentation/admonitions.md",
-      "documentation/markdown.md",
-      "documentation/diagrams.md",
-      "documentation/content_tabs.md",
-      "documentation/code_display.md"
       ]},
     ]}
   ]
@@ -432,11 +431,3 @@ accent = "green"
 #icon = "fontawesome/brands/github"
 #link = "https://github.com/user/repo"
 
-[project.plugins.mkdocstrings.handlers.python]
-inventories = ["https://docs.python.org/3/objects.inv"]
-paths = ["src"]
-
-[project.plugins.mkdocstrings.handlers.python.options]
-docstring_style = "google"
-inherited_members = true
-show_source = false

@@ -2,13 +2,13 @@
 
 Assuming you alread followd the [Preparation], 
 
-## 1. Startup Max if it hasn't started yet. 
+**1. Startup Max if it hasn't started yet.**
  
 You need to have started up Max at least one time.
 
 Max will create a folder under '/Documents/Max 9/Packages'
 
-## 2. Install SPARCK
+**2. Install SPARCK**
 
 Next you need to install SPARCK from the repository into the Packages folder:
 
@@ -30,7 +30,7 @@ Next you need to install SPARCK from the repository into the Packages folder:
 
 ---
 
-## 3. Restart Max
+**3. Restart Max**
 
 1. Go to Max > Menu > File > Show Package Manager
 2. Click on "Remote Packages" and switch to "Installed Packages"
