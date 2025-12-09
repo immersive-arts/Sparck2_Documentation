@@ -1,239 +1,249 @@
 # Spatial Augmented Reality
-This article showcases how to set up a SPARCK project for the use case where 4 projectors are calibrated to project on moving objects within a Motion Capture (optical system) volume, creating a Spatial Augmented Reality (SAR) project.
+This article explains how to set up a SPARCK project for a use case in which four projectors are calibrated to project onto moving objects inside a Motion Capture (optical system) volume, creating a Spatial Augmented Reality (SAR) environment.
 
-In this context Sparck is used to calibrate 4 projectors that are installed on the 4 corners of a room at a mid‑height, allowing for moving objects and floor projection. 
+In this setup, SPARCK calibrates four projectors installed in the corners of a room at mid‑height, enabling projection on moving objects as well as on the floor.
 
-Once calibrated, Sparck calculates the exact position of each projector and determines what area each projector can see (its view). This takes into account the projector's resolution and other technical settings, allowing precise content alignment on moving objects and surfaces.
+Once calibrated, SPARCK knows the exact position and orientation of each projector and determines the visible area (its view frustum). It accounts for each projector’s native resolution and technical characteristics, allowing precise content alignment on physical objects and surfaces.
 
-This is done using co-planar vertices selection on a highly accurate 3D model of the entire room and reference markers positioned in the room at the time of calibration.
+Calibration is performed by selecting co‑planar vertices on a highly accurate 3D model of the room and using reference markers placed within the space.
 
-Once the projectors are calibrated, Sparck uses the **OptiTrack** node to receive [OSC2NatNet](https://github.com/tecartlab/app_NatNet2OSC) mocap data to determine where and how each tracked object is positioned in the space. 
+After calibration, SPARCK uses the [OptiTrack] node to receive [OSC2NatNet](https://github.com/tecartlab/app_NatNet2OSC) mocap data, which provides the real‑time position and orientation of tracked objects.
 
-And since both the virtual and physical space are aligned thanks to the calibration of the projectors, Sparck then uses this information to correctly display computer-generated (CG) visual content on each tracked objects and on the floor.
+Since both the virtual and physical spaces are aligned through projector calibration, SPARCK can correctly project computer‑generated (CG) content onto moving objects and the floor.
 
-This last part is essentially handled by the **SpatialShadery** node which calculates how much of the content (in pixels) should be shown by each projector, as well as how bright each pixel should be to make sure the colours blend smoothly.
+This mapping is primarily handled by the [SpatialShadery] node, which computes how much of the content each projector should display and how bright each pixel should be for smooth colour blending.
 
-## SAR setup with 4 Projectors
-First add the Sparck app to your Max patch. See the [Getting Started](https://immersive-arts.github.io/Sparck2_Documentation/start/tutorials/01_Getting_Started) documentation for more information on how to start.
+Download the project files here: [SAR_Projection.zip](https://github.com/immersive-arts/Sparck2/releases/) TODO: Upload them here
 
-![Sparck APP](images/image-8.png)<br>
-*Sparck APP.*
+## SAR Setup with 4 Projectors
+Start by adding [SPARCK] to your Max patch. See the [Getting Started](https://immersive-arts.github.io/Sparck2_Documentation/start/tutorials/01_Getting_Started) documentation for more information.
 
-The image below shows the overall Max subpatcher **p Workspace**. Inside it we place all the Sparks nodes required for this configuration.
+![SPARCK APP](images/image-8.png)<br>
+*SPARCK*
 
-![p Workspace subpatch](images/image-22-1024x678.png)
-*p Workspace subpatch.*
+The image below shows the Max subpatcher **p Workspace**, which contains all necessary SPARCK nodes for this configuration.
 
-In white a highly precise simplified 3D model of the Immersive Arts Space. In black, a floor plane (see **Canvas** node) with a **Grid** (also a node). And 4 colored wireframes, displaying the positions of the projectors situated in the corner of the virtual room after performing the projectors calibration. 
+![p Workspace subpatch](images/image-22-1024x678.png)<br>
+*p Workspace subpatch*
 
-![3D view](images/image-7-1024x593.png)<br>
-*3D viewer of Sparck. Preview of the virtual setup.*
+In white: a highly precise simplified 3D [Model] of the Immersive Arts Space.
+In black: a floor plane (using a [Canvas] node) with a [Grid] node.
+In colour: four wireframes representing calibrated projector positions.
+
+![3DViewer window](images/image-7-1024x593.png)<br>
+*3DViewer preview of the virtual setup*
+
+Four frames correspond to the calibrated view of each projector. Projectors are color‑coded via the **identify** toggle in the [Beamer] node.
 
 ![Output preview](images/image-11-768x309.png)<br>
-*Output preview of Sparck (4 col, 1 row).*
+*Output preview (4 columns, 1 row)*
 
-Four frames are stitched together, corresponding to the 3D view from each projector position after calibration. To distinguish the projectors, four different colors are used to identify them (see **Beamer** node with *indentify* toggled).
+## Nodes Configuration
+The following sections explain how to correctly configure all nodes required for a Spatial Augmented Reality setup.
 
-## Basic Node Configuration
-The following text explains and shows how to correctly setup all the different nodes for a Spatial Augmented Reality setup.
 
-### Output Node
-TODO: Change the name to windows instead of Output, also relative images
+### Window Node
+> TODO: Rename images from *Output* to *Window* where necessary.
 
-This node is used to output the rendered result of Sparck to some output devices, in this case the 4 projectors, basically it handles how the content is distributed for each outputs.
+The [Window] node outputs SPARCK’s rendered result to the projectors. It determines how content is distributed across the four projector outputs.
 
-![Output node](images/image-1.png)<br>
-*Output node, can be found under 1_UTILITY > WINDOW.maxpat*
+![Window node](images/image-1.png)<br>
+*Window node — 1_UTILITY > WINDOW.maxpat*
 
-**position**: switch between the **Output** or **Desktop**. Where **Output** display the visual content on the configured projectors and **Desktop** create a window that preview how the visual content is distributed.
+**position**: Switch between **Output** (content displayed on projectors) and **Desktop** (content preview).
 
-**columns and row**: slices the output into designated frames. In this case we set the columns to 4 and the rows to 1. As shown in the picture above about the Preview of Sparck
+**columns and rows**: Defines how the [Window] is divided. Set **4 columns** and **1 row** for four projectors.
 
-**display**: pressing **setting...** opens up the display setup tool to configure the **Output** overall pixel amount used for projection. Select the displays you wish to use for projection. Once selected they become orange. Now, **Store and Close** to close the configuration.
+**display**: Opens the display setup tool. Select the projector displays (orange), then click **Store and Close**.
 
 ![Output setup](images/image-9-768x260.png)<br>
-*Settings... interface to select and configure which display is used for projection.*
+*Display selection interface*
 
-In this instance, the computer is connected to 2 monitors of 1920 x 1200 pixels (grayed) and 4 projectors of 2560 x 1600 pixels (orange). Only the orange ones will be used for projecion.
+Example: The system has two monitors (1920×1200, greyed out) and four projectors (2560×1600, orange). Only the projectors are selected.
+
 
 ### Beamer Node
-The beamer node will create a virtual world projector inside of Sparck's **3D Viewer**. This node is essential since is used to calibrate the projector to register its position, orientation and lens properties in respect of the virtual-physical space. See [Calibration](../02_Calibration/calibration.md) for more information about how to clibrate a projector.
+The [Beamer] node creates a virtual projector in SPARCK’s **3DViewer**. It is essential for calibrating the projector’s spatial position, orientation, and lens properties. See the [Calibration](../02_Calibration/calibration.md) guide for details.
 
 ![Beamer node](images/image-3.png)<br>
-*Beamer node, available under 2_SPACE > BEAMER.maxpat*
+*Beamer — 2_SPACE > BEAMER.maxpat*
 
-**capture**: select in which render layer the beamer will be displayed. Make sure to select only one of the little squares (turqoise square), for every other beamer, select a different square. 
+**capture**: Select the render layer for each Beamer. Each Beamer must use a different small turquoise square.
 
-**calibfile**: create and save a .xml file in which the projector information about its position in 3D space, and lenses will be stored.
+**calibfile**: Saves calibration data to a `.xml` file.
 
-**calibrate**: is a button that will launch the window editor to calibrate the projector.
+**calibrate**: Opens the calibration editor.
 
-**identify**: if enabled, helps identify which projector is, in the **Output** and **Desktop** since it display a specific background color registerd in the **calibfile**.
+**identify**: Displays a colour background in both **Output** and **Desktop** to identify the projector.
 
-**gizmo**: If enabled (turqois big square), it displays on the **3D viewer** the projector at the position registered in the **calibfile**.
+**gizmo**: Shows the projector’s position in the **3DViewer**.
+
 
 ### Viewport Node
-This node create a texture that is displayed in a designated slice of the **Output**. Connected to a **Beamer** node, it makes sure to output the point of view of this beamer to a slice of the overal **Output**.
+This node creates a texture displayed in a designated slice of the [Window]. When connected to a [Beamer], it outputs that Beamer’s point of view.
+
+TODO: Replace image
 
 ![Viewport](images/image-10.png)<br>
-*Viewport, available under 1_UTILITY > VIEWPORT.maxpat*
+*Viewport — 1_UTILITY > VIEWPORT.maxpat*
 
-**window**: select the **Output**. For each **Viewport** connected to a **Beamer** node, make sure it reference the **Output** node.
+**window**: Select the [Window] node.
 
-**slice**: select the designated slice wehre to output the visual content. In this case, make sure to target for each **Viewport** node a different colum_x (eg. 1, 2, 3, 4), and all should reference the same row_1.
+**slice**: Assign each Viewport to a unique slice: **column 1–4**, all using **row 1**.
 
-### Model node
-In this context the **Model** node is used to display in Sparck's **3D Viewer** a simplified but highly precise model of the Immersive Arts Space. This model helps referencing where projectors, floor and tracked object are located virtually.
+
+### Model Node
+The [Model] node displays a simplified but accurate model of the Immersive Arts Space, helping visualize the positions of projectors, the floor plane, and tracked objects.
 
 ![Model](images/image-20.png)<br>
-*Model, available under 2_SPACE > MODEL.maxpat*
+*Model — 2_SPACE > MODEL.maxpat*
 
-**drawto**: selects the render layer where the model is rendered (turqouis big square). In this case the model is only displayed on the Sparck's **3D Preview** and not outputted on the projectors.
+**drawto**: Selects the render layer (large turquoise square). Here, the Model appears only in the **3DViewer**.
 
-**meshfile**: selects a 3D model mesh file to load and use. To import a 3D model, place it inside the Sparck forlder directory under Sparck/_assets/_models. Then update the menu by clicking the round wheel. Make sure your 3D model doesn't have too many polygons since this will have and inpact on Sparck frame rate.
+**meshfile**: Loads a 3D model from `Sparck/_assets/_models`. Ensure polygon count is reasonable for performance.
+
 
 ### Grid Node
-The **grid** node is a helper used to display a grid in Sparck's **3D Viewer**.
+The [Grid] node displays a grid useful for verifying projector calibration. If grid lines overlap sharply across projections, calibration is correct; doubled or misaligned lines indicate mismatch.
 
 ![Grid](images/image-14.png)<br>
-*Grid, available under 2_Space > GRID.maxpat*
+*Grid — 2_SPACE > GRID.maxpat*
 
-**drawto**: if enabled (turqois big square), selects the render layer where the model is rendered. In this case the model is only displayed on the Sparck's preview and not outputted on the projectors. Some times we want to see it olso trough the projectors, then toggle the small quares for each projectors, as in the **Beamer** nodes.
+**drawto**: Shows the grid in the **3DViewer**. It can also be shown through projectors by enabling small squares.
 
-**scale**: 1 Sparck unit equal to 1 meter (100cm). In this case the scale is set on the size of IAS floor plan, 6m whide and 12m long.
+**scale**: Here set to the IAS floor size: 6m × 12m.
 
-**render gridsize**: changes the grid slice size.
+**render gridsize**: Adjusts subdivision size.
 
-**showaxis**: anable/disable the axis display.
+**showaxis**: Enables or disables axis display.
 
-### SpatialShadery node
-The **SpatialShadery** node is an essential component for Spatial Augmented Reality. It is used to calculate the spatial relationship between the projectors and the scene. Essentially, it determines — from the point of view of each projector — which pixels should be rendered by which projector and how intense each pixel should be. In this way, it produces a soft-edge blend shader for the **Output**, ensuring that the content from multiple projectors merges smoothly into a single coherent projection.
+
+### SpatialShadery Node
+The [SpatialShadery] node is at the core of Spatial Augmented Reality. It computes per‑projector pixel visibility and brightness, producing soft‑edge blending across all projectors.
 
 ![SpatialShadery](images/image-21.png)<br>
-*SpatialShadery, available under 7_EFFECTS > SPATIAL.SHADERY.maxpat*
+*SpatialShadery — 7_EFFECTS > SPATIAL.SHADERY.maxpat*
 
-**shader**: select the shader type, in this case we use **edge & blend** which calculated the soft-edge combined with the blending.
+**shader**: Use **edge & blend** for soft‑edge merging.
 
-**project to**: set to **baked textures**, implements all render passes for generating all the pixel color and brightness.
+**project to**: Set to **baked textures**.
 
-**Beamer A-D**: for each BeamerX target a different **Beamer** node from where to project.
+**Beamer A–D**: Assign each [Beamer].
 
-**projection**: set to **front side**.
+**projection**: Use **front side**.
 
-**spread**: set to 0.5400 which is the factor for differentiation between the overlapping projections, achieving in this manner the soft-edge blending. Set to 0 equals no spread at all, and to 1 full spread. Find a good balance that fit your situation.
+**spread**: Controls the distribution of pixel blending between overlapping projections. 0 = no spread, 1 = full spread. Typical value: **0.54**.
 
-**output**: is the display mode of the shader, in this case is set to **result** which show the final baked texture, essentially how bright and colored all the pixel are.
+**output**: Set to **result** to display final blended output.
 
-**power**: is the soft-edge blending power. Find a good balance that fit your situation.
+**power**: Controls the soft-edge blending power. Find a good balance that fit your situation.
 
-**luminance**: is the soft-edge blending luminance. Find a good balance that fit your situation.
+**luminance**: Adjusts the brightness balance. Find a good balance that fit your situation.
 
-### Optitrack node
-The Optitrack node listen to NatNet2OSC to get motion capture data from Optitrack. It is an essential node for Spatial Agmented Reality since it handles how the Optitack rigidbodies positional data is distributed inside of Sparck, which than virtual 3D models and shapes can reference.
 
-![Optitrack](images/image-16.png)<br>
-*Optitrack, available under 4_TRANSFORM > OT.RECEIVER.maxpat*
+### OptiTrack Node
+The [OptiTrack] node receives rigidbody motion capture data from **NatNet2OSC**. It distributes this positional data inside SPARCK so virtual models and shapes can follow physical tracked objects.
 
-**stream 1-8**: select an Optritack rigidbody stream. If the rigidbody is registered inside of Motive (Optitrack software), it will become available in the dropdown menu. It is important to differently ID (and name) each rigidbodies inside of Motive. Use **refetch...** button every time you register new rigidbodies inside of Motive.
+![OptiTrack](images/image-16.png)<br>
+*OptiTrack — 4_TRANSFORM > OT.RECEIVER.maxpat*
 
-**in port**: set the port number at which the mocap stream is being received.
+**stream 1–8**: Select a rigidbody from Motive. Ensure unique names/IDs.
 
-**out port**: set the port number at which the mocap stream is sent.
+**in port**: Port where mocap data is received.
 
-**out IP**: set the IP address. In this case, the IP correspond to where Motive/Optitrack is sending the mocap.
+**out port**: Port where data is forwarded.
 
-**leap forward**: increases the forward prediction of the position and rotation of the rigidbodies. Since the speed at wich the projection refresh is lower from the speed of at which objects move in the physical space. It reduces jitters on the projected visual content of traked objects.
+**out IP**: Destination IP for mocap forwarding.
 
-### SpoutReceiver node
-The **SpoutReceiver** node receives [Spout](https://spout.zeal.co/) textures. Generally, is an animated texture that is real time generated by a visual or game engine, such as TouchDesigner, Unity, Unreal, Notch etc.
+**leap forward**: Predictive smoothing to reduce jitter from fast‑moving tracked objects.
+
+
+### SpoutReceiver Node
+The [SpoutReceiver] node receives real‑time textures from applications such as TouchDesigner, Unity, Unreal, or Notch via Spout.
 
 ![SpoutReceiver](images/image-17.png)<br>
-*SpoutReceiver, available under 5_INPUT > SPOUT.RECEIVER.maxpat*
+*SpoutReceiver — 5_INPUT > SPOUT.RECEIVER.maxpat*
 
-**sender**: select a Spout video stream.
+**sender**: Select the Spout stream.
 
-**flip x**: flip the video stream horizontally.
+**flip x / flip y**: Flip texture orientation if needed.
 
-**flip y**: flip the video stream vertically.
 
-### Canvas node
-The **Canvas** node draw a variety of basic 3D shapes, such as plane, cube, sphere, a custom 3D mesh etc. It is a lightweight version node of the **Model** node, the difference is that the **Canvas** node doesn't contains additional settings such as material, lighting, shadow, etc.
+### Canvas Node
+The [Canvas] node draws basic 3D shapes (plane, cube, sphere, custom mesh). It is lighter than the [Model] node and contains no material or lighting properties.
 
 ![Canvas](images/image-19.png)<br>
-*Canvas, available under 2_SPACE > CANVAS.maxpat*
+*Canvas — 2_SPACE > CANVAS.maxpat*
 
-**drawto**: selects the render layer where the canvas is rendered. In this case the canvas is displayed on the Sparck **Preview** and also on the beamer layers for ouput (big and small turqois squares). 
+**drawto**: Selects the render layer. Here shown in **3DViewer** and on [Beamer] layers.
 
-**shape**: select a basic shape to use. In this case is a basic plane but could be a sphere, torus, cylinder, ect.
+**shape**: Select the geometry. For SAR floors, a **plane** is used.
 
-**shader**: select the shader to use. In this case the **SpatialShadery** node shader is referenced. Since we want each projector to contribute to projecting onto that surface from all angles, the shader calculates how each pixel should be rendered with soft-edge blending. This canvas is used to project on the floor, covering the entirety of the space.
+**shader**: Assign the [SpatialShadery] shader for multi‑projector blended projection.
 
-**scale**: 1 Sparck unit equal to 1 meter (100cm). In this case, the scale is set on the size of IAS whole floor plan, 6m whide and 12m long.
+**scale**: Here set to the IAS floor dimensions: 6m × 12m.
 
-## Customize project
-Add Max subpatches accordingly to costumize the project, e.g add additionals tracked object for SAR, or add a projection dome, etc.
 
-In this case we add a simple physical movable wall that is being tracked by Optitrack that is used to project a video (it can also be a Spout stream, or an image). Add to your Max patch a **p Wall** subpatch.
+## Customize the Project
+You can extend this project by adding additional tracked objects, projection domes, or moving structures.
+
+In this example, a tracked movable wall is added. It receives projection content (video, Spout stream, or static image). Add a **p Wall** subpatch to your Max project.
 
 ![p Patcher](images/image-23.png)<br>
-*p Wall subpatch, contains additional Sparck nodes to project on a tracked plane surface.*
+*p Wall subpatch*
 
-Open it up and inside insert a **RigidBody** node, **Video** node and **Canvas** node.
+Inside, add a **RigidBody**, **Video**, and [Canvas] node.
 
 ![subpatch](images/image-24.png)<br>
-*Inside the p Wall subpatch, basic nodes setup for 1 tracked plane displaying a looping video.*
+*Setup for one tracked plane displaying looping video*
 
-### Video node
+### Video Node
+(Section to be completed — describe video loading, looping, texture output.)
 
+### RigidBody Node
+(Section to be completed — describe linking OptiTrack rigidbody to Canvas transform.)
 
-### RigidBody node
-
-## Project files
-TODO: Add project file link download
-
-
-
-[LookAtCamera]: ../reference/nodes/LookAtCamera.md
-[Grid]: ../reference/nodes/Grid.md
-[DrawMask]: ../reference/nodes/DrawMask.md
-[Hook]: ../reference/nodes/Hook.md
-[OptiTrack]: ../reference/nodes/OptiTrack.md
-[Texture]: ../reference/nodes/Texture.md
-[SpoutSender]: ../reference/nodes/SpoutSender.md
-[SyphonSender]: ../reference/nodes/SyphonSender.md
-[SkyBox]: ../reference/nodes/SkyBox.md
-[ShaderPointCloud]: ../reference/nodes/ShaderPointCloud.md
-[Light]: ../reference/nodes/Light.md
-[Canvas]: ../reference/nodes/Canvas.md
-[TfmMerge]: ../reference/nodes/TfmMerge.md
-[TfmMirror]: ../reference/nodes/TfmMirror.md
-[ShaderBlur]: ../reference/nodes/ShaderBlur.md
-[ShaderBrCoSa]: ../reference/nodes/ShaderBrCoSa.md
-[ShaderColormap]: ../reference/nodes/ShaderColormap.md
-[ShaderSelection]: ../reference/nodes/ShaderSelection.md
-[ShaderTexStitch]: ../reference/nodes/ShaderTexStitch.md
-[ShaderTexZoom]: ../reference/nodes/ShaderTexZoom.md
-[ShaderTexZoom]: ../reference/nodes/ShaderTexZoom.md
-[CalibrationCross]: ../reference/nodes/CalibrationCross.md
-[TfmLookAt]: ../reference/nodes/TfmLookAt.md
-[TextureProjectury]: ../reference/nodes/TextureProjectory.md
-[TfmNode]: ../reference/nodes/TfmNode.md
-[BlendSoftedge]: ../reference/nodes/BlendSoftedge.md
-[SpatialShadery]: ../reference/nodes/SpatialShadery.md
-[Model]: ../reference/nodes/Model.md
-[QueScript]: ../reference/nodes/QueScript.md
-[ShaderAnaglyph]: ../reference/nodes/ShaderAnaglyph.md
-[Material]: ../reference/nodes/Material.md
-[Canvas]: ../reference/nodes/Canvas.md
-[ShdrTexOP]: ../reference/nodes/ShaderTexOP.md
-[Video]: ../reference/nodes/Video.md
-[SceneCamera]: ../reference/nodes/SceneCamera.md
-[SceneCapture]: ../reference/nodes/SceneCapture.md
-[BoxMapCamera]: ../reference/nodes/BoxMapCamera.md
-[BoxMapCapture]: ../reference/nodes/BoxMapCapture.md
-[ShaderRaymarcher]: ../reference/nodes/ShaderRaymarcher.md
-[Beamer]: ../reference/nodes/Beamer.md
-[CornerPin]: ../reference/nodes/CornerPin.md
-[MeshWarp]: ../reference/nodes/MeshWarp.md
-[Window]: ../reference/nodes/Window.md
-[Viewport]: ../reference/nodes/ViewPort.md
+[Beamer]: ../../../reference/nodes/Beamer.md
+[BlendSoftedge]: ../../../reference/nodes/BlendSoftedge.md
+[BoxMapCamera]: ../../../reference/nodes/BoxMapCamera.md
+[BoxMapCapture]: ../../../reference/nodes/BoxMapCapture.md
+[CalibrationCross]: ../../../reference/nodes/CalibrationCross.md
+[Canvas]: ../../../reference/nodes/Canvas.md
+[CornerPin]: ../../../reference/nodes/CornerPin.md
+[DrawMask]: ../../../reference/nodes/DrawMask.md
+[Grid]: ../../../reference/nodes/Grid.md
+[Hook]: ../../../reference/nodes/Hook.md
+[Light]: ../../../reference/nodes/Light.md
+[LookAtCamera]: ../../../reference/nodes/LookAtCamera.md
+[Material]: ../../../reference/nodes/Material.md
+[MeshWarp]: ../../../reference/nodes/MeshWarp.md
+[Model]: ../../../reference/nodes/Model.md
+[OptiTrack]: ../../../reference/nodes/OptiTrack.md
+[QueScript]: ../../../reference/nodes/QueScript.md
+[SceneCamera]: ../../../reference/nodes/SceneCamera.md
+[SceneCapture]: ../../../reference/nodes/SceneCapture.md
+[ShaderAnaglyph]: ../../../reference/nodes/ShaderAnaglyph.md
+[ShaderBlur]: ../../../reference/nodes/ShaderBlur.md
+[ShaderBrCoSa]: ../../../reference/nodes/ShaderBrCoSa.md
+[ShaderColormap]: ../../../reference/nodes/ShaderColormap.md
+[ShaderPointCloud]: ../../../reference/nodes/ShaderPointCloud.md
+[ShaderRaymarcher]: ../../../reference/nodes/ShaderRaymarcher.md
+[ShaderSelection]: ../../../reference/nodes/ShaderSelection.md
+[ShaderTexStitch]: ../../../reference/nodes/ShaderTexStitch.md
+[ShaderTexZoom]: ../../../reference/nodes/ShaderTexZoom.md
+[ShdrTexOP]: ../../../reference/nodes/ShaderTexOP.md
+[SkyBox]: ../../../reference/nodes/SkyBox.md
+[SPARCK]: ../../../reference/sparck_core.md
+[SpatialShadery]: ../../../reference/nodes/SpatialShadery.md
+[SpoutReceiver]: ../../../reference/nodes/SpoutReceiver.md
+[SpoutSender]: ../../../reference/nodes/SpoutSender.md
+[SyphonSender]: ../../../reference/nodes/SyphonSender.md
+[Texture]: ../../../reference/nodes/Texture.md
+[TextureProjectury]: ../../../reference/nodes/TextureProjectory.md
+[TfmLookAt]: ../../../reference/nodes/TfmLookAt.md
+[TfmMerge]: ../../../reference/nodes/TfmMerge.md
+[TfmMirror]: ../../../reference/nodes/TfmMirror.md
+[TfmNode]: ../../../reference/nodes/TfmNode.md
+[Video]: ../../../reference/nodes/Video.md
+[Viewport]: ../../../reference/nodes/ViewPort.md
+[Window]: ../../../reference/nodes/Window.md
