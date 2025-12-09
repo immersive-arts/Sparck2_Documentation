@@ -39,4 +39,13 @@ The following properties can be configured for this node:
 
 ---
 
+    | properties | properties | properties &#124; use message [set &lt;propertyPath> &lt;value(s)>] (without node/&lt;nodeName> at the beginning) to set internal properties |
+
+=== "Outlets"
+
+    | Outlet     | Type          | Description                            |
+    |------------|---------------|----------------------------------------|
+
+
+
 *Last updated: 2025-12-01 | [Edit this page on GitHub](https://github.com/immersive-arts/Sparck2/edit/main/docs/nodes/Grid.md)*

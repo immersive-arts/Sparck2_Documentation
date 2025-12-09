@@ -55,4 +55,65 @@ The following properties can be configured for this node:
 
 ---
 
+## Important Notes
+
+!!! warning "Parameter Matchings"
+
+    To have the best results receiving ShaderPointClouds encoded in the rgb-d format, you have to make sure the intrisic and depth properties are a match:
+
+    * Resolution
+    * Principle Points
+    * Focal Point
+    * Min Distance
+    * Max Distance
+
+    [Space-Stream] stores some of the properties normalized, while this shader takes them absolute. you can get to the absolute values by disabling 'normalized intrinsics' in the UI of [Space-Stream].
+
+---
+
+!!! info Reference
+
+    The algorithm of this shader is base on this intel [whitepaper](https://dev.realsenseai.com/docs/depth-image-compression-by-colorization-for-intel-realsense-depth-cameras). Though at the time of our reading we detected a bug in their math - this is in this implementation corrected.
+
+
+<div class="grid cards" markdown>
+
+-   :material-clock-fast:{ .lg .middle } __Quick Start__
+
+    ---
+
+    Get started with ShaderPointCloud in minutes
+    
+    * [:octicons-arrow-right-24: Project Examples](../../start/examples/project/project_examples.md)
+    * [:octicons-arrow-right-24: Node Examples](../../start/examples/nodes/node_examples.md)
+
+-   :material-file-document:{ .lg .middle } __Complementing__ **Canvas**
+
+    ---
+    * [:octicons-arrow-right-24: SpoutReceiver](SpoutReceiver.md) 
+    * [:octicons-arrow-right-24: SyphonReceiver](SyphonReceiver.md) 
+  
+-   :material-video-box:{ .lg .middle } __Tutorials__
+
+    ---
+    
+    [:octicons-arrow-right-24: Watch Now](../../start/tutorials/videos.md){ .md-button .md-button--primary }
+
+-   :material-forum:{ .lg .middle } __Community__
+
+    ---
+
+    [:octicons-arrow-right-24: Join Now](https://github.com/immersive-arts/Sparck2/discussions){ .md-button .md-button--primary }
+
+
+</div>
+
+---
+
+!!! question "Need help or want to suggest improvements?"
+       
+    [:fontawesome-brands-github: Report an issue](../../contributing/reporting-a-bug.md){ .md-button }
+    [:fontawesome-brands-github: Improve the Docs](../../contributing/reporting-a-docs-issue.md){ .md-button }
+
+
 *Last updated: 2025-12-01 | [Edit this page on GitHub](https://github.com/immersive-arts/Sparck2/edit/main/docs/nodes/Canvas.md)*
