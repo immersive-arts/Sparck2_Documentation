@@ -19,7 +19,7 @@ The following properties can be configured for this node:
     |----------|------|-------------|
     | `shader` | - | choose between the different projection types. <li>'single' to project one texture <li>'multiblend' to project multiple textures <li>'360VR.single' project equirectangular textures. For this the camera needs to be a BoxMapCamera <li>'360VR.multiblend' project normal and equirectangular textures. To project a equirectangular texture, the camera needs to be a BoxMapCamera <li>'boxmap' for projecting boxmap textures |
     | `project to` | - | <li>'canvas' to us it as a standard shader <li>'bake texture' to bake the result into a texture. |
-    | `projectionA-F` | - | select the SceneCamera or BoxMapCamera |
+    | `projectionA-F` | - | select the [Beamer](Beamer.md), [SceneCapture](SceneCapture.md) or [BoxMapCapture](BoxMapCapture.md) |
     | `3d viewer` | - | display mode of the model on which this shader is applied onto. <li>'Textured' shows the projected texture(s) <li>'Colored' shows the projections in colors <li>'Overlap' shows the amount of overlap <li>'Map' shows the differentiation <li>'BeamX' shows projection X |
     | `project on` | - | Onto which face of the model this texture is projected: <li>'back' <li>'both sides' <li>'front' |
     | `blend bg` | - | benables blending with the background |
@@ -61,6 +61,10 @@ The following properties can be configured for this node:
     |------------|---------------|----------------------------------------|
 
 
+---
+
+!!! warning IMPORTANT
+    This shader is usually applied to a [Canvas](Canvas.md) which in turn is rendered (or captured) by a capture node (be it a [Beamer](Beamer.md), [SceneCapture](SceneCapture.md) or [BoxMapCapture](BoxMapCapture.md)). It is of **utmost** importance that the 'projection' selection points to the capture node that renders the canvas this shader is applied to, otherwise this shader will not work as intended.
 ---
 
 <div class="grid cards" markdown>

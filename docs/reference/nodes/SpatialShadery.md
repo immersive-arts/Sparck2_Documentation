@@ -19,7 +19,7 @@ The following properties can be configured for this node:
     |----------|------|-------------|
     | `shader` | - | the shader type: <li>'edge' is used in combination with the BlendSoftedge node <li>'edge & blend' calculates softedge combined with the blending. |
     | `project to` | - | projection type: <li>'canvas' is used to render the projector weights <li>'baked texture' implements all render passes for generating the final pixel. |
-    | `BeamerA-F` | - | Select the Camera/Beamer from where to project. |
+    | `BeamerA-F` | - | Select the [Beamer](Beamer.md) or [SceneCapture](SceneCapture.md) node from where to project. |
     | `occlusion` | - | tries to adjust for occlusions of objects. |
     | `depth dim` | - | depth texture size of the occlusion pass. |
     | `projection` | - | use only front, back or both side of the canvas |
@@ -52,6 +52,12 @@ The following properties can be configured for this node:
     |------------|---------------|----------------------------------------|
     | texture | texture | texture list with depth pass |
 
+
+---
+
+
+!!! warning IMPORTANT
+    This shader is usually applied to a [Canvas](Canvas.md) which in turn is rendered (or captured) by a capture node (be it a [Beamer](Beamer.md), [SceneCapture](SceneCapture.md)). It is of **utmost** importance that the 'projection' selection points to the capture node that renders the canvas this shader is applied to, otherwise this shader will not work as intended.
 
 ---
 
