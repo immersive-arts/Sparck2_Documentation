@@ -123,7 +123,7 @@ __Stretch goal__ – if you also include the search terms you used when [searchi
 
 ### Reproduction
 
-A minimal reproduction is at the heart of every well-written bug report, as it allows us maintainers to instantly recreate the necessary conditions to inspect the bug to quickly find its root cause. It's a proven fact that issues with concise and small reproductions can be fixed much faster.
+A minimal reproduction is at the heart of every well-written bug report, as it allows us maintainers to instantly recreate the necessary conditions to inspect the bug to quickly find its root cause. It's a proven fact that issues with concise and small reproductions can be fixed much faster. If in dooubt, please read our [guide on creating a reproduction](./reproduction.md) first.
 
 ---
 
@@ -150,3 +150,5 @@ Thus, please list the specific steps we should follow when running your reproduc
 Thanks for following the guide and creating a high-quality and complete bug report – you are almost done. The checklist ensures that you have read this guide and have worked to your best knowledge to provide us with everything we need to know to help you.
 
 __We'll take it from here.__
+
+[Search our documentation]: ?q=

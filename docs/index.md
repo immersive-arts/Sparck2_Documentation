@@ -1,4 +1,4 @@
-# Welcome to SPARCK
+# SPARCK
 Welcome to the Sparck documentation.
 
 SPARCK is a cross-plattform media and virtual reality package i for the creation of interactive spatial augmented reality installations.
