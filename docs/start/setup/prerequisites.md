@@ -4,7 +4,7 @@ Before you install SPARCK, you need the following Software and Libraries install
 
 === "Step 1: Installing Max"
 
-    [INSTALL MaxMSP ![](https://assets.cycling74.com/web/logos/C74-dark.svg)](https://cycling74.com/downloads){ .md-button }
+    [INSTALL Max](https://cycling74.com/downloads){ .md-button }
 
 === "Step 2: Installing Java"
 
@@ -15,30 +15,30 @@ Before you install SPARCK, you need the following Software and Libraries install
                 1. or if you are on an older machine: download [jdk-19.0.2 for x64](https://download.oracle.com/java/19/archive/jdk-19.0.2_macos-x64_bin.dmg)
             2. Install the JDK
         === "Custom Way"
-            1. Alternatively go to [Java Archive](https://www.oracle.com/java/technologies/downloads/archive/)
+            3. Alternatively go to [Java Archive](https://www.oracle.com/java/technologies/downloads/archive/)
                 1. If you encounter an error message, click on the url and press enter. This will reload that page correctly.
                 2. Select "Java SE 19" (Newer versions do not work anymore with Max)
                 3. scroll down to "macOS Arm 64 DMG Installer" or "macOS x64 DMG Installer" depending on your machine
                 4. download the installer
-            2. Install the JDK
+            4. Install the JDK
 
     === "Windows"
 
         === "Easy Way"
-            3. direct download: [jdk-19.0.2](https://download.oracle.com/java/19/archive/jdk-19.0.2_windows-x64_bin.zip)
-            4. Install the JDK by running the installer
-            5. right-click "save-link-as" this [link](https://raw.githubusercontent.com/immersive-arts/Sparck2/refs/heads/master/scripts/java19.reg)
-            6. double click the downloaded java19.reg file to add the needed paths to your registry
-            7. done. Max should now be able to find Java.
+            5. direct download: [jdk-19.0.2](https://download.oracle.com/java/19/archive/jdk-19.0.2_windows-x64_bin.zip)
+            6. Install the JDK by running the installer
+            7. right-click "save-link-as" this [link](https://raw.githubusercontent.com/immersive-arts/Sparck2/refs/heads/master/scripts/java19.reg)
+            8. double click the downloaded java19.reg file to add the needed paths to your registry
+            9. done. Max should now be able to find Java.
    
         === "Custom Way"
-            1.  Alternatively go to [Java Archive](https://www.oracle.com/java/technologies/downloads/archive/)
+            10. Alternatively go to [Java Archive](https://www.oracle.com/java/technologies/downloads/archive/)
                 1. If you encounter an error message, click on the url and press enter. This will reload that page correctly.
                 2. Select "Java SE 19" (Newer versions do not work anymore with Max)
                 3. scroll down to "Windows x64 Installer"
                 4. download the installer
-            2.  Install the JDK
-            3.  Set the Registry paths for Max
+            11. Install the JDK
+            12. Set the Registry paths for Max
                 1. you need to adjust the paths in this .reg script accordingly:
                     ```
                     Windows Registry Editor Version 5.00
@@ -92,8 +92,9 @@ Before you install SPARCK, you need the following Software and Libraries install
 
     === "Windows"
 
-        3. Open Power Shell (search for 'power shell' in the windows search bar
-        4. select the one with the admin rights
-        5. follow link and the instructions under Using winget tool -> https://git-scm.com/install/windows
+        3. Search for 'power shell' in the windows search bar
+            * Select the one with the admin rights            
+            * Open Power Shell (as Admin)
+        4. follow link and the instructions under Using winget tool -> https://git-scm.com/install/windows
 
 

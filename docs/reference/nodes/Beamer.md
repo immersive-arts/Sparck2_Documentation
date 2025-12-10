@@ -4,7 +4,7 @@ A Beamer represents a real world projector inside SPARCK's 3D space.
 
 It has a calibration mode to find the orientation and lense properties (extrinsic and intrinsic transformations) of the projector.
 
-It uses the opencv [camera calibration](https://docs.opencv.org/4.x/dc/dbb/tutorial_py_calibration.html) method to calculate the tranformation and projection matrix of a projector. 
+It uses the opencv [calibrateCamera()](https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#ga3207604e4b1a1758aa66acb6ed5aa65d) method to calculate the tranformation and projection matrix of a projector. 
 
 For this to work the node needs a calibration model (3D object) and a set of manually set calibration vertices that correspond to points on the calibration model.
 
@@ -16,6 +16,9 @@ For this to work the node needs a calibration model (3D object) and a set of man
 ![Beamer Node](../../assets/images/nodes/Beamer.png){ width="300" }
 </figure> 
 
+
+!!! info "Fun Fact"
+    Beamer is another word for projector, mainly used in German-speaking countries - and apparently in Australia as well. The reason for this choice of name is to distinguish it from the real world projector hardware of which it is its virtual representation. And also to distinguish it from the TextureProjectory shader that also does a projection, though a purely virtual one.
 
 ## Reference
 
@@ -41,7 +44,7 @@ The following properties can be configured for this node:
     | Inlet      | Type          | Description                            |
     |------------|---------------|----------------------------------------|
     | properties | properties | properties &#124; use message [set &lt;propertyPath> &lt;value(s)>] (without node/&lt;nodeName> at the beginning) to set internal properties |
-    | background | texture | background texture for camera calibration |
+    | background | texture | background texture for camera calibration. Instead of setting the calibration vertices on real world targets, you can set the calibration vertices on the camera feed targets. The result is the same: Beamer node evaluates the video camera's intrinsic and extrinsic parameters. |
     | custom | message | custom commands. message 'createToXY' creates a new model with calibration vertices relative to the XY-plane: 'createToX  x1  y1  z1  x2  y2  z2  x3  y3  z3  ...'. &#124; message 'addToXY' adds calibration vertices relative to the XY-plane: 'addToX  x1  y1  z1  x2  y2  z2  x3  y3  z3  ...' |
 
 === "Outlets"
@@ -87,12 +90,15 @@ The following properties can be configured for this node:
 
 ## Important Notes
 
+!!! bug "Known Issues"
+    - On Windows systems, the calibrattion is not working when max's gfxengine is set to its default setting 'glcore'. The node will respond with a warnning message and ask to switch to 'gl2'. This will require a restart of max. Save your work before switching.
+  
 !!! warning "Calibration Requirements"
     
     - Calibration files must be saved before the calibration button becomes active
     - All calibration files are stored in `~/_assets/_projectors`
     - Ensure the correct projector resolution is set before enabling calibration
-    - The calibration process requires a physical calibration model (OBJ format)
+    - The calibration process requires a calibration model in OBJ format that represents the real world object against which the projector is calibrated and referenced to.
 
 !!! info "File Locations"
     
