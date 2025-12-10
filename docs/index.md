@@ -76,8 +76,8 @@
 </div>
 
 
-[Get Started :material-rocket-launch:](start/quickstart/){ .md-button .md-button--primary }
-[Node Reference :material-book-open-variant:](reference/nodes/){ .md-button }
+[Get Started :material-rocket-launch:](./start/tutorials/01_Getting_Started/Getting_Started.md){ .md-button .md-button--primary }
+[Node Reference :material-book-open-variant:](./reference//node_anatomy.md){ .md-button }
 [GitHub :fontawesome-brands-github:](https://github.com/immersive-arts/Sparck2){ .md-button }
 
 ---
@@ -177,7 +177,7 @@ Whether you're lighting up a single wall, mapping projections onto complex surfa
     
     Build your projection system by adding nodes for input, processing, calibration, and output. Use the Beamer node to calibrate projectors.
 
-[:octicons-arrow-right-24: Follow the Quickstart Guide](start/quickstart/){ .md-button .md-button--primary }
+[:octicons-arrow-right-24: Follow the Quickstart Guide](./start/tutorials/01_Getting_Started/Getting_Started.md){ .md-button .md-button--primary }
 
 ---
 
@@ -201,7 +201,7 @@ your-project/
 
 Everything stays self-contained, making projects easy to move between machines.
 
-[:octicons-arrow-right-24: Learn about File Structure](reference/file_structure/){ .md-button }
+[:octicons-arrow-right-24: Learn about File Structure](./reference/file_structure.md){ .md-button }
 
 ---
 
@@ -220,7 +220,7 @@ SPARCK organizes its nodes into logical categories:
 | **Output** | Send to displays | Window, SpoutSender, SyphonSender |
 | **Utility** | Scripting and control | QueScript, Hook, OscSend |
 
-[:octicons-arrow-right-24: Browse All Nodes](reference/nodes/){ .md-button }
+[:octicons-arrow-right-24: Browse All Nodes](./reference/node_anatomy.md){ .md-button }
 
 ---
 
@@ -260,7 +260,7 @@ SPARCK organizes its nodes into logical categories:
 
 Jump into the documentation and start building your first spatial projection.
 
-[Start the Quickstart :material-arrow-right:](start/quickstart/){ .md-button .md-button--primary }
+[Start the Quickstart :material-arrow-right:](./start/tutorials/01_Getting_Started/Getting_Started.md){ .md-button .md-button--primary }
 
 ---
 
@@ -272,7 +272,7 @@ Jump into the documentation and start building your first spatial projection.
 
     Step-by-step video guides for common setups
     
-    [:octicons-arrow-right-24: Watch Now](start/tutorials/videos/)
+    [:octicons-arrow-right-24: Watch Now](./start/tutorials/videos.md)
 
 -   :material-forum:{ .lg .middle } **Community**
 
@@ -288,7 +288,7 @@ Jump into the documentation and start building your first spatial projection.
 
     Found a bug? Let us know
     
-    [:octicons-arrow-right-24: Open an Issue](contributing/reporting-a-bug/)
+    [:octicons-arrow-right-24: Open an Issue](./contributing/reporting-a-bug.md)
 
 -   :material-source-pull:{ .lg .middle } **Contribute**
 
@@ -296,7 +296,7 @@ Jump into the documentation and start building your first spatial projection.
 
     Help improve SPARCK
     
-    [:octicons-arrow-right-24: Contribution Guide](contributing/)
+    [:octicons-arrow-right-24: Contribution Guide](./contributing/index.md)
 
 </div>
 
