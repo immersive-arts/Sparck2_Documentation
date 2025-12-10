@@ -2,7 +2,7 @@
 
 Optitrack is a commercialy available optical tracking system.
 
-In order to use it with SPARCK, you need the NatNet2Osc App.
+In order to use it with SPARCK, you need the [NatNet2Osc](https://github.com/immersive-arts/NatNetFour2OSC) App.
 
 <figure markdown>
 ![OptiTrack Node](../../assets/images/nodes/OptiTrack.png){ width="300" }
