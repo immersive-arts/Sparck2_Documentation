@@ -77,7 +77,7 @@
 
 
 [Get Started :material-rocket-launch:](./start/tutorials/01_Getting_Started/Getting_Started.md){ .md-button .md-button--primary }
-[Node Reference :material-book-open-variant:](./reference//node_anatomy.md){ .md-button }
+[Node Reference :material-book-open-variant:](./reference/node_anatomy.md){ .md-button }
 [GitHub :fontawesome-brands-github:](https://github.com/immersive-arts/Sparck2){ .md-button }
 
 ---
