@@ -2,16 +2,18 @@
 
 Renders ShaderPointClouds in the format of an RGB-D image, where the image is split into the rgb information and the depth encoded information. Works best with [Space-Stream], a python based app that takes live feed from the most common 3d cameras and transfers it into the rgb-d format. [Space-Stream] can stream the video directly via [SpoutReceiver] or [SyphonReceiver] to a SPARCK project. 
 
-![RGB-D](../../assets/images/nodes/ShaderPointCloud_frame-uniform-hue.png)
+![RGB-D](../../assets/images/nodes/PointCloud_frame-uniform-hue.png)
 
 [Space-Stream]: https://github.com/cansik/space-stream
 [SpoutReceiver]: SpoutReceiver.md
 [SyphonReceiver]: SyphonReceiver.md
 
 <figure markdown>
-![Canvas Node](../../assets/images/nodes/ShaderPointCloud.png){ width="300" }
+![ShaderPointCloud Node](../../assets/images/nodes/ShaderPointCloud.png){ width="300" }
 </figure> 
 
+!!! success "Live 3D Camera Integration"
+    ShaderPointCloud renders real-time point clouds from depth cameras (Intel RealSense, Azure Kinect, etc.) directly in SPARCK. Combined with [Space-Stream](https://github.com/cansik/space-stream), you can capture live 3D environments and integrate them into your projection mapping or Spatial Augmented Reality installations.
 
 ## Reference
 
@@ -55,25 +57,91 @@ The following properties can be configured for this node:
 
 ---
 
+## RGB-D Format
+
+!!! info "Understanding the Input Format"
+    The RGB-D format combines color and depth information in a single texture:
+    
+    - **Right half**: RGB color image
+    - **Left half**: Depth encoded as color values
+    
+    The `resolution` property should be set to half the width of the incoming stream (the width of just the RGB portion).
+
+## Depth Encoding Modes
+
+!!! tip "Choosing an Encoding Format"
+    The `encoded` property determines how depth values are decoded from the color data:
+    
+    | Mode | Description | Best For |
+    |------|-------------|----------|
+    | **uniform hue** | Recommended default — depth encoded as hue values with uniform distribution | Most use cases |
+    | **linear 8bit** | Simple linear mapping, 8-bit precision | Low depth range |
+    | **linear 16bit** | Linear mapping with 16-bit precision | High precision needs |
+    | **inverse hue** | Inverted hue encoding | Special cases |
+    | **hsv** | Full HSV color space encoding | Maximum precision |
+    
+    The encoding must match what your depth camera or Space-Stream is outputting.
+
+## Space-Stream Setup
+
+!!! example "Complete Workflow"
+    To stream point clouds from a depth camera to SPARCK:
+    
+    1. Install [Space-Stream](https://github.com/cansik/space-stream) (Python-based application)
+    2. Connect your depth camera (RealSense, Azure Kinect, etc.)
+    3. In Space-Stream, select **uniform hue** encoding
+    4. **Disable 'normalized intrinsics'** in Space-Stream UI to get absolute values
+    5. Start streaming via Spout (Windows) or Syphon (macOS)
+    6. In SPARCK, create a [SpoutReceiver](SpoutReceiver.md) or [SyphonReceiver](SyphonReceiver.md)
+    7. Connect the receiver output to ShaderPointCloud's texture inlet
+    8. Match all intrinsic parameters (see Parameter Matching below)
+
+## Depth Culling
+
+!!! tip "Controlling Visible Range"
+    Two sets of distance controls allow fine-tuning:
+    
+    **Encoding Range** (must match source):
+    
+    - `distance min`: Where depth encoding starts (near plane of encoding)
+    - `distance max`: Where depth encoding ends (far plane of encoding)
+    
+    **Render Culling** (can be adjusted freely):
+    
+    - `cull near`: Minimum distance to render points (hides close objects)
+    - `cull far`: Maximum distance to render points (hides distant objects)
+    
+    Use culling to remove unwanted parts of the point cloud (floors, ceilings, background walls).
+
+## Point Rendering
+
+!!! info "Visual Quality Settings"
+    - **point size**: Larger values fill gaps but reduce detail; smaller values show more detail but may have visible gaps
+    - **hole detect**: Attempts to fill holes in the point cloud — enable for cleaner surfaces
+    - **frontface/backface**: Control how points are rendered (polygons, lines, or points)
+    - **cullface**: Hide front or back faces to improve performance or visual clarity
+
+---
+
 ## Important Notes
 
-!!! warning "Parameter Matchings"
+!!! warning "Parameter Matching"
 
-    To have the best results receiving ShaderPointClouds encoded in the rgb-d format, you have to make sure the intrisic and depth properties are a match:
+    To have the best results receiving point clouds encoded in the RGB-D format, you must ensure these properties match between Space-Stream and ShaderPointCloud:
 
     * Resolution
-    * Principle Points
+    * Principal Point
     * Focal Point
     * Min Distance
     * Max Distance
 
-    [Space-Stream] stores some of the properties normalized, while this shader takes them absolute. you can get to the absolute values by disabling 'normalized intrinsics' in the UI of [Space-Stream].
+    [Space-Stream](https://github.com/cansik/space-stream) stores some properties normalized, while this shader takes them absolute. Get absolute values by **disabling 'normalized intrinsics'** in the Space-Stream UI.
 
 ---
 
-!!! info Reference
+!!! info "Reference"
 
-    The algorithm of this shader is base on this intel [whitepaper](https://dev.realsenseai.com/docs/depth-image-compression-by-colorization-for-intel-realsense-depth-cameras). Though at the time of our reading we detected a bug in their math - this is in this implementation corrected.
+    The algorithm of this shader is based on this Intel [whitepaper](https://dev.realsenseai.com/docs/depth-image-compression-by-colorization-for-intel-realsense-depth-cameras). A bug was detected in their math during implementation — this has been corrected in SPARCK's implementation.
 
 
 <div class="grid cards" markdown>
@@ -87,11 +155,11 @@ The following properties can be configured for this node:
     * [:octicons-arrow-right-24: Project Examples](../../start/examples/project/project_examples.md)
     * [:octicons-arrow-right-24: Node Examples](../../start/examples/nodes/node_examples.md)
 
--   :material-file-document:{ .lg .middle } __Complementing__ **Canvas**
+-   :material-file-document:{ .lg .middle } __Complementing__ **ShaderPointCloud**
 
     ---
     * [:octicons-arrow-right-24: SpoutReceiver](SpoutReceiver.md) 
-    * [:octicons-arrow-right-24: SyphonReceiver](SyphonReceiver.md) 
+    * [:octicons-arrow-right-24: SyphonReceiver](SyphonReceiver.md)
   
 -   :material-video-box:{ .lg .middle } __Tutorials__
 
@@ -116,4 +184,4 @@ The following properties can be configured for this node:
     [:fontawesome-brands-github: Improve the Docs](../../contributing/reporting-a-docs-issue.md){ .md-button }
 
 
-*Last updated: 2025-12-01 | [Edit this page on GitHub](https://github.com/immersive-arts/Sparck2/edit/main/docs/nodes/Canvas.md)*
+*Last updated: 2025-12-01 | [Edit this page on GitHub](https://github.com/immersive-arts/Sparck2/edit/main/docs/nodes/ShaderPointCloud.md)*

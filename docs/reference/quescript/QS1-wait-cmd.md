@@ -13,6 +13,7 @@
 
 ### Simple Example
 
+```xml
     <while name="whileLoop" init="{:whilevar = 0}" condition="{whilevar lt 100}" next="{whilevar = (whilevar + 1)}">
         <if true="{whilevar lt 50}">
             <print>inside while below 50: {whilevar}</print>
@@ -22,6 +23,7 @@
         </if>
     </while>
     <wait anim="whileLoop"/>
+```
 
 ### Attributes
 * until = waits until the [{expr}](QS1-Expressions.md)-condition turns true.
@@ -48,17 +50,20 @@ A trigger message can also have multiple tokens:
 
 where the following logic applies:
 
+```xml
     <wait trigger="token1"/>        TRUE  IF 'trigger token1'
     <wait trigger="token1"/>        TRUE  IF 'trigger token1 token2'
     <wait trigger="token1 token2"/> TRUE  IF 'trigger token1 token2'
     <wait trigger="token2"/>        FALSE IF 'trigger token1 token2'
     <wait trigger="token1 token2"/> FALSE IF 'trigger token1'
     <wait trigger="token1 token2"/> FALSE IF 'trigger token2'
+```
 
 * complex = waits until the nested &lt;wait&gt; child commands are logicaly 'and'/'or'/'not'
 
 Example:
 
+```xml
      <wait complex="and">
          <wait trigger="triggername"/>
          <wait complex="or">
@@ -66,6 +71,7 @@ Example:
              <wait timer="0m:10s"/>
          </wait>
      </wait>
+````
 
 This example waits until (( the minute finger of a clock is either past the first minute ) OR ( the timer has passed 10 seconds )) AND ( a trigger messgage 'triggername' was sent ).
 

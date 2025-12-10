@@ -3,12 +3,14 @@
 
 ### Simple Example
 
+```xml
     <anim name="simpleRamp" duration="5s" fadeout="2s">
         <track name="t1">0. 1.</track>
         <osc>/address/pattern ramp {t1}</osc>
     </anim>
     <osc sendto="master">/animation/pattern executed</osc>
     <wait anim="simpleRamp"/>
+```
 
 ### Content
 Any List of Strings, numbers and [{expr}](QS1-Expressions.md)

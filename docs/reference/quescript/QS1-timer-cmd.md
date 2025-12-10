@@ -3,8 +3,10 @@
 
 ### Simple Example
 
+```xml
     <timer/>
     <wait timer="1m:20s"/>
+```
 
 ### Attributes
 * None

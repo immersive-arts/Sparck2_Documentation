@@ -3,6 +3,7 @@
 
 ### Simple Example
 
+```xml
     <que name="Start" loop="no">
         <play name="Reset"/>
         <wait trigger="resetDone"/>
@@ -12,6 +13,7 @@
         <print>Executing Reset</print>
         <trigger>resetDone</trigger>
     </que>
+```
 
 ### Attributes
 * name = required. name of que

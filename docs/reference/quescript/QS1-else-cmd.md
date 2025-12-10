@@ -3,6 +3,7 @@
 
 ### Simple Example
 
+```xml
     <while name="whileLoop" start="{whilevar = 0}" repeat="{whilevar lt 100}" step="{whilevar = (whilevar + 1)}">
         <if true="{whilevar lt 50}">
             <print>inside while below 50: {whilevar}</print>
@@ -12,6 +13,7 @@
         </if>
     </while>
     <wait anim="whileLoop"/>
+```
 
 ### Attributes
 * None

@@ -6,12 +6,15 @@
 
 assign an array to a variable:
 
+```xml
     <var name="variablename">{ARRAY(0,0,0)}</var>
+```
 
 reference a expression to a variable:
 
+```xml
     <var name="variablename">{-> ARRAY(COS(alpha),sin(alpha),2)}</var>
-
+```
 
 ### Attributes
 * name = name of a variable inside the scope of the node

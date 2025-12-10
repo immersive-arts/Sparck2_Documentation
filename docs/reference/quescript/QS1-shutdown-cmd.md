@@ -3,7 +3,9 @@
 
 ### Simple Example
 
+```xml
     <shutdown name="nextCue"/>
+```
 
 ### Content
 * None

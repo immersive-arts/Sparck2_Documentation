@@ -7,7 +7,8 @@ It has a rich feature set of [commands](QS1-Reference.md) that allow a unique wa
 Lets have a look at a simple example.
 
 QueScript is XML based, and you can use the internal Max-Text editor or any Suitable editor of your choice (mine is VisualStudioCode. [Learn](./QS1_VisualStudioCode.md) how to set it up for QueScript).
-
+    
+```xml
     <script>
         <que name="myQue">
             <timer>
@@ -16,6 +17,7 @@ QueScript is XML based, and you can use the internal Max-Text editor or any Suit
             <print>timer has passed</print>
         </que>
     </script>
+```
 
 when playing 'myQue', QueScript (from now on called 'QS') will start a timer and outputs a message to the 'out' outlet:
 
@@ -27,6 +29,7 @@ then it waits until 5 seconds of the &lt;[timer](QS1-timer-cmd.md)&gt; call have
 
 However, QS doesnt stop here. There are animation commands that allow you to create simple timelines and loops that can run concurrently. Lets have a look at a simple use of the < [anim](QS1-anim-cmd.md) > command:
 
+```xml
     <script>
         <que name="my2ndQue">
             <anim name="simpleRamp" duration="5s" fadeout="2s">
@@ -37,6 +40,7 @@ However, QS doesnt stop here. There are animation commands that allow you to cre
             <print>animation is fading out</print>
         </que>
     </script>
+```
 
 when playing que "my2ndQue", QS will start an animation with a duration of 5 seconds. it has a child-cmd called  &lt;[track](QS1-track-cmd.md)&gt; in which two values, 0. and 1. are set. this means &lt;[track](QS1-track-cmd.md)&gt; will create a variable called 't1' (the name of the track) and change its value from 0. to 1. within 5 seconds. the other childe-cmd called &lt;[send](QS1-send-cmd.md)&gt; creates a send message with the value of that variable. This will send
 
@@ -70,6 +74,7 @@ Obviously you can create as many &lt;[track](QS1-track-cmd.md)&gt; commands insi
 
 Lets have a look at one last example:
 
+```xml
     <script>
         <que name="my2ndQue">
             <anim name="simpleRamp" duration="5s" fadeout="2s">
@@ -84,6 +89,7 @@ Lets have a look at one last example:
             <print>animation is fading out</print>
         </que>
     </script>
+```
 
 This script will start two animations at the same time. the one called 'simpleRamp' will create the same ramp - messages as we already have seen in the last example. the one called 'simpleLoop' will create an never ending palindrome loop following the tree values 0. to 1. to 0. and then 1. and 0. and then 1. and 0. etc.
 

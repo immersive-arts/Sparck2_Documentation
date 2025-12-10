@@ -3,12 +3,14 @@
 
 ### Simple Example
 
+```xml
     <anim name="simpleRamp" duration="5s" fadeout="2s">
         <track name="t1">0. 1.</track>
         <send>/address ramp {t1}</send>
     </anim>
     <wait countdown="2s"/>
     <fade name="simpleRamp" countdown="5s"/>
+```
 
 This example starts an animation with a duration of 5 seconds, waits for 2 seconds and then sends the animation a fadeout message.
 

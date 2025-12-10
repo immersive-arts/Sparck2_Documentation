@@ -3,7 +3,9 @@
 
 ### Simple Example
 
+```xml
     <resume name="nextCue"/>
+```
 
 ### Content
 * None

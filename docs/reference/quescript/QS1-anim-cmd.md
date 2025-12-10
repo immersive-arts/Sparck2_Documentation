@@ -3,11 +3,13 @@
 
 ### Simple Example
 
+```xml
     <anim name="simpleRamp" duration="5s" fadeout="2s">
         <track name="t1">0. 1.</track>
         <send>/address ramp {t1}</send>
     </anim>
     <wait anim="simpleRamp"/>
+```
 
 ### Attributes
 * name = required. name of animation

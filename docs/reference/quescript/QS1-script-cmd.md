@@ -3,6 +3,7 @@
 
 ### Simple Example
 
+```xml
     <script>
         <var name="myVariable">345</var>
         <play name"Start"/>
@@ -13,6 +14,7 @@
         ....
         </que>
     </script>
+```
 
 ### Attributes
 * None

@@ -3,11 +3,13 @@
 
 ### Simple Example
 
+```xml
 <script>
     <import>another.que</import>
     <que name="xy">
       ...
 </script>
+```
 
 ### Content
 Relative filepath to another que script

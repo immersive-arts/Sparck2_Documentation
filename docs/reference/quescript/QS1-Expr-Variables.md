@@ -10,11 +10,13 @@ With a &lt;[var](QS1-var-cmd.md)&gt; node at the beginning a parent-node. The &l
 
 The variable will be in the scope of the node it is located. It is possible to have multiple variables of the same name, but each has to be located in a different scope:
 
+```xml
     <script>
 	<var name="scriptScopeVar">99</var>
 	<que name="que_1" loop="no">
 	    <var name="scriptScopeVar">{scriptScopeVar / 3}</var>
             <print>scriptScopeVar is {scriptScopeVar}</print>
+```
 
 On loading the script, the [[{expression}|QS1-Expressions]] of the &lt;[var](QS1-var-cmd.md)&gt; node inside the &lt;[que](QS1-que-cmd.md)&gt; can access the value of the {scriptScopeVar} inside the &lt;[script](QS1-script-cmd.md)&gt; scope.
 But on execution of the script, the [[{expression}|QS1-Expressions]] inside the &lt;[print](QS1-print-cmd.md)&gt; node will only be able to access the {scriptScopeVar} inside the scope of the &lt;[que](QS1-que-cmd.md)&gt;, while the {scriptScopeVar} of the &lt;[script](QS1-script-cmd.md)&gt; scope will be hidden.
@@ -30,9 +32,11 @@ In other words: '**:**' only creates a variable if doesn't exist yet, '**::**' c
 
 But in difference to the &lt;[var](QS1-var-cmd.md)&gt; it will be evaluated only when the node is executed.
 
+```xml
     <while name="Loop" init="{:var = 0}" condition="{var lt 100}" next="{var = (var + 1)}">
         <print>inside while: {var}</print>
     </while>
+```
 
 In case of the &lt;[while](QS1-while-cmd.md)&gt; node, the attribute 'init' is evaluated first, so the prefix needs to be set there. Once the 'init'-[[{expression}|QS1-Expressions]] is evaluated, the variable 'var' is instantiated and can be accessed by the other attributes and the child nodes.
 
@@ -68,7 +72,9 @@ All variables inside the que-scopes and sub-scopes will be lost once a new scrip
 
 If your newly loaded script needs to access the value a script-scope variable which has been changed through user interaction via a 'var' message in a previous script, then you can initialize it at the beginning of the script the following way:
 
+```xml
     <var name="gvar">{if(:gvar == NULL, 0, gvar)}</var>
+```
 
 ':gvar' will cause the [{expressions}](QS1-expressions.md) to instantiate a variable if it doesn't exist. The 'if'-condition will then set gvar to 0 since the newly instatiated variable is NULL.
 If the variable existed in the last script, its value will be taken to set the 'gvar' again.
@@ -77,6 +83,7 @@ A special case is the sub-node &lt;[anim](QS1-anim-cmd.md)&gt;:
 
 Variables generated inside the sub-node &lt;[anim](QS1-anim-cmd.md)&gt; belong to either its own scope or the scope of its parent &lt;[que](QS1-que-cmd.md)&gt; node. Assuming an example like the following:
 
+```xml
     <var name="g1.a1.t1">0</var>
     <que>
        <anim name="a1">
@@ -91,6 +98,7 @@ Variables generated inside the sub-node &lt;[anim](QS1-anim-cmd.md)&gt; belong t
           <send>adress command {g1.a1.t1}</send>
        </while>
     </que>
+```
 
 &lt;[track](QS1-track-cmd.md)&gt; generates for each track two variables:
 
@@ -101,11 +109,14 @@ In order to make the values accessible for all the script, you can use the &lt;[
 
 ## reference an expression to a variable:
 
+```xml
     <var name="circlePos">{-> ARRAY(COS(alpha),SIN(alpha),2)}</var>
-
+```
 or
 
+```xml
     <expr>{:circlePos -> ARRAY(COS(alpha),SIN(alpha),2)}</var>
+```
 
 sets the reference to the [{expr}](QS1-Expressions.md) as its value.
 

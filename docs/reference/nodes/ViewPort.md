@@ -1,13 +1,15 @@
 # ViewPort
 
-In its most basic mode it takes a texture and displays it in its designated slice of the connected Window
+In its most basic mode it takes a texture and displays it in its designated slice of the connected [Window](Window.md).
 
-More advanced usage includes the use of custom meshes or the result of a MeshWarp node (also a mesh) and/or using a second texture and applying a shader
+More advanced usage includes the use of custom meshes or the result of a [MeshWarp](MeshWarp.md) node (also a mesh) and/or using a second texture and applying a shader
 
 <figure markdown>
 ![ViewPort Node](../../assets/images/nodes/ViewPort.png){ width="300" }
 </figure> 
 
+!!! info "Final Render Stage"
+    ViewPort is the **last renderpass** before content is sent to output devices like projectors, displays, or VR goggles. Since reducing render passes is important for performance, ViewPort combines multiple corrections in a single pass — including warping, color correction, and shader effects.
 
 ## Reference
 
@@ -48,20 +50,83 @@ The following properties can be configured for this node:
 
 ---
 
+## Window and Slice Configuration
+
+!!! example "Basic Setup"
+    To display content through a ViewPort:
+    
+    1. Create a [Window](Window.md) node and configure its columns and rows
+    2. Create a ViewPort node for each output slice
+    3. Set the `window` property to reference the Window node
+    4. Set the `slice` property to the appropriate column and row (e.g., column_1, row_1)
+    5. Connect a texture source (typically from a [Beamer](Beamer.md)) to the main inlet
+
+
+## Mesh Types
+
+!!! tip "Choosing the Right Mesh Mode"
+    The `mesh` property determines how the texture is mapped to the output:
+    
+    | Mode | Description | Use Case |
+    |------|-------------|----------|
+    | **default** | Simple rectangular mesh | Basic output without geometric correction |
+    | **warp** | Links to a [MeshWarp](MeshWarp.md) node | Complex surface warping with lattice control |
+    | **file** | Loads custom OBJ mesh | Pre-created warp meshes |
+    | **none** | No mesh rendered | Use with [CornerPin](CornerPin.md) for simple 4-corner mapping |
+    
+    For projecting onto non-flat surfaces, use `warp` or `file` mode with a mesh that matches your projection surface geometry.
+
+## Combining with Mapping Tools
+
+!!! example "CornerPin Workflow"
+    For simple 4-corner projection mapping:
+    
+    1. Set ViewPort `mesh` to **none**
+    2. Create a [CornerPin](CornerPin.md) node
+    3. Set CornerPin's `viewport` to reference this ViewPort
+    4. Use CornerPin's `edit...` button to adjust corners visually
+    
+    This is ideal for projecting onto rectangular surfaces that just need corner adjustment.
+
+!!! example "MeshWarp Workflow"
+    For complex surface warping:
+    
+    1. Create a [MeshWarp](MeshWarp.md) node
+    2. Load or create a warp mesh
+    3. Use MeshWarp's lattice editor to adjust control points
+    4. In ViewPort, set `mesh` to **warp** and link to the MeshWarp node
+    
+    This is ideal for curved surfaces, irregular shapes, or multi-projector edge blending.
+
+## Shader Effects
+
+!!! info "Post-Processing with FX Shaders"
+    The `fx shader` property allows applying shader effects to the viewport output:
+    
+    - Color correction
+    - Gamma adjustment
+    - Soft-edge blending
+    - Custom GLSL effects
+    
+    Since ViewPort is the final render stage, these effects are applied after all other processing, making it ideal for final color grading and output correction.
+
+---
+
 ## Important Notes
 
-!!! warning "Calibration Requirements"
+!!! warning "Mesh Format"
     
-    Inside ViewPort the last renderpass is executed before the result is sent to the output devices like a projector, display or VR-goggles. Since it performative sensible to reduce the number of renderpasses, ViewPort has all these features to do different corrections in one go, like a warp and a colorcorrection at the same time.
-    Notes on viewport - mesh:
-    - when using a custom file, use the wavefront-obj format.
-    - using no mesh makes only sense when working with CornerPin or MeshWarp nodes
+    When using custom mesh files:
+    
+    - Use **Wavefront OBJ format** only
+    - Place files in `~/_assets/_warps/` or `~/_assets/_models/_warps/`
+    - Using `mesh: none` only makes sense when working with [CornerPin](CornerPin.md) nodes
 
 !!! info "File Locations"
     
     ```
-    ~/_assets/_projectors/     # Calibration files
-    ~/_assets/_model/          # Calibration models (.obj)
+    ~/_assets/_warps/              # Warp mesh files (.obj)
+    ~/_assets/_models/_warps/      # Alternative location for warp meshes
     ```
 
 ---
@@ -82,14 +147,18 @@ The following properties can be configured for this node:
 
     ---
     * [:octicons-arrow-right-24: Window](Window.md) 
-    * [:octicons-arrow-right-24: Monitor](Monitor.md) 
+    * [:octicons-arrow-right-24: Beamer](Beamer.md)
     * [:octicons-arrow-right-24: MeshWarp](MeshWarp.md) 
-    * [:octicons-arrow-right-24: CornerPin](CornerPin.md) 
+    * [:octicons-arrow-right-24: CornerPin](CornerPin.md)
+    * [:octicons-arrow-right-24: Monitor](Monitor.md)
 
   
 -   :material-video-box:{ .lg .middle } __Tutorials__
 
     ---
+
+    * [:octicons-arrow-right-24: Wall Projection](../../start/tutorials/01_Wall_Projection/Wall_Projection.md)
+    * [:octicons-arrow-right-24: Floor Projection](../../start/tutorials/05_Floor_Projection/Floor_Projection.md)
     
     [:octicons-arrow-right-24: Watch Now](../../start/tutorials/videos.md){ .md-button .md-button--primary }
 

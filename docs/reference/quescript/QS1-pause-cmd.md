@@ -3,7 +3,9 @@
 
 ### Simple Example
 
+```xml
     <pause name="nextCue"/>
+```
 
 ### Content
 * None

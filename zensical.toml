@@ -99,7 +99,6 @@ nav = [
         "reference/nodes/Grid.md",
         "reference/nodes/Light.md",
         "reference/nodes/Model.md",
-        "reference/nodes/ShaderPointCloud.md",
         "reference/nodes/SkyBox.md",
       ]},
       {"4_MAPPING" = [
@@ -127,6 +126,7 @@ nav = [
         "reference/nodes/TfmNodePath.md",
       ]},
       {"7_SHADERS" = [
+        "reference/nodes/ShaderPointCloud.md",
         "reference/nodes/ShaderAnaglyph.md",
         "reference/nodes/ShaderBlur.md",
         "reference/nodes/ShaderBrCoSa.md",

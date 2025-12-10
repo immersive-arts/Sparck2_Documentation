@@ -1,6 +1,6 @@
 #[home](QS1-Introduction.md) / [reference](QS1-Reference.md) / TimeString
 
-###Simple Examples:
+### Simple Examples:
  
     12h:34m:23s:345ms
     10m
@@ -18,7 +18,7 @@ the numbers are allways trailed by a charcter
 
 and the separation sign is a ':'.
 
-###Used in Attributes
+### sed in Attributes
 * &lt;[anim](QS1-anim-cmd.md)&gt;
 * &lt;[wait](QS1-wait-cmd.md)&gt;
 * &lt;[fade](QS1-fade-cmd.md)&gt;

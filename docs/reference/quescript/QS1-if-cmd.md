@@ -3,6 +3,7 @@
 
 ### Simple Example
 
+```xml
     <while name="whileLoop" init="{:whilevar = 0}" condition="{whilevar lt 100}" next="{whilevar = (whilevar + 1)}">
         <if true="{whilevar lt 50}">
             <print>inside while below 50: {whilevar}</print>
@@ -12,6 +13,7 @@
         </if>
     </while>
     <wait anim="whileLoop"/>
+```
 
 ### Attributes
 * true =  its [{expr}](QS1-Expressions.md) has to be true (&gt;= 1) to execute the content, otherwise &lt;else&gt; is called, if it exists

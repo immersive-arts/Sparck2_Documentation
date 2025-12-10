@@ -70,7 +70,7 @@
     <div class="sparck-logo">SPARCK</div>
     <div class="sparck-tagline">SPatial Augmented Reality Construction Kit</div>
     <p class="sparck-description">
-      A powerful node-based toolkit for projection mapping, multi-projector calibration, and immersive spatial installations — built for Max/MSP.
+      A powerful node-based toolkit for projection mapping, multi-projector calibration, and  <br>immersive spatial installations <br> -- <br> built for Max/MSP.
     </p>
   </div>
 </div>
@@ -95,13 +95,13 @@ Whether you're lighting up a single wall, mapping projections onto complex surfa
 
     ---
 
-    Calibrate multiple projectors using OpenCV-based algorithms. Define calibration vertices on 3D models and achieve pixel-perfect alignment with soft-edge blending.
+    Calibrate multiple projectors using OpenCV-based algorithms. Define calibration vertices on 3D models and achieve pixel-perfect alignment with realtime calculated soft-edge blending.
 
 -   :material-cube-scan:{ .lg .middle } **Spatial Mapping**
 
     ---
 
-    Project onto any surface with Canvas and Model nodes. Support for OBJ, Collada, and 30+ 3D formats with real-time texture baking and shader effects.
+    Project onto any surface with Canvas nodes. Support for OBJ, Collada, and 30+ 3D formats with real-time texture baking and shader effects.
 
 -   :material-connection:{ .lg .middle } **Node-Based Workflow**
 
@@ -119,7 +119,7 @@ Whether you're lighting up a single wall, mapping projections onto complex surfa
 
     ---
 
-    Receive real-time content via Spout, Syphon, or NDI from engines like TouchDesigner, Unity, Unreal, or Notch. Full support for HAP video and point clouds.
+    Receive real-time content via Spout and Syphon from engines like TouchDesigner, Unity, Unreal, or Notch. Full support for HAP video and point-clouds via rgb-d videos.
 
 -   :material-script-text:{ .lg .middle } **QueScript Automation**
 
@@ -218,7 +218,7 @@ SPARCK organizes its nodes into logical categories:
 | **Effects** | Process and blend | SpatialShadery, BlendSoftedge, ShaderPointCloud |
 | **Transform** | Position elements in 3D | TfmNode, TfmLookAt, TfmMirror |
 | **Output** | Send to displays | Window, SpoutSender, SyphonSender |
-| **Utility** | Scripting and control | QueScript, Hook, OscSend |
+| **Utility** | Scripting and control | QueScript, Hook |
 
 [:octicons-arrow-right-24: Browse All Nodes](./reference/node_anatomy.md){ .md-button }
 

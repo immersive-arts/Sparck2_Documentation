@@ -1,19 +1,21 @@
 #[home](QS1-Introduction.md) / [reference](QS1-Reference.md) / &lt;[anim](QS1-anim-cmd.md)&gt;/&lt;track&gt;
 &lt;track name="(string)" fadeto="float|[{expr}](QS1-Expressions.md))"&gt;
 
-###Simple Example
+### Simple Example
 
+```xml
     <anim name="simpleRamp" duration="5s" fadeout="2s">
         <track name="t1" fadeto="2.">0. 1.</track>
         <send>/address ramp {t1}</send>
     </anim>
     <wait anim="simpleRamp"/>
+```
 
-###Attributes
+### Attributes
 * name = the name sets the variable name for expressions. assuming the above simple example: the name 't1' translates into two variables: 't1' for use inside the same &lt;anim&gt; node and 'simpleRamp.t1' for use inside the same &lt;que&gt;
 * fadeto =  if the &lt;anim&gt; command has defined a fadeout attribute, it will use this value to target the fadeout for this variable.
 
-###Content
+### Content
 A list of numbers or [{expr}](QS1-Expressions.md) that signifiy different key-values during the animation.
 
     <track name="t1" fadeto="2.">0. {expr} 10.</track>
@@ -34,5 +36,5 @@ if no &lt;keys&gt; object exists, &lt;anim&gt; will distribute the three key val
 
 however, this distribution can be manually defined by the < [keys](QS1-keys-cmd.md) > cmd
 
-###Explained
+### Explained
 track is a variable that changes its value over time. the variable can be used by all [{expr}](QS1-Expressions.md)

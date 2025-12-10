@@ -8,6 +8,8 @@ The implementation of QueScript inside SPARCK follows certain idiosyncracies tha
 ![QueScript Node](../../assets/images/nodes/QueScript.png){ width="300" }
 </figure> 
 
+!!! success "Nonlinear Animation Scripting"
+    QueScript is SPARCK's built-in nonlinear animation scripting language. With a few commands you can create many **parallel running scripts** to control any aspect of SPARCK or beyond. It's designed for timeline-based animations, interactive triggers, and automated show control.
 
 ## Reference
 
@@ -27,7 +29,6 @@ The following properties can be configured for this node:
     | `edit` | - | edit the loaded file. You can set your prefered editor inside properties. |
     | `update mode` | - | there are two modes to choose: <li>automatic will update the script with each frame-pass. <li>custom will allow you to set your own update frequency. |
     | `frequency` | - | custom update frequency |
-    | `osc send` | - | Que script can create OSC messages, but needs an OscSend node to send them to. |
     | `debug` | - | will output debug information to the console |
 
 === "Inlets"
@@ -48,13 +49,93 @@ The following properties can be configured for this node:
 
 ---
 
+## Script Structure
+
+!!! example "Basic QueScript Example"
+    QueScript uses an XML-based syntax with `<que>` elements containing timers, animations, and commands:
+    
+```xml
+    <script>
+      <que name="myQue">
+        <timer/>
+        <send>/address list with strings and numbers 0 2.45 56</send>
+        <wait timer="5s"/>
+        <print>timer has passed</print>
+      </que>
+      <que name="my2ndQue">
+        <anim name="simpleRamp" duration="5s" fadeout="2s">
+          <track name="t1">0. 1.</track>
+          <send>/address ramp {t1}</send>
+        </anim>
+        <wait anim="simpleRamp"/>
+      </que>
+    </script>
+```
+    
+    Key elements:
+    
+    - **`<que>`**: A named sequence of actions that can run in parallel with other ques
+    - **`<timer>`**: Time-based execution block
+    - **`<anim>`**: Animation block with duration, fadeout, and tracks
+    - **`<track>`**: Defines interpolation values (e.g., `0. 1.` ramps from 0 to 1)
+    - **`<send>`**: Sends OSC messages to SPARCK or external applications
+    - **`<wait>`**: Pauses execution until a timer or animation completes
+    - **`<print>`**: Outputs debug messages to the console
+
+## Controlling SPARCK Properties
+
+!!! tip "OSC Address Format"
+    QueScript uses OSC messages to control any SPARCK node property. The address format is:
+    
+    ```
+    node/<nodeName>/<propertyPath> <value(s)>
+    ```
+    
+    Examples:
+    ```xml
+    <send>toSparck node/Grid/tfm/local/posX 4.</send>
+    <send>toSparck node/Beamer/render/texture/dim/size 1920. 1080.</send>
+    ```
+
+    In this case the &lt;[send](../quescript/QS1-send-cmd.md)&gt; command sends the message to SPARCK.
+    
+    Use the **[Introspection](../core_toolbar.md#toolbar-controls)** button in SPARCK's toolbar to discover all available node [properties](../node_anatomy.md#property-paths) and their current values.
+
+## Triggering and Playback
+
+!!! info "Inlet Messages"
+    Control QueScript execution via the trigger inlet:
+    
+    | Message | Description |
+    |---------|-------------|
+    | `trigger <triggername>` | Fire a named trigger defined in the script |
+    | `play <quename>` | Start executing a specific que by name |
+    | `var <varname> <value>` | Set a script variable dynamically |
+    
+    The `ques` dropdown in the node UI also allows manual execution of any que.
+
+## Development Workflow
+
+!!! tip "Live Editing"
+    For efficient script development:
+    
+    1. Enable `fileWatch` to auto-reload when the script file changes
+    2. Set your preferred `Editor` (VS Code, Sublime, etc.)
+    3. Click `edit` to open the script in your editor
+    4. Enable `debug` to see execution details in the Max console
+    5. Use `pause / play` and `stop` to control execution during testing
+
+---
+
 ## Important Notes
 
+!!! warning "OSC Output Routing"
+    QueScript can generate OSC messages, but needs an [udpsend](https://docs.cycling74.com/reference/udpsend/) object to transmit them externally. Connect the QueScript's `osc` outlet to an udpsend object.
 
 !!! info "File Locations"
     
     ```
-    ~/_assets/_scripts/_ques     # Que files
+    ~/_assets/_scripts/_ques     # QueScript files (.xml)
     ```
 
 ---
@@ -74,7 +155,7 @@ The following properties can be configured for this node:
 -   :material-file-document:{ .lg .middle } __Complementing__ **QueScript**
 
     ---
-    * [:octicons-arrow-right-24: OscSend](OscSend.md) 
+    * [:octicons-arrow-right-24: QueScript Language Guide](../quescript/QS1-Introduction.md)
 
   
 -   :material-video-box:{ .lg .middle } __Tutorials__

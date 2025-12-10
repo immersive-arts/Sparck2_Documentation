@@ -1,8 +1,9 @@
 # [QueScript](QS1-Introduction.md) / [Reference](QS1-Reference.md) / &lt;while&gt;
 &lt;while name="(string)" start="[{expr}](QS1-Expressions.md)" repeat="[{expr}](QS1-Expressions.md)" step="[{expr}](QS1-Expressions.md))" &gt;
 
-###Simple Example
+### Simple Example
 
+```xml
     <while name="whileLoop" init="{:whilevar = 0}" condition="{whilevar lt 100}" next="{whilevar = (whilevar + 1)}">
         <if true="{whilevar lt 50}">
             <print>inside while below 50: {whilevar}</print>
@@ -12,6 +13,7 @@
         </if>
     </while>
     <wait anim="whileLoop"/>
+```
 
 ### Attributes
 * name = if name is set, &lt;while&gt; will sends an anim-message once the loop has exited (condition == false). this message can be caught by a &lt;wait anim="whileLoop"/&gt; cmd.

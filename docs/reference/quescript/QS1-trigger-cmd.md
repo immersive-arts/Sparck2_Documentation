@@ -3,7 +3,9 @@
 
 ### Simple Example
 
+```xml
     <trigger>nextCue</trigger>
+```
 
 ### Content
 Any List of Strings, numbers and [{expr}](QS1-Expressions.md)
@@ -17,6 +19,7 @@ Any List of Strings, numbers and [{expr}](QS1-Expressions.md)
 ### Explained
 The main difference to the other messages is it creates also an internal 'trigger' message that is send to all the currently playing ques of this script. this allows to trigger &lt;[wait](QS1-wait-cmd.md)&gt; cmds in other ques. Example:
 
+```xml
     <que name="Start" loop="no">
         <play name="Reset"/>
         <wait trigger="resetDone"/>
@@ -26,6 +29,7 @@ The main difference to the other messages is it creates also an internal 'trigge
         <print>Executing Reset</print>
         <trigger>resetDone</trigger>
     </que>
+```
 
 When &lt;[que](QS1-que-cmd.md)&gt; 'Start' is played, first thing it does is start playing &lt;[que](QS1-que-cmd.md)&gt; 'Reset' and &lt;[wait](QS1-wait-cmd.md)&gt; for a trigger called 'resetDone'. When &lt;[que](QS1-que-cmd.md)&gt; 'Reset' plays, it first &lt;[print](QS1-print-cmd.md)&gt;s out the message `Executing Reset` and then sends a &lt;trigger&gt;-message 'resetDone'. Which the &lt;[wait](QS1-wait-cmd.md)&gt; cmd inside 'Start' will pickup and carry on with &lt;[print](QS1-print-cmd.md)&gt;ing `Reseted. Ready for action`.
 
