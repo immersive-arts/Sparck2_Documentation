@@ -61,10 +61,6 @@ nav = [
     "start/tutorials/05_Floor_Projection/Floor_Projection.md",
     "start/tutorials/03_Spatial_Augmented_Reality/Spatial_Aumented_Reality.md",     
   ]},
-  {"Examples" = [
-    "start/examples/project/project_examples.md",
-    "start/examples/nodes/node_examples.md",
-  ]},
   {"Documentation" = [
     "reference/index.md",
     "reference/quickstart.md",
@@ -150,6 +146,10 @@ nav = [
       "reference/quescript/QS1-ExampleScripts.md",
     ]},
   ]},
+  {"Examples" = [
+    "start/examples/project/project_examples.md",
+    "start/examples/nodes/node_examples.md",
+  ]},
   {"Showcases" = [
     "start/showcases.md",
   ]},
@@ -164,6 +164,9 @@ nav = [
       "contributing/reporting-a-docs-issue.md",
       "contributing/requesting-a-change.md",
       "contributing/code_of_conduct.md",
+      {"Guides" = [
+        "contributing/reproduction.md",
+      ]},
       ]},
     ]}
   ]
