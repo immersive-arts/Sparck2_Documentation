@@ -1,4 +1,4 @@
-# Render Groups & Passes
+# Render Passes
 
 !!! info "Advanced Topic"
     This page covers advanced concepts for users who need fine-grained control over rendering order. For most projects, the default settings work well and you don't need to change these values.

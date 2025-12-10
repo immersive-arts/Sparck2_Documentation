@@ -146,10 +146,13 @@ Click the menu button on a node to access:
 
 When you open properties via the menu, a floating window displays all the node's properties.
 
+![Floating properties window example](../assets/images/FloatingProperties.png)
+
 - The window disappears when you click outside it
 - **Pin** the window to keep it visible
-- Click **[-]** to minimize it to the right edge of the screen
+- once pinned, click **[-]** to minimize it to the right edge of the screen
 - Click **[+]** to expand it alongside other floating property windows
+- Click **[x]** to close the floating properties window
 
 [LookAtCamera]: ../reference/nodes/LookAtCamera.md
 [Grid]: ../reference/nodes/Grid.md

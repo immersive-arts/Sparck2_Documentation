@@ -62,17 +62,21 @@ nav = [
     "start/tutorials/03_Spatial_Augmented_Reality/Spatial_Aumented_Reality.md",     
   ]},
   {"Documentation" = [
-    "reference/index.md",
+    "reference/introduction.md",
     "reference/quickstart.md",
-    "reference/nodes_and_connections.md",
+    {"Core" = [
+      "reference/core_overview.md",
+      "reference/core_toolbar.md",
+      "reference/core_patcher_setup.md",
+    ]},
     "reference/file_structure.md",
-    "reference/render_groups_and_passes.md",
-    "reference/render_contexts.md",
-    "reference/core_overview.md",
-    "reference/core_toolbar.md",
-    "reference/core_patcher_setup.md",
-    "reference/node_anatomy.md",
+    "reference/nodes_and_connections.md",
+    {"Advanced" = [
+      "reference/render_groups_and_passes.md",
+      "reference/render_contexts.md",
+    ]},
     {"Nodes" = [
+      "reference/node_anatomy.md",
       {"1_INPUT" = [
         "reference/nodes/CubeMap.md",
         "reference/nodes/DrawMask.md",

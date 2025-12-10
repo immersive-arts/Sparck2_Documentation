@@ -1,4 +1,4 @@
-# CORE Overview
+# Overview
 
 The SPARCK CORE is the central component that makes SPARCK work within Max. It must be placed in the root patcher to ensure all node properties are properly stored when you save your project.
 

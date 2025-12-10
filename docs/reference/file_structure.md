@@ -1,4 +1,4 @@
-# Projects & File Structure
+# Projects
 
 When you create a SPARCK patcher, SPARCK generates its own folder structure next to where the patcher is stored. This keeps your project self-contained and portable.
 

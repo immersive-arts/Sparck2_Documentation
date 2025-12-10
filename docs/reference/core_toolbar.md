@@ -1,4 +1,4 @@
-# CORE Toolbar
+# Toolbar
 
 The CORE Toolbar provides quick access to SPARCK's main functions. It appears at the top of the CORE abstraction.
 

@@ -1,4 +1,4 @@
-# Nodes & Connections
+# Patching
 
 SPARCK Nodes can be connected in several ways, depending on what you need to achieve. This page explains the different connection mechanisms available.
 

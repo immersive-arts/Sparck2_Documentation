@@ -1,4 +1,4 @@
-# CORE Patcher Setup
+# Patcher Setup
 
 When you add the SPARCK CORE to a patcher via the context menu, it creates several interconnected objects. This page explains what each component does and which ones are essential.
 

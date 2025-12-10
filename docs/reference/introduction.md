@@ -1,4 +1,4 @@
-# What is SPARCK?
+# Introduction
 
 SPARCK (SPatial Augmented Reality Construction Kit) is a [Max](https://cycling74.com/) [Package](https://docs.cycling74.com/userguide/packages/) for building spatial augmented projection setups.
 
@@ -8,7 +8,7 @@ It follows a similar approach to [VIZZIE](https://cycling74.com/packages/vizzie)
 
 SPARCK is designed for artists, designers, and technologists working with projection mapping, spatial augmented reality, and immersive installations. Whether you're mapping onto architectural surfaces, creating interactive exhibits, or building multi-projector setups, SPARCK provides the tools to realize your vision.
 
-[:material-rocket-launch: More Applications.. ](../start/applications/applications.md){ .md-button }
+[:material-rocket-launch: More Applications.. ](../start/applications/applications.md){ .md-button .md-button--primary }
 
 
 ## Key Features
@@ -23,7 +23,7 @@ SPARCK is designed for artists, designers, and technologists working with projec
 - **Scripting support**: Automate your setup with QueScript
 
 
-[:material-rocket-launch: More Features.. ](../start/features.md){ .md-button }
+[:material-rocket-launch: More Features.. ](../start/features.md){ .md-button .md-button--primary }
 
 
 ## Next Steps
