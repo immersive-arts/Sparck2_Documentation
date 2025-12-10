@@ -2,14 +2,28 @@
 
 Reads and draws a variety of 3D model formats such as OBJ and Collada (see complete list under notes)
 
+When providing a custom model file, ensure it has a proper UV mapping for texture projection (dense uv island packing and no overlapping).
+
 Only tesselated polygons are drawn and surfaces that are not tesselated are converted before drawing
 
-This node should be prefered for virtual projections over its sister node 'Model'.
+This node should be prefered for virtual projections over its sister node [Model](Model.md).
 
 <figure markdown>
 ![Canvas Node](../../assets/images/nodes/Canvas.png){ width="300" }
 </figure> 
 
+!!! note "Canvas vs Model"
+    SPARCK provides two nodes for displaying 3D geometry:
+    
+    | Canvas | Model |
+    |--------|-------|
+    | Optimized for projection mapping | Full-featured with materials, lighting, shadows |
+    | Use for **projection surfaces** | Use for **scene decoration** |
+    | Works with SpatialShadery & TextureProjectory | Works with Material & Light nodes |
+    | Built-in texture baking | No baking support |
+    | No lighting/shadow support | Full lighting & shadow casting |
+    
+    **Rule of thumb**: Use Canvas for models that represent surfaces you project onto, use Model for objects that need realistic rendering.
 
 ## Reference
 
@@ -59,9 +73,55 @@ The following properties can be configured for this node:
 
 ---
 
+## Built-in Shapes
+
+!!! tip "Quick Shape Selection"
+    Canvas provides several built-in shapes for common projection surfaces:
+    
+    - **plane**: Flat surface — ideal for floors, walls, screens
+    - **cube**: Six-sided box
+    - **sphere**: Spherical surface — for dome projections
+    - **cylinder**: Cylindrical surface — for column projections
+    - **custom file**: Load any OBJ or supported 3D format
+    
+    For complex or irregular surfaces (cars, heads, sculptures), load a custom mesh that matches your physical projection target.
+
+## Typical Workflows
+
+!!! example "Floor Projection Setup"
+    For a typical floor projection with multiple projectors:
+    
+    1. Add a Canvas node and set `shape` to **plane**
+    2. Set `scale` to match your physical floor dimensions (1 unit = 1 meter)
+    3. Assign a [SpatialShadery](SpatialShadery.md) shader for multi-projector blending
+    4. Set `drawto` to include both 3DViewer and your Beamer render groups
+    5. Connect content via texture inlet or [SpoutReceiver](SpoutReceiver.md)/[SyphonReceiver](SyphonReceiver.md)
+
+!!! example "Texture Baking Workflow"
+    When using [SpatialShadery](SpatialShadery.md) or [TextureProjectory](TextureProjectory.md) with `project to` set to **baked textures**:
+    
+    1. The shader computes projector contributions onto the canvas
+    2. Results are baked into textures (output via `baked` outlets)
+    3. Set `bake dim` to control baked texture resolution
+    4. Enable `bake unique` if multiple canvases cause rendering conflicts
+    5. Adjust `border width` to fix edge artifacts from UV seams
+
+## Canvas Types for Different Projections
+
+!!! info "Unlimited Possibilities"
+    Only your imagination (or the physics of 3D space) limits what SPARCK can project onto. Common canvas types include:
+    
+    - **Dome** — planetarium-style 360° projections
+    - **Cylinder** — surround projection for columns or rooms
+    - **Custom meshes** — cars, sculptures, architectural elements, faces
+    
+    Create custom meshes in 3D software (Blender, Cinema 4D, etc.) that match your physical projection targets. Export as OBJ for best compatibility.
+
+---
+
 ## Important Notes
 
-!!! warning "Calibration Requirements"
+??? abstract "Supported File Types"
     
     List of supported file types:
     - Wavefront Object Model File - .obj is the prefered file format. SPARCK likes it.
@@ -106,9 +166,16 @@ The following properties can be configured for this node:
 !!! info "File Locations"
     
     ```
-    ~/_assets/_projectors/     # Calibration files
-    ~/_assets/_model/          # Calibration models (.obj)
+    ~/_assets/_model/          # 3D model files (.obj preferred)
     ```
+
+!!! tip "Scale Reference"
+    In SPARCK, **1 unit = 1 meter**. When setting up your Canvas scale to match a physical space:
+    
+    - A 6m × 12m floor = scale `3 6 1`
+    - A 3m diameter dome = scale `1.5 1.5 1.5`
+    
+    Correct scaling ensures alignment between virtual projection content and real-world visuals from external engines like Unreal or TouchDesigner.
 
 ---
 
@@ -128,14 +195,20 @@ The following properties can be configured for this node:
 
     ---
     * [:octicons-arrow-right-24: Model](Model.md) 
+    * [:octicons-arrow-right-24: SpatialShadery](SpatialShadery.md)
+    * [:octicons-arrow-right-24: TextureProjectory](TextureProjectory.md)
+    * [:octicons-arrow-right-24: Beamer](Beamer.md)
     * [:octicons-arrow-right-24: SceneCapture](SceneCapture.md) 
-    * [:octicons-arrow-right-24: TfmNode](TfmNode.md) 
-    * [:octicons-arrow-right-24: Material](Material.md) 
+    * [:octicons-arrow-right-24: TfmNode](TfmNode.md)
+    * [:octicons-arrow-right-24: SpoutReceiver](SpoutReceiver.md)
 
   
 -   :material-video-box:{ .lg .middle } __Tutorials__
 
     ---
+
+    * [:octicons-arrow-right-24: Floor Projection](../../start/tutorials/05_Floor_Projection/Floor_Projection.md)
+    * [:octicons-arrow-right-24: Spatial Augmented Reality](../../start/tutorials/03_Spatial_Augmented_Reality/Spatial_Aumented_Reality.md)
     
     [:octicons-arrow-right-24: Watch Now](../../start/tutorials/videos.md){ .md-button .md-button--primary }
 

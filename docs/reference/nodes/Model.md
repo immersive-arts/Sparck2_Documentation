@@ -4,12 +4,24 @@ Reads and draws a variety of 3D model formats such as OBJ and Collada (see compl
 
 Only tesselated polygons are drawn and surfaces that are not tesselated are converted before drawing
 
-the model node is primarily used for drawing models, while its sister-node 'Canvas' should be used for virtual projections.
+the model node is primarily used for drawing models, while its sister-node [Canvas](Canvas.md) should be used for virtual projections.
 
 <figure markdown>
 ![Model Node](../../assets/images/nodes/Model.png){ width="300" }
 </figure> 
 
+!!! note "Model vs Canvas"
+    SPARCK provides two nodes for displaying 3D geometry:
+    
+    | Model | Canvas |
+    |-------|--------|
+    | Full-featured with materials, lighting, shadows | Optimized for projection mapping |
+    | Use for **scene decoration & visualization** | Use for **projection surfaces** |
+    | Works with Material & Light nodes | Works with SpatialShadery & TextureProjectory |
+    | Shadow casting & receiving | No lighting/shadow support |
+    | No texture baking | Built-in texture baking |
+    
+    **Rule of thumb**: Use Model for objects that need realistic rendering (room models, props, calibration references), Use Canvas for models that represent surfaces you project onto.
 
 ## Reference
 
@@ -72,9 +84,48 @@ The following properties can be configured for this node:
 
 ---
 
+## Common Use Cases
+
+!!! example "Room Visualization"
+    A common use for the Model node is displaying a simplified 3D model of your physical space in the 3DViewer:
+    
+    1. Create an accurate 3D model of your room/venue in external software
+    2. Export as OBJ (preferred) and place in `~/_assets/_model/`
+    3. Set `RenderGroup` to show only in **3DViewer** (not in Beamer outputs)
+    4. This helps visualize projector positions, floor planes, and tracked objects in context
+    
+    Keep polygon count reasonable for good performance — the model is for reference, not projection.
+
+## Lighting and Shadows
+
+!!! tip "Realistic Rendering Setup"
+    To enable realistic lighting on your Model:
+    
+    1. Enable `lighting` on the Model node
+    2. Add one or more [Light](Light.md) nodes to your scene
+    3. Connect a [Material](Material.md) node for advanced surface properties
+    
+    For shadows:
+    
+    4. Enable `shadowcaster` on the Model node
+    5. Enable `shadows` on the Light node
+    6. Configure shadow quality on the Light (lo/med/hi)
+    7. Set appropriate `shadowrange` for your scene scale
+
+!!! info "Performance Considerations"
+    The actual appearance of 3D objects is a combination of the material properties and the light colors in the scene. Multiple lights can be added up to a graphics card-specific maximum.
+    
+    For complex scenes, consider:
+    
+    - Using `displaylist` or `vertexbuffer` cachemode for faster rendering
+    - Reducing polygon count in source models
+    - Limiting shadow-casting lights
+
+---
+
 ## Important Notes
 
-!!! warning "Calibration Requirements"
+??? warning "Supported File Types"
     
     List of supported file types:
     - Wavefront Object Model File - .obj is the prefered file format. SPARCK likes it.
@@ -119,8 +170,8 @@ The following properties can be configured for this node:
 !!! info "File Locations"
     
     ```
-    ~/_assets/_projectors/     # Calibration files
-    ~/_assets/_model/          # Calibration models (.obj)
+    ~/_assets/_model/          # 3D model files (.obj preferred)
+    ~/_assets/_model/_calib/   # Calibration models for Beamer calibration
     ```
 
 ---
@@ -141,9 +192,11 @@ The following properties can be configured for this node:
 
     ---
     * [:octicons-arrow-right-24: Canvas](Canvas.md) 
+    * [:octicons-arrow-right-24: Material](Material.md)
+    * [:octicons-arrow-right-24: Light](Light.md)
     * [:octicons-arrow-right-24: SceneCapture](SceneCapture.md) 
-    * [:octicons-arrow-right-24: TfmNode](TfmNode.md) 
-    * [:octicons-arrow-right-24: Material](Material.md) 
+    * [:octicons-arrow-right-24: TfmNode](TfmNode.md)
+    * [:octicons-arrow-right-24: Beamer](Beamer.md)
 
   
 -   :material-video-box:{ .lg .middle } __Tutorials__

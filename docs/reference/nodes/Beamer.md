@@ -20,6 +20,9 @@ For this to work the node needs a calibration model (3D object) and a set of man
 !!! info "Fun Fact"
     Beamer is another word for projector, mainly used in German-speaking countries - and apparently in Australia as well. The reason for this choice of name is to distinguish it from the real world projector hardware of which it is its virtual representation. And also to distinguish it from the TextureProjectory shader that also does a projection, though a purely virtual one.
 
+!!! note "Beamer vs TextureProjectory"
+    The **Beamer** node represents a physical projector that outputs to real-world displays. In contrast, the [TextureProjectory](TextureProjectory.md) shader projects textures virtually onto 3D surfaces within the scene — useful for techniques like virtual projection mapping or texture baking. Both can work together in complex setups.
+
 ## Reference
 
 The following properties can be configured for this node:
@@ -87,6 +90,22 @@ The following properties can be configured for this node:
 
 ---
 
+## Multi-Projector Setups
+
+!!! tip "Soft-Edge Blending with Multiple Beamers"
+    When using multiple Beamer nodes for overlapping projections, use the [SpatialShadery](SpatialShadery.md) shader to automatically compute per-projector pixel visibility and brightness. This produces smooth soft-edge blending across all projectors — essential for Spatial Augmented Reality installations.
+    
+    Key parameters for multi-projector blending:
+    
+    - **spread**: Controls the distribution of pixel blending between overlapping projections (0 = no spread, 1 = full spread)
+    - **distance**: Additional differentiator based on distance from projector
+    - **power**: Controls the soft-edge blending power
+    - **luminance**: Adjusts brightness balance between projectors
+
+!!! tip "Identify Mode for Debugging"
+    Enable the **identify** toggle on each Beamer to display a unique calibration color as the background. This helps visually identify which projector is outputting to which display — particularly useful when configuring multi-projector setups in the [Window](Window.md) node's display settings.
+
+---
 
 ## Important Notes
 
@@ -108,6 +127,9 @@ The following properties can be configured for this node:
     ~/_assets/_model/_calib         # Calibration models (.obj)
     ```
 
+!!! info "Render Pipeline"
+    The Beamer node operates in a dedicated **Beamer Render Pass** (#28 in the SPARCK render pipeline). This ensures that Beamer captures occur after main render passes but before the final preview pass. See [Render Groups & Passes](../../reference/render_groups_and_passes.md) for details on render ordering.
+
 ---
 
 <div class="grid cards" markdown>
@@ -125,8 +147,11 @@ The following properties can be configured for this node:
 
     ---
     * [:octicons-arrow-right-24: SceneCapture](SceneCapture.md) 
-    * [:octicons-arrow-right-24: TfmMirror](TfmMirror.md)
-    * [:octicons-arrow-right-24: TfmLookAt](TfmLookAt.md)
+    * [:octicons-arrow-right-24: ViewPort](ViewPort.md)
+    * [:octicons-arrow-right-24: Window](Window.md)
+    * [:octicons-arrow-right-24: SpatialShadery](SpatialShadery.md)
+    * [:octicons-arrow-right-24: TextureProjectory](TextureProjectory.md)
+    * [:octicons-arrow-right-24: Canvas](Canvas.md)
   
 -   :material-video-box:{ .lg .middle } __Tutorials__
 

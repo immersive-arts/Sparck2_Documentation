@@ -6,6 +6,10 @@ Blends color textures with softedge textures
 ![BlendSoftedge Node](../../assets/images/nodes/BlendSoftedge.png){ width="300" }
 </figure> 
 
+!!! note "Two-Stage vs Integrated Soft-Edge Blending"
+    BlendSoftedge is used for **two-stage soft-edge blending** workflows where the edge mask and content are processed separately. This approach offers more control over the blending parameters.
+    
+    Alternatively, the [SpatialShadery](SpatialShadery.md) node can perform **integrated soft-edge blending** when its shader is set to `edge & blend` — computing both the softedge weights and final blend in a single pass. Use SpatialShadery's `(soft)edge` mode when you want to use BlendSoftedge for the final compositing step.
 
 ## Reference
 
@@ -39,12 +43,41 @@ The following properties can be configured for this node:
 
 ---
 
+## Usage Modes
+
+!!! tip "Shader vs Texture Shader Pass"
+    This node can operate in two modes:
+    
+    - **As a shader**: Apply directly to geometry for real-time blending
+    - **As a texture shader pass**: Enable the `output` toggle to generate a blended texture that can be passed to other nodes
+    
+    Use texture shader pass mode when you need the blended result as input for additional processing stages.
+
+!!! tip "Blending Parameters"
+    Fine-tune your soft-edge transitions with these key parameters:
+    
+    - **power**: Controls the steepness of the blend curve. Higher values create sharper transitions; lower values create smoother gradients
+    - **luminance**: Adjusts overall brightness balance in the blended region. Use this to compensate for overlapping projector brightness
+    - **gradient**: Custom curve for non-linear blend falloff
+    - **gamma**: Applies gamma correction to the final output for color accuracy
+
+## Workflow with SpatialShadery
+
+!!! info "Two-Stage Workflow"
+    When using [SpatialShadery](SpatialShadery.md) with its shader set to `edge` mode, it outputs per-projector weight masks. These masks can then be fed into BlendSoftedge for the final compositing step:
+    
+    1. **SpatialShadery** (shader: `edge`) → outputs edge weight textures
+    2. **BlendSoftedge** → combines content texture with edge weights
+    
+    This separation allows independent control over edge calculation and final blending parameters.
+
+---
 
 ## Important Notes
 
-!!! warning "Calibration Requirements"
+!!! warning "Usage Considerations"
     
-    this node can be used as a shader of as a texture shader pass.
+    This node can be used as a shader or as a texture shader pass. When used as a texture shader pass, ensure the `output` toggle is enabled to expose the texture outlet.
 
 !!! info "File Locations"
     
@@ -70,10 +103,12 @@ The following properties can be configured for this node:
 -   :material-file-document:{ .lg .middle } __Complementing__ **BlendSoftedge**
 
     ---
-    * [:octicons-arrow-right-24: SpatialSoftegde](SpatialSoftegde.md) 
+    * [:octicons-arrow-right-24: SpatialShadery](SpatialShadery.md) 
     * [:octicons-arrow-right-24: Beamer](Beamer.md) 
     * [:octicons-arrow-right-24: ViewPort](ViewPort.md) 
-    * [:octicons-arrow-right-24: Canvas](Canvas.md) 
+    * [:octicons-arrow-right-24: Canvas](Canvas.md)
+    * [:octicons-arrow-right-24: DrawMask](DrawMask.md)
+    * [:octicons-arrow-right-24: ShaderTexOP](ShaderTexOP.md)
 
   
 -   :material-video-box:{ .lg .middle } __Tutorials__

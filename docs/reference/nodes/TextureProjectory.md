@@ -2,12 +2,23 @@
 
 Projects textures outwards from the location of the Camera
 
-This is a shader and can be applied to any model node.
+This is a shader and can be applied to [Canvas](Canvas.md) nodes.
 
 <figure markdown>
 ![TextureProjectory Node](../../assets/images/nodes/TextureProjectory.png){ width="300" }
 </figure> 
 
+!!! note "TextureProjectory vs Beamer"
+    Both project content, but serve different purposes:
+    
+    | TextureProjectory | Beamer |
+    |-------------------|--------|
+    | **Virtual projection** — projects textures onto 3D surfaces within SPARCK | **Physical projection** — represents real-world projector output |
+    | Used for texture mapping, pre-visualization, baking | Used for actual projection mapping installations |
+    | Works with SceneCamera, BoxMapCamera | Requires calibration to physical projector |
+    | No physical output | Outputs to display/projector hardware |
+    
+    TextureProjectory lets you virtually project textures onto a virtual canvas, then capture the result with a Beamer to project onto the physical world.
 
 ## Reference
 
@@ -43,16 +54,16 @@ The following properties can be configured for this node:
     | boxmap | boxmap | boxmap (list) |
     | camera | texture | camera A - texture one (mono, if stereo -> left texture) |
     | camera | texture | camera A - texture two (if stereo -> right texture) |
-    | camera | texture | camera A - texture one (mono, if stereo -> left texture) |
-    | camera | texture | camera A - texture two (if stereo -> right texture) |
-    | camera | texture | camera A - texture one (mono, if stereo -> left texture) |
-    | camera | texture | camera A - texture two (if stereo -> right texture) |
-    | camera | texture | camera A - texture one (mono, if stereo -> left texture) |
-    | camera | texture | camera A - texture two (if stereo -> right texture) |
-    | camera | texture | camera A - texture one (mono, if stereo -> left texture) |
-    | camera | texture | camera A - texture two (if stereo -> right texture) |
-    | camera | texture | camera A - texture one (mono, if stereo -> left texture) |
-    | camera | texture | camera A - texture two (if stereo -> right texture) |
+    | camera | texture | camera B - texture one (mono, if stereo -> left texture) |
+    | camera | texture | camera B - texture two (if stereo -> right texture) |
+    | camera | texture | camera C - texture one (mono, if stereo -> left texture) |
+    | camera | texture | camera C - texture two (if stereo -> right texture) |
+    | camera | texture | camera D - texture one (mono, if stereo -> left texture) |
+    | camera | texture | camera D - texture two (if stereo -> right texture) |
+    | camera | texture | camera E - texture one (mono, if stereo -> left texture) |
+    | camera | texture | camera E - texture two (if stereo -> right texture) |
+    | camera | texture | camera F - texture one (mono, if stereo -> left texture) |
+    | camera | texture | camera F - texture two (if stereo -> right texture) |
     | Background | texture | Background texture |
 
 === "Outlets"
@@ -63,8 +74,69 @@ The following properties can be configured for this node:
 
 ---
 
-!!! warning IMPORTANT
+## Shader Modes
+
+!!! tip "Choosing the Right Shader Mode"
+    TextureProjectory offers five shader modes for different projection scenarios:
+    
+    | Mode | Description | Camera Type |
+    |------|-------------|-------------|
+    | **single** | Project one texture from one camera | SceneCamera / LookAtCamera |
+    | **multiblend** | Blend multiple textures from multiple cameras | SceneCamera / LookAtCamera |
+    | **360VR.single** | Project equirectangular (360°) texture | BoxMapCamera required |
+    | **360VR.multiblend** | Blend equirectangular with standard textures | BoxMapCamera required |
+    | **boxmap** | Project BoxMap textures (6-face cubemap) | BoxMapCamera required |
+    
+    For 360° content from external engines (Unreal, Unity, TouchDesigner), use **360VR.single** mode with equirectangular content received via Spout/Syphon.
+
+## Debugging Visualization
+
+!!! info "3D Viewer Display Modes"
+    Use the `3d viewer` property to debug and visualize your projection setup:
+    
+    - **Textured**: Shows the actual projected texture(s) — use for final output
+    - **Colored**: Shows each projection source in a unique color — useful for identifying coverage
+    - **Overlap**: Visualizes where projections overlap — helps optimize blending
+    - **Map**: Shows the differentiation between projections
+    - **BeamX**: Shows individual projection X only — isolate specific sources
+
+## Common Workflows
+
+!!! example "Single Texture Projection"
+    For projecting a single texture onto a 3D surface:
+    
+    1. Create a [SceneCamera](SceneCamera.md) or [LookAtCamera](LookAtCamera.md) positioned as your virtual projector
+    2. Add a [SceneCapture](SceneCapture.md) linked to the camera
+    3. Apply TextureProjectory shader to your [Canvas](Canvas.md)
+    4. Set shader mode to **single**
+    5. Set `projectionA` to your SceneCapture
+    6. Connect your texture to the camera A inlet
+
+!!! example "360° BoxMap Projection"
+    For seamless 360° content from external render engines:
+    
+    1. Create a [BoxMapCamera](BoxMapCamera.md) at your desired viewpoint
+    2. Add a [BoxMapCapture](BoxMapCapture.md) linked to the camera
+    3. Receive 360° content via [SpoutReceiver](SpoutReceiver.md) or [SyphonReceiver](SyphonReceiver.md)
+    4. Apply TextureProjectory shader to your Canvas
+    5. Set shader mode to **boxmap**
+    6. Connect the BoxMapCapture's boxmap outlet to the boxmap inlet
+
+## Troubleshooting
+
+!!! warning "Interpolation Artifacts"
+    If strange visual artifacts appear (especially near the camera's local X-Y plane):
+    
+    1. Increase the `interpolation` value until artifacts disappear
+    2. Alternatively, increase the subdivisions of your target model
+    
+    These artifacts result from interpolation errors between vertex and fragment shaders.
+
+---
+
+!!! warning "IMPORTANT: Projection Selection"
     This shader is usually applied to a [Canvas](Canvas.md) which in turn is rendered (or captured) by a capture node (be it a [Beamer](Beamer.md), [SceneCapture](SceneCapture.md) or [BoxMapCapture](BoxMapCapture.md)). It is of **utmost** importance that the 'projection' selection points to the capture node that renders the canvas this shader is applied to, otherwise this shader will not work as intended.
+
 ---
 
 <div class="grid cards" markdown>
@@ -81,9 +153,14 @@ The following properties can be configured for this node:
 -   :material-file-document:{ .lg .middle } __Complementing__ **TextureProjectory**
 
     ---
-    * [:octicons-arrow-right-24: SceneCamera](SceneCamera.md) 
+    * [:octicons-arrow-right-24: SceneCamera](SceneCamera.md)
+    * [:octicons-arrow-right-24: LookAtCamera](LookAtCamera.md)
     * [:octicons-arrow-right-24: BoxMapCamera](BoxMapCamera.md) 
-    * [:octicons-arrow-right-24: SceneCapture](SceneCapture.md) 
+    * [:octicons-arrow-right-24: SceneCapture](SceneCapture.md)
+    * [:octicons-arrow-right-24: BoxMapCapture](BoxMapCapture.md)
+    * [:octicons-arrow-right-24: Canvas](Canvas.md)
+    * [:octicons-arrow-right-24: SpatialShadery](SpatialShadery.md)
+    * [:octicons-arrow-right-24: Beamer](Beamer.md)
 
   
 -   :material-video-box:{ .lg .middle } __Tutorials__

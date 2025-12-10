@@ -1,6 +1,6 @@
 # BoxMapCapture
 
-The BoxMapCapture Node is needed to render the view from a BoxMapCamera.
+The BoxMapCapture Node is needed to render the view from a [BoxMapCamera](BoxMapCamera.md).
 
 While BoxMapCamera represents the virtual camera chassis, the BoxMapCapture represents the virtual film: For capturing the textures the BoxMapCapture is needed.
 
@@ -51,6 +51,59 @@ The following properties can be configured for this node:
 
 ---
 
+## Output Modes
+
+!!! tip "Choosing the Right Mode"
+    The `mode` property determines how the six captured faces are output:
+    
+    | Mode | Output | Use Case |
+    |------|--------|----------|
+    | **split** | 6 separate texture outlets | When you need individual face access for custom processing |
+    | **line** | Single texture with faces in a row `[-x, -z, x, z, -y, y]` | Horizontal strip format for certain external tools |
+    | **cross** | Single texture in cubemap cross layout | Standard cubemap format for export or compatibility |
+    
+    The `boxmap` outlet always outputs a texture list regardless of mode, which can be directly connected to [TextureProjectory](TextureProjectory.md) or other BoxMap-aware nodes.
+
+## Resolution Recommendations
+
+!!! info "Texture Dimensions"
+    For best performance and compatibility, use power-of-two dimensions:
+    
+    - **256×256**: Low quality, fast rendering — good for previews
+    - **512×512**: Medium quality — balanced for most real-time applications
+    - **1024×1024**: High quality — recommended for production
+    - **2048×2048**: Very high quality — use when detail is critical
+    
+    Remember that BoxMapCapture renders **6 faces**, so a 1024×1024 setting means 6× the render work compared to a single camera capture.
+
+## Use with TextureProjectory
+
+!!! example "360° Projection Workflow"
+    BoxMapCapture is commonly used with [TextureProjectory](TextureProjectory.md) for 360° content projection:
+    
+    1. Set up a [BoxMapCamera](BoxMapCamera.md) at your desired viewpoint
+    2. Connect BoxMapCapture to the camera via the `parent` property
+    3. Connect the `boxmap` outlet to TextureProjectory's boxmap inlet
+    4. In TextureProjectory, set shader to `boxmap` or `360VR.single`/`360VR.multiblend`
+    
+    This enables seamless 360° scene capture from internal rendering or external engines (via Spout/Syphon) projected onto domes, cylinders, or custom geometries.
+
+---
+
+## Important Notes
+
+!!! warning "Render Pass Ordering"
+    If textures appear black or outdated, ensure BoxMapCapture renders in an earlier pass than nodes that consume its output. Adjust the `pass` property to control render ordering. See [Render Groups & Passes](../../concepts/render_groups_and_passes.md) for details.
+
+!!! info "Performance Consideration"
+    BoxMapCapture renders the scene 6 times per frame (once per face). For complex scenes, consider:
+    
+    - Reducing `dim` resolution
+    - Using the `directions` property on [BoxMapCamera](BoxMapCamera.md) to render only needed faces
+    - Using a manual render pass for static content
+
+---
+
 <div class="grid cards" markdown>
 
 -   :material-clock-fast:{ .lg .middle } __Quick Start__
@@ -66,7 +119,10 @@ The following properties can be configured for this node:
 
     ---
     * [:octicons-arrow-right-24: BoxMapCamera](BoxMapCamera.md) 
-    * [:octicons-arrow-right-24: TextureProjectory](TextureProjectory.md) 
+    * [:octicons-arrow-right-24: TextureProjectory](TextureProjectory.md)
+    * [:octicons-arrow-right-24: ShaderRaymarcher](ShaderRaymarcher.md)
+    * [:octicons-arrow-right-24: SceneCapture](SceneCapture.md)
+    * [:octicons-arrow-right-24: CubeMap](CubeMap.md)
 
   
 -   :material-video-box:{ .lg .middle } __Tutorials__
