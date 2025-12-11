@@ -8,6 +8,8 @@ It is the most simple and easy to use mapping nodes at SPARCK's disposal
 ![CornerPin Node](../../assets/images/nodes/CornerPin.png){ width="300" }
 </figure> 
 
+!!! success "Quick Rectangular Mapping"
+    CornerPin lets you quickly match a rectangular video texture onto simple planar surfaces by dragging four corner handles. It's the fastest way to align projection content when you don't need complex geometric correction — ideal for flat walls, screens, and simple rectangular surfaces.
 
 ## Reference
 
@@ -46,6 +48,62 @@ The following properties can be configured for this node:
 
 ---
 
+## Basic Setup
+
+!!! example "Wall Projection Workflow"
+    Set up a simple wall projection with CornerPin:
+    
+    1. Create a [Window](Window.md) node and configure your output display
+    2. Create a [ViewPort](ViewPort.md) node and set `mesh` to **none**
+    3. Link the ViewPort to the Window
+    4. Create a **CornerPin** node
+    5. Set CornerPin's `viewport` to reference your ViewPort
+    6. Connect your texture source (Video, [SpoutReceiver](SpoutReceiver.md), etc.) to CornerPin's texture inlet
+    7. Click `edit` to open the corner editor and adjust the four corners
+
+!!! warning "ViewPort Mesh Setting"
+    When using CornerPin, set the ViewPort's `mesh` property to **none**. The CornerPin node handles all geometric mapping — using both would create conflicts.
+
+## Corner Editor
+
+!!! tip "Adjusting Corners"
+    Click `edit` to open the CornerPin editor window:
+    
+    - **Drag corners** to reposition them and match your projection surface
+    - Adjust `corner radius` to change handle size for easier selection
+    - Enable `drawcorners` to see handles in the final output (useful during setup)
+    - Click `reset` to return corners to their default rectangular positions
+    
+    The editor provides a visual interface where you can see the texture and drag each of the four corners independently.
+
+## Display Options
+
+!!! info "Rendering Settings"
+    Fine-tune how the mapped texture is displayed:
+    
+    | Property | Effect |
+    |----------|--------|
+    | **smooth** | Enable smooth/antialiased rendering |
+    | **interpolate** | Use texture interpolation for smoother scaling |
+    | **preserve aspect** | Maintain original texture aspect ratio |
+    | **layer** | Set depth ordering when using multiple CornerPins |
+    | **blend/blendmode** | Control transparency and blending with background |
+
+## CornerPin vs MeshWarp
+
+!!! note "Choosing the Right Tool"
+    | Feature | CornerPin | [MeshWarp](MeshWarp.md) |
+    |---------|-----------|-------------------------|
+    | **Control points** | 4 corners | Full lattice grid |
+    | **Surface types** | Flat, rectangular | Curved, irregular |
+    | **Setup time** | Very quick | More involved |
+    | **Geometric correction** | Perspective only | Full mesh deformation |
+    | **Best for** | Walls, screens, simple surfaces | Domes, curved screens, complex shapes |
+    
+    Use **CornerPin** when you need fast, simple alignment on flat surfaces. Use **MeshWarp** when projecting onto curved or irregular geometries.
+
+---
+
 <div class="grid cards" markdown>
 
 -   :material-clock-fast:{ .lg .middle } __Quick Start__
@@ -60,13 +118,17 @@ The following properties can be configured for this node:
 -   :material-file-document:{ .lg .middle } __Complementing__ **CornerPin**
 
     ---
-    * [:octicons-arrow-right-24: MeashWarp](MeashWarp.md) 
-    * [:octicons-arrow-right-24: ViewPort](ViewPort.md) 
+    * [:octicons-arrow-right-24: MeshWarp](MeshWarp.md) 
+    * [:octicons-arrow-right-24: ViewPort](ViewPort.md)
+    * [:octicons-arrow-right-24: Window](Window.md)
+    * [:octicons-arrow-right-24: SpoutReceiver](SpoutReceiver.md)
 
   
 -   :material-video-box:{ .lg .middle } __Tutorials__
 
     ---
+
+    * [:octicons-arrow-right-24: Wall Projection](../../start/tutorials/01_Wall_Projection/Wall_Projection.md)
     
     [:octicons-arrow-right-24: Watch Now](../../start/tutorials/videos.md){ .md-button .md-button--primary }
 

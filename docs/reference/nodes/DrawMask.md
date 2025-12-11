@@ -8,6 +8,8 @@ The saved texture will be a PNG.
 ![DrawMask Node](../../assets/images/nodes/DrawMask.png){ width="300" }
 </figure> 
 
+!!! success "Create Custom Masks for Texture Effects"
+    DrawMask provides a simple black-and-white drawing editor for creating alpha masks. These masks can be used with texture effect nodes like [ShaderTexOP](ShaderTexOP.md) to control where effects are applied, hide projector overlap regions, or create custom vignettes.
 
 ## Reference
 
@@ -39,17 +41,76 @@ The following properties can be configured for this node:
 
 ---
 
+## Plane Modes
+
+!!! tip "Understanding Plane Settings"
+    The `planes` property controls how black/white values are mapped to ARGB channels:
+    
+    | Mode | Alpha | Red | Green | Blue | Use Case |
+    |------|-------|-----|-------|------|----------|
+    | **mmmm** | mask | mask | mask | mask | Grayscale mask affecting all channels |
+    | **mwww** | mask | white | white | white | Alpha-only mask (common for transparency) |
+    | **wmmm** | white | mask | mask | mask | RGB mask with full opacity |
+    
+    Choose based on how your target effect node interprets the mask texture.
+
+??? tip "DrawMask Editor Controls"
+    The DrawMask editor has three modes: **Line**, **Polygon**, and **Color**. Press ++tab++ to cycle between modes.
+    
+    **General Controls:**
+    
+    | Key | Action |
+    |-----|--------|
+    | ++tab++ | Cycle through edit modes (Line → Polygon → Color → Line) |
+    | ++h++ | Toggle help overlay |
+    | ++s++ | Save mask to file |
+    | ++space++ | Swap foreground/background colors |
+    
+    **Line Mode** — Freehand drawing:
+    
+    | Key | Action |
+    |-----|--------|
+    | :material-mouse-left-click: | Set starting point |
+    | :material-mouse-left-click: - drag | Draw continuous line |
+    | ++arrow-up++ | Increase line thickness |
+    | ++arrow-down++ | Decrease line thickness |
+    
+    **Polygon Mode** — Filled polygon drawing:
+    
+    | Key | Action |
+    |-----|--------|
+    | :material-mouse-left-click: | Add polygon vertex |
+    | ++enter++ | Complete polygon and start new one |
+    | ++space++ | Finish current polygon (swaps colors) |
+    
+    **Color Mode** — Canvas operations:
+    
+    | Key | Action |
+    |-----|--------|
+    | ++c++ | Clear entire canvas |
+
+## Workflow
+
+!!! example "Creating a Mask"
+    1. Set `dimension` to match your target texture size
+    2. Click `edit` to open the drawing editor
+    3. Use **Line mode** for freehand edges or **Polygon mode** for filled areas
+    4. White areas = visible/applied, Black areas = hidden/masked
+    5. Press `S` to save the mask as PNG
+    6. Connect the texture outlet to your effect node's mask inlet
+
+---
+
 ## Important Notes
 
-!!! warning "Calibration Requirements"
+!!! warning "Save Your Work"
     
-    After a modification of the texture with the editor, the file needs to be saved, otherwise the changes get lost.
+    After modifying the texture with the editor, you must press `S` to save. Changes are **not automatically saved** and will be lost when the project is closed.
 
 !!! info "File Locations"
     
     ```
-    ~/_assets/_projectors/     # Calibration files
-    ~/_assets/_model/          # Calibration models (.obj)
+    ~/_assets/_textures/     # Mask texture files (PNG)
     ```
 
 ---
@@ -70,8 +131,9 @@ The following properties can be configured for this node:
 
     ---
     * [:octicons-arrow-right-24: Texture](Texture.md) 
-    * [:octicons-arrow-right-24: TextureOP](TextureOP.md) 
-    * [:octicons-arrow-right-24: BlendSoftedge](BlendSoftedge.md) 
+    * [:octicons-arrow-right-24: ShaderTexOP](ShaderTexOP.md) 
+    * [:octicons-arrow-right-24: BlendSoftedge](BlendSoftedge.md)
+    * [:octicons-arrow-right-24: SpatialShadery](SpatialShadery.md)
 
   
 -   :material-video-box:{ .lg .middle } __Tutorials__

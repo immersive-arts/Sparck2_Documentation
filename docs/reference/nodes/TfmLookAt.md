@@ -6,6 +6,8 @@ The LookAt transformation takes two transformation nodes: One where to look-from
 ![TfmLookAt Node](../../assets/images/nodes/TfmLookAt.png){ width="300" }
 </figure> 
 
+!!! success "Dynamic Orientation Between Two Points"
+    TfmLookAt creates a transformation that automatically orients to face from one point toward another. This is useful for billboards that always face the camera, spotlights that track targets, or any object that needs to maintain orientation toward a moving reference point.
 
 ## Reference
 
@@ -37,6 +39,77 @@ The following properties can be configured for this node:
 
 ---
 
+## Basic Setup
+
+!!! example "Creating a Look-At Transformation"
+    To make an object always face a target:
+    
+    1. Create two [TfmNode](TfmNode.md) nodes: one for the source position, one for the target
+    2. Create a **TfmLookAt** node
+    3. Set `look from` to reference the source TfmNode
+    4. Set `look at` to reference the target TfmNode
+    5. Use TfmLookAt as the `parent` for any object that should face the target
+    
+    The orientation will automatically update as either node moves.
+
+## Configuration Options
+
+!!! tip "Direction and Orientation"
+    | Property | Description |
+    |----------|-------------|
+    | **direction** | Controls which way the look-at vector points: from source→target or target→source |
+    | **orientation** | Sets which local axis aligns with the look-at direction (e.g., Z-forward, Y-up) |
+    
+    Adjust these settings to match your object's natural orientation and desired facing direction.
+
+## Transformation Pass
+
+!!! info "Execution Order"
+    TfmLookAt produces a transformation matrix that is **detached from the its own transformation hierarchy**. If other transformations depend on TfmLookAt's result, they must execute in a later [transformation pass](../render_groups_and_passes.md#render-passes).
+    
+## Use Cases
+
+!!! info "Common Applications"
+    - **Billboard effects**: Objects that always face the camera
+    - **Spotlight tracking**: Lights that follow moving targets
+    - **Turret/gimbal systems**: Objects that aim at targets
+    - **Camera constraints**: Cameras that track subjects
+    - **Connecting motion capture points**: Orient based on tracked marker positions
+
+## Querying Transformation Data
+
+!!! tip "Getting Transform Values"
+    Send messages to the `send` inlet to query current transformation:
+    
+    | Message | Returns |
+    |---------|---------|
+    | `getposition` | Local position x y z |
+    | `getquat` | Rotation as quaternion |
+    | `getscale` | Local scale x y z |
+    | `getworldpos` | World position |
+    | `getworldquat` | World rotation as quaternion |
+    | `getworldscale` | World scale |
+    | `gettransform` | Full transformation matrix |
+    | `getinvtransform` | Inverse transformation matrix |
+    | `getworldtransform` | Full world transformation matrix |
+    
+    Send `bang` after the getlist message to output values via the `dump` outlet.
+
+---
+
+## TfmLookAt vs LookAtCamera
+
+!!! note "Choosing the Right Node"
+    | Feature | TfmLookAt | [LookAtCamera](LookAtCamera.md) |
+    |---------|-----------|--------------------------------|
+    | **Purpose** | General transformation orientation | Camera with look-at + frustum alignment |
+    | **Output** | Transformation matrix | Camera intrinsics + frustum |
+    | **Near-clip alignment** | No | Yes (aligns with look-at plane) |
+    | **Use with** | Any object needing orientation | SceneCapture for rendering |
+    | **Best for** | Billboards, spotlights, tracking | CAVE VR, head-tracked displays |
+
+---
+
 <div class="grid cards" markdown>
 
 -   :material-clock-fast:{ .lg .middle } __Quick Start__
@@ -54,7 +127,8 @@ The following properties can be configured for this node:
     * [:octicons-arrow-right-24: TfmNode](TfmNode.md) 
     * [:octicons-arrow-right-24: TfmMerge](TfmMerge.md) 
     * [:octicons-arrow-right-24: TfmNodeInfo](TfmNodeInfo.md) 
-    * [:octicons-arrow-right-24: TfmMirror](TfmMirror.md) 
+    * [:octicons-arrow-right-24: TfmMirror](TfmMirror.md)
+    * [:octicons-arrow-right-24: LookAtCamera](LookAtCamera.md)
 
   
 -   :material-video-box:{ .lg .middle } __Tutorials__
