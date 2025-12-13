@@ -2,7 +2,7 @@
 
 This node allows to load animation paths exported from blender.
 
-The file is created inside Blender with the LedStrip-Exporter script.
+The file is created inside Blender with the [TfmPath-Exporter](https://github.com/immersive-arts/Sparck2_tfm_path_exporter) script.
 
 <figure markdown>
 ![TfmNodePath Node](../../assets/images/nodes/TfmNodePath.png){ width="300" }
@@ -79,10 +79,10 @@ The following properties can be configured for this node:
 ## Creating Path Files in Blender
 
 !!! info "Blender Export Workflow"
-    Path files are created in [Blender](https://www.blender.org/) using the [LedStrip-Exporter](https://github.com/tecartlab/blender_script_io_export_ledstrip) script:
+    Path files are created in [Blender](https://www.blender.org/) using the [TfmPath-Exporter](https://github.com/immersive-arts/Sparck2_tfm_path_exporter) script:
     
     1. Create a curve or path in Blender
-    2. Run the LedStrip-Exporter script
+    2. Run the TfmPath-Exporter script
     3. Export the path file
     4. Place the exported file in `~/_assets/_paths/_animations/`
     5. Select the file in TfmNodePath's `file` property
@@ -113,7 +113,6 @@ The following properties can be configured for this node:
     
     ```
     ~/_assets/_paths/_animations/     # Animation path files
-    ~/_assets/_paths/_ledstrips/      # LED strip path files
     ```
 
 ---
