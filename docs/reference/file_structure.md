@@ -57,7 +57,7 @@ While standard Max objects find their content anywhere in the search path, SPARC
 | `_paths/` | Path data for LED strips and animations |
 | `_patchers/` | Additional Max patchers |
 | `_tmp/` | Temporary files |
-| `_export/` | Exported textures, projector data, and warps |
+| `_export/` | Some nodes can export files. When you use this feature, you will find those files here |
 
 ## Finding the Right Folder
 
@@ -71,7 +71,6 @@ Each SPARCK node's tooltip indicates:
 
 ## Best Practices
 
-- **Keep everything inside the project folder** so your project remains portable
-- **Use the provided subfolders** rather than creating your own structure
+- **Keep everything inside the project folder**. Any other approach wont work.
+- **Use the provided subfolders**. Inside those folders you can organize your own structure
 - **Check tooltips** when unsure where to place specific file types
-- **Use the `_export` folder** for outputs you want to share or use elsewhere

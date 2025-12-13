@@ -2,13 +2,13 @@
 
 Before you install SPARCK, you need the following Software and Libraries installed:
 
-=== "Step 1: Installing Max"
+=== "MacOS"
 
-    [INSTALL Max](https://cycling74.com/downloads){ .md-button }
+    === "Step 1: Installing Max"
 
-=== "Step 2: Installing Java"
+        [INSTALL Max](https://cycling74.com/downloads){ .md-button }
 
-    === "MacOS"
+    === "Step 2: Installing Java"
 
         === "Easy Way"
             1. direct download: [jdk-19.0.2 for ARM 64](https://download.oracle.com/java/19/archive/jdk-19.0.2_macos-aarch64_bin.dmg)
@@ -22,23 +22,43 @@ Before you install SPARCK, you need the following Software and Libraries install
                 4. download the installer
             4. Install the JDK
 
-    === "Windows"
+    === "Step 3: (optional) Installing GIT"
+
+        1. Install Brew -> https://brew.sh/
+            
+            Open Terminal (press cmd-space and enter 'terminal' in the spotlight search bar)
+
+            > https://brew.sh/ and follow the instructions
+
+        2. Install Git via Brew
+
+            Open Terminal (or the same as above
+
+            > https://git-scm.com/install/mac and follow instructions under Homebrew
+
+=== "Windows"
+
+    === "Step 1: Installing Max"
+
+        [INSTALL Max](https://cycling74.com/downloads){ .md-button }
+
+    === "Step 2: Installing Java"
 
         === "Easy Way"
-            5. direct download: [jdk-19.0.2](https://download.oracle.com/java/19/archive/jdk-19.0.2_windows-x64_bin.zip)
-            6. Install the JDK by running the installer
-            7. right-click "save-link-as" this [link](https://raw.githubusercontent.com/immersive-arts/Sparck2/refs/heads/master/scripts/java19.reg)
-            8. double click the downloaded java19.reg file to add the needed paths to your registry
-            9. done. Max should now be able to find Java.
+            1. direct download: [jdk-19.0.2](https://download.oracle.com/java/19/archive/jdk-19.0.2_windows-x64_bin.zip)
+            2. Install the JDK by running the installer
+            3. right-click "save-link-as" this [link](https://raw.githubusercontent.com/immersive-arts/Sparck2/refs/heads/master/scripts/java19.reg)
+            4. double click the downloaded java19.reg file to add the needed paths to your registry
+            5. done. Max should now be able to find Java.
    
         === "Custom Way"
-            10. Alternatively go to [Java Archive](https://www.oracle.com/java/technologies/downloads/archive/)
+            6.  Alternatively go to [Java Archive](https://www.oracle.com/java/technologies/downloads/archive/)
                 1. If you encounter an error message, click on the url and press enter. This will reload that page correctly.
                 2. Select "Java SE 19" (Newer versions do not work anymore with Max)
                 3. scroll down to "Windows x64 Installer"
                 4. download the installer
-            11. Install the JDK
-            12. Set the Registry paths for Max
+            7.  Install the JDK
+            8.  Set the Registry paths for Max
                 1. you need to adjust the paths in this .reg script accordingly:
                     ```
                     Windows Registry Editor Version 5.00
@@ -75,26 +95,11 @@ Before you install SPARCK, you need the following Software and Libraries install
                 3.  replace all `C:\\Program Files\\Java\\jdk-19` with the path where you have installed Java
                 4.  Save the script as a .reg file and double click it to add the paths to your registry.
 
-=== "Step 3: (optional) Installing GIT"
+    === "Step 3: (optional) Installing GIT"
 
-    === "MacOS"
-        1. Install Brew -> https://brew.sh/
-            
-            Open Terminal (press cmd-space and enter 'terminal' in the spotlight search bar)
-
-            > https://brew.sh/ and follow the instructions
-
-        2. Install Git via Brew
-
-            Open Terminal (or the same as above
-
-            > https://git-scm.com/install/mac and follow instructions under Homebrew
-
-    === "Windows"
-
-        3. Search for 'power shell' in the windows search bar
+        1. Search for 'power shell' in the windows search bar
             * Select the one with the admin rights            
             * Open Power Shell (as Admin)
-        4. follow link and the instructions under Using winget tool -> https://git-scm.com/install/windows
+        2. follow link and the instructions under Using winget tool -> https://git-scm.com/install/windows
 
 

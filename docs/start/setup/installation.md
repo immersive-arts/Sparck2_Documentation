@@ -32,17 +32,32 @@ Next you need to install SPARCK from the repository into the Packages folder:
 
 **3. Restart Max**
 
-1. Go to Max > Menu > File > Show Package Manager
-2. Click on "Remote Packages" and switch to "Installed Packages"
-3. Scroll down to SPARCK and select it
-4. Press Launch
-   1. A Max Patch opens called "SPARCK overview"
-5. press "dependencies"
-   1. A Max Patch opens called "Dependencies"
+* Go to Max > Menu > File > Show Package Manager
+   
+   ![Max Menu](../../assets/images/installation/INSTALL_Max_Menu.png)
+
+* Click on "Remote Packages" and switch to "Installed Packages"
+   
+   ![Max Package Manager](../../assets/images/installation/INSTALL_PackageManager.png)
+
+* Scroll down to SPARCK and select it
+   
+   ![](../../assets/images/installation/INSTALL_InstalledPackages.png)
+
+* Press Launch
+   
+   ![](../../assets/images/installation/INSTALL_SparckPackage.png)
+
+* A Max Patch opens called "SPARCK overview"
+ 
+   ![](../../assets/images/installation/INSTALL_openDependencyy.png)
+
+* press "dependencies"
+   1. Another Patch opens called "dependencies"
       1. If your installations of the prerequisites were successfull:
       2. MaxMSP 8.2 and Java 8+ should already be green<br> ![Install missing packages](images/3_PopUp.png)<br>
    2. Install also the other missing Dependencies via the Package Manager.
-      1. Spout, pressing install will open up the Max Package Manager to install it. <br> ![Spout Max Packages](images/4_Spout.png)<br>
+      1. Spout, pressing install will again open up the Max Package Manager to install it. <br> ![Spout Max Packages](images/4_Spout.png)<br>
       2. ICST Ambisonics, pressing install will open up the Max Package Manager to install it. <br> ![Ambisonic Max Packages](images/5_ICST.png)<br>
 
 Done. Sparck and all its dependencies are installed and you are ready to start.
