@@ -134,3 +134,28 @@ The following projects were realized with the team of the [telematice performanc
 
 
 </div>
+
+## Video Mapping Projects
+
+The following projects were realized with the team of [Projektil](https://projektilart.com/) with the predecessor of SPARCK, [MeshWarpServer](https://github.com/maybites/MWServer).
+
+<div class="grid" markdown>
+
+<div class="card" markdown>
+### Machu Picchu 100 Años
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JqOW-Pg4OkU?si=jqhMYt8hAypGJ0jn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+<div class="card" markdown>
+### Richti Areal Showroom
+<iframe width="560" height="315" src="https://www.youtube.com/embed/iSpeGdhKfro?si=idbXhQqMC6Fg_2o5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+
+<div class="card" markdown>
+### MLOVE SHOW 2010
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XHUFobEj6n4?si=T_VnnSj0u6kjQQOh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+
+</div>
