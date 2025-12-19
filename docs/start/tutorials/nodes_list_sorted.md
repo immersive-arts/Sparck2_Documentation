@@ -35,7 +35,7 @@
 [SpoutSender]: ../../../reference/nodes/SpoutSender.md
 [SyphonSender]: ../../../reference/nodes/SyphonSender.md
 [Texture]: ../../../reference/nodes/Texture.md
-[TextureProjectury]: ../../../reference/nodes/TextureProjectory.md
+[TextureProjectory]: ../../../reference/nodes/TextureProjectory.md
 [TfmLookAt]: ../../../reference/nodes/TfmLookAt.md
 [TfmMerge]: ../../../reference/nodes/TfmMerge.md
 [TfmMirror]: ../../../reference/nodes/TfmMirror.md

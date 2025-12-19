@@ -1,5 +1,5 @@
 # Spatial Augmented Reality
-This article explains how to set up a SPARCK project for a use case in which four projectors are calibrated to project onto moving objects inside a Motion Capture (optical system) volume, creating a Spatial Augmented Reality (SAR) environment.
+This article explains how to set up a SPARCK project for a use case in which four calibtated projectors are used to project onto moving objects inside a Motion Capture (optical system) volume, creating a Spatial Augmented Reality (SAR) environment.
 
 In this setup, SPARCK calibrates four projectors installed in the corners of a room at mid‑height, enabling projection on moving objects as well as on the floor.
 
@@ -292,7 +292,7 @@ The [Canvas] node draws basic 3D shapes (plane, cube, sphere, custom mesh). It i
 [SpoutSender]: ../../../reference/nodes/SpoutSender.md
 [SyphonSender]: ../../../reference/nodes/SyphonSender.md
 [Texture]: ../../../reference/nodes/Texture.md
-[TextureProjectury]: ../../../reference/nodes/TextureProjectory.md
+[TextureProjectory]: ../../../reference/nodes/TextureProjectory.md
 [TfmLookAt]: ../../../reference/nodes/TfmLookAt.md
 [TfmMerge]: ../../../reference/nodes/TfmMerge.md
 [TfmMirror]: ../../../reference/nodes/TfmMirror.md

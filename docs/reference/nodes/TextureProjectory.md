@@ -24,6 +24,8 @@ This is a shader and can be applied to [Canvas](Canvas.md) nodes.
 
 The following properties can be configured for this node:
 
+TODO: Add images of  projection types
+
 === "Properties"
 
     | Property | Type | Description |
