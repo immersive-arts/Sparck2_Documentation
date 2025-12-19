@@ -18,45 +18,44 @@ Download the project files here: [SAR_Projection.zip](https://github.com/immersi
 ## SAR Setup with 4 Projectors
 Start by adding [SPARCK] to your Max patch. See the [Getting Started](https://immersive-arts.github.io/Sparck2_Documentation/start/tutorials/01_Getting_Started) documentation for more information.
 
-![SPARCK APP](images/image-8.png)<br>
+![SPARCK APP](images/SPARCK.png)<br>
 *SPARCK*
 
 The image below shows the Max subpatcher **p Workspace**, which contains all necessary SPARCK nodes for this configuration.
 
-![p Workspace subpatch](images/image-22-1024x678.png)<br>
+![p Workspace subpatch](images/SAR_setup.png)<br>
 *p Workspace subpatch*
 
 In white: a highly precise simplified 3D [Model] of the Immersive Arts Space.
 In black: a floor plane (using a [Canvas] node) with a [Grid] node.
 In colour: four wireframes representing calibrated projector positions.
+In the middle, in white: a traked moving wall.
 
-![3DViewer window](images/image-7-1024x593.png)<br>
-*3DViewer preview of the virtual setup*
+![3DViewer window](images/SAR_3DViewer_grid_model.png)<br>
+*3DViewer preview of the virtual setup. In this image the [Grid] and [Model] nodes are enabled*
 
 Four frames correspond to the calibrated view of each projector. Projectors are color‑coded via the **identify** toggle in the [Beamer] node.
 
-![Output preview](images/image-11-768x309.png)<br>
-*Output preview (4 columns, 1 row)*
+![Window desktop preview](images/window_desktop_preview_grid_model.png)<br>
+*Window in Desktop preview (4 columns, 1 row). In this image the [Grid] and [Model] nodes are enabled*
 
 ## Nodes Configuration
 The following sections explain how to correctly configure all nodes required for a Spatial Augmented Reality setup.
 
 
 ### Window Node
-> TODO: Rename images from *Output* to *Window* where necessary.
-
 The [Window] node outputs SPARCK’s rendered result to the projectors. It determines how content is distributed across the four projector outputs.
 
-![Window node](images/image-1.png)<br>
+![Window node](images/window.png)<br>
 *Window node — 1_UTILITY > WINDOW.maxpat*
 
 **position**: Switch between **Output** (content displayed on projectors) and **Desktop** (content preview).
 
 **columns and rows**: Defines how the [Window] is divided. Set **4 columns** and **1 row** for four projectors.
 
-**display**: Opens the display setup tool. Select the projector displays (orange), then click **Store and Close**.
+**display**: **settings...** Opens the display setup tool. Select the projector displays (orange), then click **Store and Close**.
 
-![Output setup](images/image-9-768x260.png)<br>
+![Window setup](images/image-9-768x260.png)<br>
 *Display selection interface*
 
 Example: The system has two monitors (1920×1200, greyed out) and four projectors (2560×1600, orange). Only the projectors are selected.
@@ -68,13 +67,13 @@ The [Beamer] node creates a virtual projector in SPARCK’s **3DViewer**. It is 
 ![Beamer node](images/image-3.png)<br>
 *Beamer — 2_SPACE > BEAMER.maxpat*
 
-**capture**: Select the render layer for each Beamer. Each Beamer must use a different small turquoise square.
+**capture**: Select the render layer for each Beamer. Each Beamer must use a different render layer (small turquoise square).
 
 **calibfile**: Saves calibration data to a `.xml` file.
 
 **calibrate**: Opens the calibration editor.
 
-**identify**: Displays a colour background in both **Output** and **Desktop** to identify the projector.
+**identify**: Displays a colour background in both [Window] **Output** and **Desktop** to identify the projector.
 
 **gizmo**: Shows the projector’s position in the **3DViewer**.
 
@@ -82,59 +81,69 @@ The [Beamer] node creates a virtual projector in SPARCK’s **3DViewer**. It is 
 ### Viewport Node
 This node creates a texture displayed in a designated slice of the [Window]. When connected to a [Beamer], it outputs that Beamer’s point of view.
 
-TODO: Replace image
-
-![Viewport](images/image-10.png)<br>
+![Viewport](images/viewport.png)<br>
 *Viewport — 1_UTILITY > VIEWPORT.maxpat*
 
-**window**: Select the [Window] node.
+**window**: Targets the [Window] node.
 
-**slice**: Assign each Viewport to a unique slice: **column 1–4**, all using **row 1**.
+**slice**: Assign each [Viewport] to an unique slice: **column 1–4**, all using **row 1**.
 
 
 ### Model Node
-The [Model] node displays a simplified but accurate model of the Immersive Arts Space, helping visualize the positions of projectors, the floor plane, and tracked objects.
+The [Model] node displays a simplified but accurate model of the Immersive Arts Space, helping visualize the positions of projectors, the floor plane, and tracked objects. It is deabled (grayed out) since is not an essential node. 
 
-![Model](images/image-20.png)<br>
-*Model — 2_SPACE > MODEL.maxpat*
+![Model](images/model_node_collapsed.png)<br>
+*Model node collapsed — 2_SPACE > MODEL.maxpat*
 
-**drawto**: Selects the render layer (large turquoise square). Here, the Model appears only in the **3DViewer**.
+**drawto**: Selects the render layer. Here, the [Model] appears only in the **3DViewer** (large turquoise square).
 
 **meshfile**: Loads a 3D model from `Sparck/_assets/_models`. Ensure polygon count is reasonable for performance.
 
+![Model preview](images/3DViewer_model_canvas.png)
+*IAS [Model] and floor [Canvas] preview*
 
 ### Grid Node
-The [Grid] node displays a grid useful for verifying projector calibration. If grid lines overlap sharply across projections, calibration is correct; doubled or misaligned lines indicate mismatch.
+The [Grid]{ data-preview } node is a helper tool used to display a reference grid in SPARCK. It is disabled here but can be enabled for checking projector calibration accuracy: if the grid lines from both projectors overlap cleanly, calibration is good; if they appear doubled or misaligned, calibration needs adjustment. See [Calibration](../02_Calibration/calibration.md) for more information.
 
-![Grid](images/image-14.png)<br>
-*Grid — 2_SPACE > GRID.maxpat*
+![Grid](images/grid_node.png)<br>
+*Grid node — 2_SPACE > GRID.maxpat*
 
-**drawto**: Shows the grid in the **3DViewer**. It can also be shown through projectors by enabling small squares.
+**drawto**: If enabled (large turquoise square), selects the render layer where the grid is shown. In this setup, it is visible only in the **3DViewer**, but it can also be shown through the [Beamer] outputs if needed, especially to check calibration accuracy. See [Calibration](../02_Calibration/calibration.md) for more information.
 
-**scale**: Here set to the IAS floor size: 6m × 12m.
+**scale**: 1 SPARCK unit equal to 1 meter (100cm). In this case it maches the IAS floor plan (6m whide and 12m long).
 
 **render gridsize**: Adjusts subdivision size.
 
-**showaxis**: Enables or disables axis display.
+**showaxis**: Enables or disables [Grid] axis display.
 
+![Grid](images/grid_axis.png)<br>
+*Grid axis diplay*
 
 ### SpatialShadery Node
 The [SpatialShadery] node is at the core of Spatial Augmented Reality. It computes per‑projector pixel visibility and brightness, producing soft‑edge blending across all projectors.
 
-![SpatialShadery](images/image-21.png)<br>
-*SpatialShadery — 7_EFFECTS > SPATIAL.SHADERY.maxpat*
+![SpatialShadery](images/spatialShadery.png)<br>
+*SpatialShadery node — 7_EFFECTS > SPATIAL.SHADERY.maxpat*
 
-**shader**: Use **edge & blend** for soft‑edge merging.
+**shader**: Use **edge & blend** for soft‑edge blending.
 
 **project to**: Set to **baked textures**.
 
 **Beamer A–D**: Assign each [Beamer].
 
-**projection**: Use **front side**.
+**projection**: Use **both siedes**.
 
 **spread**: Controls the distribution of pixel blending between overlapping projections. 0 = no spread, 1 = full spread. Typical value: **0.54**.
 
+**distance**: Controls the distance as an additional differentiator. It will show its influence when the spread is increased. 0 = no distance, 1 = full distance. Find a good balance that fit your situation.
+
 **output**: Set to **result** to display final blended output.
+
+![SpatialShadery mask](images/spatialShadery_mask.png)<br>
+*SpatialShadery with output set to **mask**, displaying the [Beamer]s weights. It essently showcases how the per‑projector pixels are computed for the final **result***
+
+![Window Desktot SpatialShadery mask](images/window_desktop_spatialShadery_mask.png)<br>
+*SpatialShadery with output set to **mask**, displaying the [Beamer]s weights, previewed from the [Window] **Desktop***
 
 **power**: Controls the soft-edge blending power. Find a good balance that fit your situation.
 
@@ -144,7 +153,7 @@ The [SpatialShadery] node is at the core of Spatial Augmented Reality. It comput
 ### OptiTrack Node
 The [OptiTrack] node receives rigidbody motion capture data from **NatNet2OSC**. It distributes this positional data inside SPARCK so virtual models and shapes can follow physical tracked objects.
 
-![OptiTrack](images/image-16.png)<br>
+![OptiTrack](images/optiTrack_node.png)<br>
 *OptiTrack — 4_TRANSFORM > OT.RECEIVER.maxpat*
 
 **stream 1–8**: Select a rigidbody from Motive. Ensure unique names/IDs.
