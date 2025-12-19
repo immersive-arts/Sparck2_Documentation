@@ -13,7 +13,7 @@ Since both the virtual and physical spaces are aligned through projector calibra
 
 This mapping is primarily handled by the [SpatialShadery] node, which computes how much of the content each projector should display and how bright each pixel should be for smooth colour blending.
 
-Download the project files here: [SAR_Projection.zip](https://github.com/immersive-arts/Sparck2/releases/) TODO: Upload them here
+Download the project files here: [SAR_Projection.zip](https://github.com/immersive-arts/Sparck2/releases/download/1.0.0/Tutorial_Spatial_Augmented_Reality.zip)
 
 ## SAR Setup with 4 Projectors
 Start by adding [SPARCK] to your Max patch. See the [Getting Started](https://immersive-arts.github.io/Sparck2_Documentation/start/tutorials/01_Getting_Started) documentation for more information.
@@ -139,11 +139,11 @@ The [SpatialShadery] node is at the core of Spatial Augmented Reality. It comput
 
 **output**: Set to **result** to display final blended output.
 
-![SpatialShadery mask](images/spatialShadery_mask.png)<br>
-*SpatialShadery with output set to **mask**, displaying the [Beamer]s weights. It essently showcases how the per‑projector pixels are computed for the final **result***
+![SpatialShadery mask](images/spatialShadery_mask_1.png)<br>
+*SpatialShadery with output set to **mask**, displaying the [Beamer]s weights. It essently display how the per‑projector pixels are computed for the final **result**.*
 
 ![Window Desktot SpatialShadery mask](images/window_desktop_spatialShadery_mask.png)<br>
-*SpatialShadery with output set to **mask**, displaying the [Beamer]s weights, previewed from the [Window] **Desktop***
+*SpatialShadery with output set to **mask**, displaying the [Beamer]s weights, previewed from the [Window] **Desktop**. Each slide is [Beamer] point of view.*
 
 **power**: Controls the soft-edge blending power. Find a good balance that fit your situation.
 
@@ -167,8 +167,69 @@ The [OptiTrack] node receives rigidbody motion capture data from **NatNet2OSC**.
 **leap forward**: Predictive smoothing to reduce jitter from fast‑moving tracked objects.
 
 
-### SpoutReceiver Node
-The [SpoutReceiver] node receives real‑time textures from applications such as TouchDesigner, Unity, Unreal, or Notch via Spout.
+## Customize the project
+You can extend this project by adding additional tracked objects, floor projection, or moving structures.
+
+In this example, a floor projection and a tracked movable wall is added. They receive projection content (video, Spout stream, or static image). Add a **p Wall** and a **p Floor** subpatches to your Max project.
+
+![p subpatechers](images/subpatchers.png)<br>
+*Max Subpatchers **p Wall** and **p Floor**.*
+
+### Tracked wall projection
+Inside the **p Wall** subpatcher, add a [RigidBody], [Video], and [Canvas] node.
+
+![subpatch](images/image-24.png)<br>
+*Setup for one tracked plane displaying a looping video*
+
+
+#### RigidBody Node
+The [Rigidbody] node is a 3D space transformation node (position, rotation and scale) that receives transformation data from the [OptiTrack] node.
+
+**stream**: Targets streams from the [OptiTrack] node.
+
+**position**: Position x, y, z. If necessary, adjust these values to better fit the tracked projection surface. In this case, slight positional corrections are done on the [Canvas] node but they could have been done directly on the [RigidBody] node.
+
+**rotation**: Rotation x, y, z. If necessary, adjust these values to better fit the tracked projection surface. In this case, a correction of 90° rotation had to be done.
+
+**scale**: Scale x, y, z. If necessary, adjust these values to better fit the tracked projection surface. In this case, a correction of 90° rotation had to be done.
+
+**leap forward**: If value is positive, it calculates forward predicted position. If value is negative, it queues the transformation for the amout of time (i.e. to make it synchronous with video feed that takes longer to capture). Adjust these values on your needs.
+
+
+#### Video Node
+The [Video] node loads and playback videos. This node is attached to the [Canvas].
+
+![Video node](images/video.png)<br>
+*Video — 1_INPUT > VIDEO.maxpat*
+
+**videofile**: Load a and playback a file. All the video files should be put at this path located inside the SPARCK project folder: **../_assets/_videos**
+
+**loop**: set to **loop**, change it to suit your needs.
+
+
+#### Canvas node
+The [Canvas] node draws basic 3D shapes (plane, cube, sphere, custom mesh). It is lighter than the [Model] node and contains no material or lighting properties.
+
+![Wall Canvas](images/wall_canvas.png)<br>
+*Canvas — 3_SPACE > CANVAS.maxpat*
+
+**drawto**: Selects the render layer. Here shown in SPARCK **3DViewer** and on all the 4 [Beamer] layers.
+
+**shape**: Select the geometry. For SAR floors, a **plane** is used.
+
+**shader**: Assign the [SpatialShadery] shader for multi‑projector blended projection.
+
+**scale**: Here set to the the physical tracked wall dimensions: 1m height × 0.5m widht.
+
+
+### Floor projection
+For the **p Floor** subpatcher, add inside a [SpoutReceiver] and a [Canvas] nodes. A [Video] node could be used insted of a [SpoutReceiver] node.
+
+![p Floor subpatch](images/p_floor_subpatch.png)<br>
+***p Floor** subpatch*
+
+#### SpoutReceiver Node
+The [SpoutReceiver] node receives real‑time textures from applications such as TouchDesigner, Unity, Unreal, or Notch (and others) via Spout.
 
 ![SpoutReceiver](images/image-17.png)<br>
 *SpoutReceiver — 5_INPUT > SPOUT.RECEIVER.maxpat*
@@ -177,14 +238,13 @@ The [SpoutReceiver] node receives real‑time textures from applications such as
 
 **flip x / flip y**: Flip texture orientation if needed.
 
-
-### Canvas Node
-The [Canvas] node draws basic 3D shapes (plane, cube, sphere, custom mesh). It is lighter than the [Model] node and contains no material or lighting properties.
+#### Canvas Node
+The [Canvas] node draws basic 3D shapes (plane, cube, sphere, custom mesh). It is lighter than the [Model] node and contains no material or lighting properties. In this case we use it to project content on the floor.
 
 ![Canvas](images/image-19.png)<br>
 *Canvas — 2_SPACE > CANVAS.maxpat*
 
-**drawto**: Selects the render layer. Here shown in **3DViewer** and on [Beamer] layers.
+**drawto**: Selects the render layer. Here shown in **3DViewer** and on all the 4 [Beamer] layers.
 
 **shape**: Select the geometry. For SAR floors, a **plane** is used.
 
@@ -193,24 +253,7 @@ The [Canvas] node draws basic 3D shapes (plane, cube, sphere, custom mesh). It i
 **scale**: Here set to the IAS floor dimensions: 6m × 12m.
 
 
-## Customize the Project
-You can extend this project by adding additional tracked objects, projection domes, or moving structures.
 
-In this example, a tracked movable wall is added. It receives projection content (video, Spout stream, or static image). Add a **p Wall** subpatch to your Max project.
-
-![p Patcher](images/image-23.png)<br>
-*p Wall subpatch*
-
-Inside, add a **RigidBody**, **Video**, and [Canvas] node.
-
-![subpatch](images/image-24.png)<br>
-*Setup for one tracked plane displaying looping video*
-
-### Video Node
-(Section to be completed — describe video loading, looping, texture output.)
-
-### RigidBody Node
-(Section to be completed — describe linking OptiTrack rigidbody to Canvas transform.)
 
 [Beamer]: ../../../reference/nodes/Beamer.md
 [BlendSoftedge]: ../../../reference/nodes/BlendSoftedge.md
@@ -229,6 +272,7 @@ Inside, add a **RigidBody**, **Video**, and [Canvas] node.
 [Model]: ../../../reference/nodes/Model.md
 [OptiTrack]: ../../../reference/nodes/OptiTrack.md
 [QueScript]: ../../../reference/nodes/QueScript.md
+[RigidBody]: ../../../reference/nodes/RigidBody.md
 [SceneCamera]: ../../../reference/nodes/SceneCamera.md
 [SceneCapture]: ../../../reference/nodes/SceneCapture.md
 [ShaderAnaglyph]: ../../../reference/nodes/ShaderAnaglyph.md

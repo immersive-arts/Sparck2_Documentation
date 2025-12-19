@@ -15,6 +15,7 @@
 [Model]: ../../../reference/nodes/Model.md
 [OptiTrack]: ../../../reference/nodes/OptiTrack.md
 [QueScript]: ../../../reference/nodes/QueScript.md
+[RigidBody]: ../../../reference/nodes/RigidBody.md
 [SceneCamera]: ../../../reference/nodes/SceneCamera.md
 [SceneCapture]: ../../../reference/nodes/SceneCapture.md
 [ShaderAnaglyph]: ../../../reference/nodes/ShaderAnaglyph.md
