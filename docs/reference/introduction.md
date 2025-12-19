@@ -1,6 +1,6 @@
 # Introduction
 
-SPARCK (SPatial Augmented Reality Construction Kit) is a [Max](https://cycling74.com/) [Package](https://docs.cycling74.com/userguide/packages/) for building spatial augmented projection setups.
+SPARCK (Spatial Augmented Reality Construction Kit) is a [Max](https://cycling74.com/) [Package](https://docs.cycling74.com/userguide/packages/) for building spatial augmented projection setups.
 
 It follows a similar approach to [VIZZIE](https://cycling74.com/packages/vizzie), providing a collection of [abstractions](https://docs.cycling74.com/userguide/abstractions/) — called **Nodes** in SPARCK — that let you build complex projection workflows with only a few building blocks.
 
