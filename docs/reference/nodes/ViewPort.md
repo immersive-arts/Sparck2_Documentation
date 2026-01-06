@@ -5,7 +5,7 @@ In its most basic mode it takes a texture and displays it in its designated slic
 More advanced usage includes the use of custom meshes or the result of a [MeshWarp](MeshWarp.md) node (also a mesh) and/or using a second texture and applying a shader
 
 <figure markdown>
-![ViewPort Node](../../assets/images/nodes/ViewPort.png){ width="300" }
+![ViewPort-Node](../../assets/images/nodes/ViewPort.png){ width="300" }
 </figure> 
 
 !!! info "Final Render Stage"
