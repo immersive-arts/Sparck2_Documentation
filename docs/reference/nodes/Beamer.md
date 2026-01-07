@@ -11,7 +11,6 @@ For this to work the node needs a calibration model (3D object) and a set of man
 !!! example "Tutorial: Beamer Calibration"
     The Tutorial [Beamer Calibration](../../start/tutorials/02_Calibration/calibration.md) walks you through the calibration process step-by-step.
 
-## 
 <figure markdown>
 ![Beamer Node](../../assets/images/nodes/Beamer.png){ width="300" }
 </figure> 
@@ -61,32 +60,153 @@ The following properties can be configured for this node:
 
 ---
 
-## Calibration Window
+## Calibration
 
-??? abstract "Calibration Settings"
-    
-    The calibration window provides advanced configuration options for projector calibration:
-    
-    | Parameter | Type | Description |
-    |-----------|------|-------------|
-    | `Color` | Color | Identifies the Beamer/Calibrator in the 3DViewer |
-    | `Model` | File | Calibration model. Needs to be of type Wavefront OBJ |
-    | `use Model transformation` | Toggle | Additional transformations on the calibration model to place it correctly to the world reference |
-    | `implement parent transformation` | Toggle | You can calibrate the beamer while attached to a mocap rigidbody that is referenced by the parent transformation node |
-    | `focus editor` | Button | Opens the editor window and focuses it to this calibration |
-    | `gather 3DViewer lookat` | Button | Takes the current 3DViewer point of view and applies it as a temporary solution |
-    | `display..` | Button | Opens the display window to select the display the projector is currently connected to |
-    | `width` | Integer [px] | Projector resolution width |
-    | `height` | Integer [px] | Projector resolution height |
-    | `enable calibration` | Toggle | Enables the calibration button. Only enable once the correct resolution is set |
-    | `show/hide` | Button | Shows / hides calibration flags |
-    | `frustum` | Display | Shows the solution's frustum |
-    | `transformation` | Matrix | Shows the solution's transformation matrix |
-    | `reset` | Button | Resets values |
-    | `save and close` | Button | Saves the solution and closes the calibration window |
+=== "Calibrator"
+    <figure markdown>
+    ![Beamer Node](../../assets/images/nodes/Beamer/Beamer_Calibrator.png){ width="300" }
+    </figure> 
 
-    !!! tip "Calibration with Motion Capture"
-        If you're calibrating while the projector is attached to a motion capture rigid body, enable **implement parent transformation**. This automatically calculates the local transformation offset from the rigid body to the projector's lens position.
+    ??? abstract "Calibration Settings"
+        
+        The calibration window provides advanced configuration options for projector calibration:
+        
+        | Parameter | Type | Description |
+        |-----------|------|-------------|
+        | `Color` | Color | Identifies the Beamer/Calibrator in the 3DViewer |
+        | `Model` | File | Calibration model. Needs to be of type Wavefront OBJ |
+        | `use Model transformation` | Toggle | Additional transformations on the calibration model to place it correctly to the world reference |
+        | `implement parent transformation` | Toggle | You can calibrate the beamer while attached to a mocap rigidbody that is referenced by the parent transformation node |
+        | `focus editor` | Button | Opens the editor window and focuses it to this calibration |
+        | `gather 3DViewer lookat` | Button | Takes the current 3DViewer point of view and applies it as a temporary solution |
+        | `display..` | Button | Opens the display window to select the display the projector is currently connected to |
+        | `width` | Integer [px] | Projector resolution width |
+        | `height` | Integer [px] | Projector resolution height |
+        | `enable calibration` | Toggle | Enables the calibration button. Only enable once the correct resolution is set |
+        | `show/hide` | Button | Shows / hides calibration flags |
+        | `frustum` | Display | Shows the solution's frustum |
+        | `transformation` | Matrix | Shows the solution's transformation matrix |
+        | `reset` | Button | Resets values |
+        | `save and close` | Button | Saves the solution and closes the calibration window |
+
+        !!! tip "Calibration with Motion Capture"
+            If you're calibrating while the projector is attached to a motion capture rigid body, enable **implement parent transformation**. This automatically calculates the local transformation offset from the rigid body to the projector's lens position.
+
+=== "Editor"
+    <figure markdown>
+    ![Beamer Editor](../../assets/images/nodes/Beamer/Beamer_CalibEditor.png){ width="600" }
+    </figure>
+
+    ??? tip "Editor Keyboard Shortcuts"
+        The Beamer calibration editor has two main modes for setting up projector calibration:
+
+        * **Model Mode** - for selecting points on the 3D calibration model
+        * **Target Mode** - for positioning corresponding points in the projector's output
+        * **Warp Mode** - for creating and adjusting warp mesh vertices
+        * Press ++tab++ to switch between modes
+        
+        **General Controls (All Modes):**
+        
+        | Key | Action |
+        |-----|--------|
+        | ++tab++ | Switch between Model, Target, and Warp modes |
+        | ++h++ | Toggle help overlay |
+        | ++shift+h++ | Change help overlay color |
+        | ++k++ | Toggle visibility of calibration results |
+        | ++l++ | Toggle visibility of labels |
+        
+        **Model Mode (No Selection):**
+        
+        | Key | Action |
+        |-----|--------|
+        | :material-mouse-left-click: | Select model vertex |
+        | ++s++ | Save calibration |
+        | ++p++ | Purge calibration (requires confirmation) |
+        | ++j++ | Adjust ALL targets to warp or model vertices |
+        
+        **Model Mode (Vertex Selected):**
+        
+        | Key | Action |
+        |-----|--------|
+        | ++v++ | Create calibration vertex (both target and warp) |
+        | ++w++ | Create warp vertex linked to model vertex |
+        | ++t++ | Create target vertex linked to model vertex |
+        | ++x++ | Delete calibration vertex |
+        
+        **Target Mode (Vertex Selected):**
+        
+        | Key | Action |
+        |-----|--------|
+        | ++j++ | Adjust selected to warp or model vertex |
+        | ++w++ | Add warp vertex linked to model vertex |
+        | ++x++ | Remove target vertex |
+        | ++g++ | Grab vertex with mouse (click to confirm) |
+        | ++arrow-up++ ++arrow-down++ ++arrow-left++ ++arrow-right++ | Move vertex with arrow keys |
+        | ++c++ | Toggle crosshair mode |
+        | ++o++ | Toggle visibility of calibration object |
+        
+        **Target Mode (Adjust Vertex Submode):**
+        
+        | Key | Action |
+        |-----|--------|
+        | ++m++ | Adjust to model vertex |
+        | ++w++ | Adjust to warp vertex |
+        | ++esc++ | Exit adjust mode |
+        
+        **Warp Mode (No Selection):**
+        
+        | Key | Action |
+        |-----|--------|
+        | :material-mouse-left-click: | Select warp vertex |
+        | ++j++ | Adjust all to target or model vertices |
+        | ++w++ | Create unlinked warp vertex |
+        | ++s++ | Save warp object |
+        | ++f++ | Enter frame subdivision mode |
+        | ++d++ | Enter warp subdivision mode |
+        
+        **Warp Mode (Vertex Selected):**
+        
+        | Key | Action |
+        |-----|--------|
+        | :material-mouse-left-click: | Select second vertex (for subdivision line) |
+        | ++j++ | Adjust to target or model vertex |
+        | ++t++ | Add target vertex linked to model vertex |
+        | ++x++ | Remove warp vertex |
+        | ++g++ | Grab and move vertex with mouse (click to confirm) |
+        | ++arrow-up++ ++arrow-down++ ++arrow-left++ ++arrow-right++ | Move vertex with arrow keys |
+        | ++0++ - ++9++ | Create subdivision line between two selected warp vertices |
+        
+        **Warp Mode (Adjust Vertex Submode):**
+        
+        | Key | Action |
+        |-----|--------|
+        | ++m++ | Adjust to model vertex |
+        | ++t++ | Adjust to target vertex |
+        | ++esc++ | Exit adjust mode |
+        
+        **Warp Mode (Frame Subdivision Submode):**
+        
+        | Key | Action |
+        |-----|--------|
+        | ++0++ - ++9++ | Set frame subdivision value |
+        | ++esc++ | Exit frame subdivision mode |
+        
+        **Warp Mode (Warp Subdivision Submode):**
+        
+        | Key | Action |
+        |-----|--------|
+        | ++0++ - ++5++ | Set warp subdivision (only 2 are displayed) |
+        | ++esc++ | Exit warp subdivision mode |
+        
+        **Model Mode (Purge Confirmation):**
+        
+        | Key | Action |
+        |-----|--------|
+        | ++y++ | Confirm purge calibration |
+        | ++esc++ | Cancel purge operation |
+
+    !!! warning "Save Your Work"
+        Calibration data is saved when you press ++s++ in Model mode or when you click **save and close** in the calibration window. Make sure to save regularly during the calibration process.
 
 ---
 
