@@ -47,7 +47,7 @@ The following properties can be configured for this node:
     |------------|---------------|----------------------------------------|
     | properties | properties | properties &#124; use message [set &lt;propertyPath> &lt;value(s)>] (without node/&lt;nodeName> at the beginning) to set internal properties |
     | background | texture | background texture for camera calibration. Instead of setting the calibration vertices on real world targets, you can set the calibration vertices on the camera feed targets. The result is the same: Beamer node evaluates the video camera's intrinsic and extrinsic parameters. |
-    | custom | message | custom commands. message 'createToXY' creates a new model with calibration vertices relative to the XY-plane: 'createToX  x1  y1  z1  x2  y2  z2  x3  y3  z3  ...'. &#124; message 'addToXY' adds calibration vertices relative to the XY-plane: 'addToX  x1  y1  z1  x2  y2  z2  x3  y3  z3  ...' |
+    | custom | message | custom commands. message 'createToXY' creates a new model with calibration vertices relative to the XY-plane: 'createToXY  x1  y1  z1  x2  y2  z2  x3  y3  z3  ...'. &#124; message 'addToXY' adds calibration vertices relative to the XY-plane: 'addToXY  x1  y1  z1  x2  y2  z2  x3  y3  z3  ...' |
 
 === "Outlets"
 
@@ -98,7 +98,7 @@ The following properties can be configured for this node:
     </figure>
 
     ??? tip "Editor Keyboard Shortcuts"
-        The Beamer calibration editor has two main modes for setting up projector calibration:
+        The Beamer calibration editor has three main modes for setting up projector calibration:
 
         * **Model Mode** - for selecting points on the 3D calibration model
         * **Target Mode** - for positioning corresponding points in the projector's output
@@ -209,6 +209,28 @@ The following properties can be configured for this node:
         Calibration data is saved when you press ++s++ in Model mode or when you click **save and close** in the calibration window. Make sure to save regularly during the calibration process.
 
 ---
+
+## Calibration using createToXY and addToXY
+
+You can create calibration targets directly from the Beamer node using the `createToXY` and `addToXY` messages using the custom inlet.
+
+This will create calibration targets relative to the XY-plane of the Beamer node and avoids the need for a calibration model.
+
+This apprioach is usefull when the calibration has to happen in a space that provides tracking vertices in world space, e.g. using motion capture markers as calibration targets. The [OptiiTrack](OptiiTrack.md) node provides the 3D positions of the markers in world space that can be used as calibration targets:
+
+=== "Max Setup"
+    Example patcher to create calibration targets. The OptiTrack node provides the 3D positions of the mocap markers in world space from the 'dump' outlet, filtering for '/om' (other markers - markers not assigned to a rigidbody). This list is then prepended with the 'createToXY' message and sent to the Beamer's custom inlet.
+     
+    <figure markdown>
+    ![Beamer Create XY](../../assets/images/nodes/Beamer/Beamer_OptiTrack_Setup.png){ width="300" }
+    </figure> 
+
+=== "Editor"
+    This results in the following calibration targets:
+
+    <figure markdown>
+    ![Beamer Create XY Targets](../../assets/images/nodes/Beamer/Beamer_createToXY_vertices.png){ width="300" }
+    </figure>
 
 ## Multi-Projector Setups
 
