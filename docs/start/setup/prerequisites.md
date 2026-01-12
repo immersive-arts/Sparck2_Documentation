@@ -45,7 +45,7 @@ Before you install SPARCK, you need the following Software and Libraries install
     === "Step 2: Installing Java"
 
         === "Easy Way"
-            1. direct download: [jdk-19.0.2](https://download.oracle.com/java/19/archive/jdk-19.0.2_windows-x64_bin.zip)
+            1. direct download: [jdk-19.0.2](https://download.oracle.com/java/19/archive/jdk-19.0.2_windows-x64_bin.exe)
             2. Install the JDK by running the installer
             3. right-click "save-link-as" this [link](https://raw.githubusercontent.com/immersive-arts/Sparck2/refs/heads/master/scripts/java19.reg)
             4. double click the downloaded java19.reg file to add the needed paths to your registry
